@@ -10,7 +10,8 @@ require('vars/config.php');
 require('vars/config.inc.php');
 require('vars/functions.php');
 
-require('res/translate.php');
+require('vars/translate.php');
 require('vars/site.php');
+require('vars/pdo.php');
 
 ?>
