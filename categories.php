@@ -1,20 +1,8 @@
-function clearlist(hidden) {
-	//value of hidden should be a 1 or 0.  A 1 == hidden, 0 == unhidden
-	/*document.mainform.subsubcat.options.length = 0;
-	
-	if (hidden == 0) {
-		subsubcat1.className = 'hidden';
-		subsubcat2.className = 'hidden';
-	}
-	else if (hidden == 1) {
-		subsubcat1.className = 'unhidden';
-		subsubcat2.className = 'unhidden';
-	}
-	else {
-		alert("An error has occurred with the processing of the form. \n\nPlease refresh the page");
-	}*/
-	alert("This function is depreciated.  Please use the new functions");
-}
+<?php
+
+header("content-type: text/javascript");
+
+?>
 
 function hideSubCat() {
 	subcat1.className = 'hidden';
