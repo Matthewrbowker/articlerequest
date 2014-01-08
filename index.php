@@ -1,10 +1,10 @@
 <?php
 require('includes.php');
 
-if (ISSET($_GET['lang'])) $lang = $_GET['lang'];
+if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
-$k = new translate("en",$dev,"");
+$k = new translate($lang,$dev,"");
 
 $site = new site($dev);
 

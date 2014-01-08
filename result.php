@@ -3,10 +3,12 @@ require('includes.php');
 
 $site = new site($dev);
 
-$k = new translate("en",$dev,"result");
+if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
+else $lang = 'en';
+
+$k = new translate($lang,$dev,"result");
 
 $pdo = new wpPDO();
-
 
 $site -> gen_opening($k->returnKeys(), "result");
 
