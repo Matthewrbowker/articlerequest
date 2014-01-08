@@ -20,24 +20,35 @@ class site {
 		
 		if ($page == "about") {
 			$nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
         <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
         <li class=\"active\"><a href=\"about.php\">" . $keys["about"] . "</a></li>
         <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
 		}
     else if ($page == "search") {
       $nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
         <li class=\"active\"><a href=\"search.php\">" . $keys["search"] . "</a></li>
         <li><a href=\"about.php\">" . $keys["about"] . "</a></li>
         <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";      
     }
-		else  if ($page == "result"){  
+		else if ($page == "result"){  
 			$nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
         <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
         <li><a href=\"about.php\">" . $keys["about"] . "</a></li>
         <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
 		}
+    else if ($page == "redirect") {
+      $nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li class=\"active\"><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
+        <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
+        <li><a href=\"about.php\">" . $keys["about"] . "</a></li>
+        <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
+    }
 		else {
 			$nav = "<li class=\"active\"><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
         <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
         <li><a href=\"about.php\">" . $keys["about"] . "</a></li>
         <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
@@ -101,6 +112,11 @@ class site {
       echo "<div class=\"alert alert-warning\">" . $keys["message-text"] . "</div>";
     }
     ?>
+<noscript>
+  <div class="alert alert-danger">
+    <?php echo $keys["no-javascript"]; ?>
+  </div>
+</noscript>
 	  
 	 <?php 
 }

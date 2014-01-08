@@ -16,7 +16,7 @@ $s -> gen_opening(
 	"Category test"
 	);
 
-$values = parse_ini_string(file_get_contents("https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category?action=raw"), TRUE);
+$values = parse_ini_string(file_get_contents("https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category/dev?action=raw"), TRUE);
 
 echo "<pre>";
 
@@ -46,15 +46,6 @@ foreach(array_keys($values) as $key1) {
 echo "</pre>";
 
 
+$s -> gen_closing();
 
 ?>
-
-    <div class="jumbotron">
-    <h1>Heading</h1>
-    <p>Tagline</p>
-    <p>
-    <a class="btn btn-primary btn-large">
-    Learn more
-    </a>
-    </p>
-    </div>
