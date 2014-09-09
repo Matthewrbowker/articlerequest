@@ -9,6 +9,7 @@ ini_set('user_agent',
 require('vars/config.php');
 require('vars/config.inc.php');
 require('vars/functions.php');
+require('vars/categories.php');
 
 require('vars/translate.php');
 require('vars/site.php');

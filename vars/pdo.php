@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 class wpPDO {
 	private $link;
@@ -75,6 +75,12 @@ class wpPDO {
 		}
 
 		//$this->link->prepare(INSERT INTO `messages` (name, email, subject, message) VALUES (':name', ':email', '$subj', '$msg');")
+	}
+
+	function get($target = "", $id = "") {
+		if ($target == "rd"){
+			$table = "";
+		}
 	}
 
 	function success() {

@@ -12,7 +12,7 @@ $pdo = new wpPDO();
 
 $site -> gen_opening($k->returnKeys(), "result");
 
-@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['category'], $_REQUEST['subcat'], $_REQUEST['subsubcat'], $_REQUEST['username'], $_REQUEST['sources']);
+//@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['category'], $_REQUEST['subcat'], $_REQUEST['subsubcat'], $_REQUEST['username'], $_REQUEST['sources']);
 
 if ($pdo->success()) {
 	echo "<div class=\"alert alert-success\">";
@@ -43,7 +43,7 @@ if ($dev) :
 endif;
 
 if ($pdo->success()) {
-	echo "<form action=\"http://en.wikipedia.org\"><input type=\"submit\" class=\"btn btn-success\" value=\"{$k->_e("done")}\" /></form>";
+	echo "<form action=\"http://en.wikipedia.org\"><input type=\"submit\" class=\"btn btn-success\" value=\"{$k->_r("done")}\" /></form>";
 
 }
 else {

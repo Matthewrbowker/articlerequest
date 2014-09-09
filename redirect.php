@@ -16,17 +16,19 @@ $db = new wpPDO();
 
 <script src="categories.php"></script>
 
-<?php echo $k -> _e("intro"); ?>
+<pre>
+<?php $k -> _e("intro"); ?>
 
+<?php $k -> _e("redirname"); ?>
 
-<?php echo $k -> _e("redirname"); ?>
+<?php $k -> _e("targetname"); ?>
 
-<?php echo $k -> _e("targetname"); ?>
+<?php $k -> _e("username"); ?>
 
-<?php echo $k -> _e("username"); ?>
+<?php $k -> _e("reset"); ?>
 
-<?php echo $k -> _e("reset"); ?>
+<?php $k -> _e("submit"); ?>
 
-<?php echo $k -> _e("submit"); ?>
+</pre>
 
 <?php $site -> gen_closing(); ?>
