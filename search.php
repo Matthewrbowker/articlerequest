@@ -5,15 +5,15 @@ $k = new translate("en",$dev,"search");
 
 $site = new site($dev);
 
-$site -> gen_opening($k -> returnKeys(), "search");
+$site -> gen_opening($k, "search");
 
 ?>
 
-<?php echo $k -> _e("info"); ?>
+<?php $k -> _e("info"); ?>
 
 <form action="search_results.php" method="GET">
 	<div class="text-center">	
-	<label for="q"><?php echo $k -> _e("label") ?></label> <input type="text" name="q" id="q"<?php if (ISSET($_GET["q"])) echo " value=\"" . $_GET["q"] . "\"" ?> class="input-xxlarge" />
+	<label for="q"><?php $k -> _e("label") ?></label> <input type="text" name="q" id="q"<?php if (ISSET($_GET["q"])) echo " value=\"" . $_GET["q"] . "\"" ?> class="input-xxlarge" />
 	<?php if (!ISSET($_GET["adv"]) || !$_GET["adv"]): ?>
 	<?php endif; ?>
 
@@ -25,10 +25,10 @@ $site -> gen_opening($k -> returnKeys(), "search");
 	<table style="width:100%;">
 		<tr>
 			<td>
-		<input type="reset" value="<?php echo $k -> _e("resetBtn"); ?>" class="btn btn-danger" />
+		<input type="reset" value="<?php $k -> _e("resetBtn"); ?>" class="btn btn-danger" />
 			</td>
 			<td>
-		<input type="submit" id="submit" value="<?php echo $k -> _e("searchBtn"); ?>" class="btn btn-success" />
+		<input type="submit" id="submit" value="<?php $k -> _e("searchBtn"); ?>" class="btn btn-success" />
 			</td>
 		</tr>
 	</table>

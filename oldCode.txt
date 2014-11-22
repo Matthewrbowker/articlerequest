@@ -1,0 +1,161 @@
+<!-- table style="width: 100%" border=0>
+			<tr id="testing">
+				<td>
+					<label class="control-label" for="subject"><?php echo $k -> _e("subject") ?></label>
+				</td>
+				<td>
+					<span id="subject">
+						<input type="text" name="subject" <?php if (ISSET($_GET['subject'])) echo "value=\"{$_GET['subject']}\" "; ?> class="form-control input-sm" />
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php echo $k -> _e("description"); ?>
+				</td>
+				<td>
+					<textarea name="comment" class="form-control"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="category1" class="black"><i class="icon-star"></i> 
+						<?php echo $k -> _e("category"); ?></div>
+					</td>
+					<td>
+						<!- - TODO: Convert to PHP - read array from Wikipedia - ->
+						<select name="category" onchange="parseform();" class="form-control">
+							<option value="none">Please choose one</option>
+							<option value="Applied_arts_and_sciences">Applied arts and sciences</option>
+							<option value="Arts_and_entertainment">Arts and entertainment</option>
+							<option value="Biography">Biography</option>
+							<option value="Business_and_Economics">Business and economics</option>
+							<option value="Mathematcis">Mathematics</option>
+							<option value="Music">Music</option>
+							<option value="Natural_sciences">Natural sciences</option>
+							<option value="Philosophy">Philosophy</option>
+							<option value="Social_sciences">Social sciences</option>
+							<option value="Sport">Sport</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div id="subcat1" class="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-chevron-right"></i> 
+							<?php echo $k -> _e("sub-category"); ?></div>
+						</td>
+						<td>
+							<div id="subcat2" class="hidden"><select name="subcat" onchange="parseform();" class="form-control" >
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="subsubcat1" class="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-chevron-right"></i> 
+							<?php echo $k -> _e("sub-sub-category"); ?></div>
+						</td>
+						<td>
+							<div id="subsubcat2" class="hidden"><select name="subsubcat" class="form-control">
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<?php echo $k -> _e("username"); ?>
+					</td>
+					<td>
+						<input type="text" name="username" onblur="checkusername()" class="form-control input-sm" /><div id="unameinfo"> </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<i class="icon-star"></i> 
+						<?php echo $k -> _e("sources"); ?>
+					</td>
+					<td>
+						<textarea name="sources" class="form-control"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<input type="checkbox" name="doublecheck" onchange="checkbox()" class="checkbox-inline">
+							</span>
+							<span class="form-control">
+								<?php echo $k -> _e("check"); ?>
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p style="text-align: center">
+							<input type="reset" value="<?php echo $k -> _e("reset"); ?>" class="btn btn-danger" />
+						</p>
+					</td>
+					<td>
+						<p style="text-align: center">
+							<input type="submit" id="submit" value="<?php echo $k -> _e("submit"); ?>" class="btn btn-success" disabled/>
+						</p>
+					</td>
+				</tr>
+			</table -->
+
+=====
+
+ /*
+		if ($page == "about") {
+			$nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
+        <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
+        <!-- li class=\"active\"><a href=\"about.php\">" . $keys["about"] . "</a></li -->
+        <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
+		}
+    else if ($page == "search") {
+      $nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
+        <li class=\"active\"><a href=\"search.php\">" . $keys["search"] . "</a></li>
+        <!-- li><a href=\"about.php\">" . $keys["about"] . "</a></li -->
+        <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";      
+    }
+		else if ($page == "result"){  
+			$nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
+        <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
+        <!-- li><a href=\"about.php\">" . $keys["about"] . "</a></li -->
+        <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
+		}
+    else if ($page == "redirect") {
+      $nav = "<li><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li class=\"active\"><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
+        <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
+        <!-- li><a href=\"about.php\">" . $keys["about"] . "</a></li -->
+        <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
+    }
+		else {
+			$nav = "<li class=\"active\"><a href=\"index.php\">" . $keys["home"] . "</a></li>
+        <li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>
+        <!-- li><a href=\"search.php\">" . $keys["search"] . "</a></li -->
+        <!-- li><a href=\"about.php\">" . $keys["about"] . "</a></li -->
+        <li><a href=\"//en.wikipedia.org/wiki/Main_Page\">" . $keys["return"] . "</a></li>";
+		}*/
+
+=====
+
+
+	<!-- div class="form-group" id="id_category">
+		<label class="control-label" for="inputError"><?php $k->_e("category"); ?></label>
+		<input type="text" class="form-control" id="inputError">
+	</div>
+	<div class="form-group" id="id_subcategory">
+		<label class="control-label" for="inputError"><?php $k->_e("sub-category"); ?></label>
+		<input type="text" class="form-control" id="inputError">
+	</div>
+	<div class="form-group" id="id_subsubcategory">
+		<label class="control-label" for="inputError"><?php $k->_e("sub-sub-category"); ?></label>
+		<input type="text" class="form-control" id="inputError">
+	</div -->
