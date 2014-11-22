@@ -10,25 +10,25 @@ $k = new translate($lang,$dev,"result");
 
 $pdo = new wpPDO();
 
-$site -> gen_opening($k->returnKeys(), "result");
+$site -> gen_opening($k, "result");
 
 //@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['category'], $_REQUEST['subcat'], $_REQUEST['subsubcat'], $_REQUEST['username'], $_REQUEST['sources']);
 
 if ($pdo->success()) {
 	echo "<div class=\"alert alert-success\">";
-	echo $k->_e("success");
+	$k->_e("success");
 	echo "</div>";
 }
 else {
 	echo "<div class=\"alert alert-danger\">";
-	echo $k->_e("failure");
+	$k->_e("failure");
 	echo "</div>";
 }
 
 if ($dev) :
 ?>
 <hr />
-<?php echo $k->_e("dev"); ?>
+<?php $k->_e("dev"); ?>
 <pre>
 	<ul>
 	<?php

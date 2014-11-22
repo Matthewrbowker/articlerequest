@@ -50,7 +50,7 @@ class site {
 <HTML>
 <HEAD>
 <TITLE>
-<?php echo $k->_r("title"); ?>
+<?php $k->_e("title"); ?>
 </TITLE>
 <meta charset="UTF-8">
 <LINK REL="stylesheet" href="res/css/bootstrap.css" />
@@ -80,7 +80,7 @@ class site {
         <ul class="nav nav-pills pull-right">
 		      <?php echo $nav ?>
         </ul>
-		    <h1><?php echo $k->_r("title"); ?></h1>
+		    <h1><?php $k->_e("title"); ?></h1>
       </div>
 
       <div class="row marketing">
