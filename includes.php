@@ -14,6 +14,9 @@ require('vars/config.inc.php');
 =======
 require('vars/functions.php');
 require('vars/categories.php');
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 
 require('vars/translate.php');
