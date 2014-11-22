@@ -22,9 +22,6 @@ $url = "http://localhost/~wiki/index.php?title=Article_request/sources&action=ra
 
 $values = parse_ini_string(file_get_contents($url), TRUE);
 
-
-//var_dump($values);
-
 ?>
 
 <script>
@@ -66,12 +63,6 @@ END;
 	document.getElementById("sources_container").appendChild(buffer);
 }
 
-function testRandom() {
-	//var random = randomValues();
-	//alert ("<input class='btn btn-danger' type='button' value='Remove this source' onClick='removeSource(\\\"web_\" + random + \"\\\")' />");
-	alert("Depreciated function");
-}
-
 function randomValues() {
 	return Math.random().toString(36).substring(2,9);
 }
@@ -84,11 +75,39 @@ function closeWindow() {
 	window.close();
 }
 
-function submitValue() {
-	var divs = document.getElementById("sources_container").getElementsByTagName("div");
-	for(var i = 0; i < divs.length; i++){
-		alert(divs[i].innerHTML);
+function createJSON(random) {
+	// This function will grab the random value, and generate JSON code from it
+	var parseValue = random.split("_");
+	var type = parseValue[0];
+	var id = parseValue[1];
+	var inputs = document.getElementById(random).querySelectorAll("input[type=text]");
+	var json = "\"" + random + "\" : {";
+
+	//Setting the type first
+	json += "\"type\" : \"" + type + "\", ";
+
+	for (var i = 0; i < inputs.length; i++) {
+		json += "\"" + inputs[i].name + "\" : \"" + inputs[i].value + "\", ";
 	}
+
+	json = json.substring(0, json.length - 2);
+
+	json += "} ";
+
+	return json;
+}
+
+function submitValue() {
+	var divs = document.getElementById("sources_container").getElementsByClassName("panel");
+	var finalJson = "{ \"Sources\" : {";
+	for(var i = 0; i < divs.length; i++){
+		finalJson += createJSON(divs[i].getAttribute("id")) + ", ";
+	}
+
+	finalJson = finalJson.substring(0, finalJson.length - 2);
+
+	finalJson += "} }";
+	window.opener.saveSources(finalJson);
 	closeWindow();
 }
 

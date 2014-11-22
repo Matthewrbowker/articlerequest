@@ -124,9 +124,9 @@ function testSet(cat, subcat, subsubcat) {
 <input type="hidden" name="subcategory" id="subcategory" value="" />
 <input type="hidden" name="subsubcategory" id="subsubcategory" value="" />
 
-<h3 class="text-muted hide" id="text_cat"><?php $k->_e("cat"); ?> <span id="catStore"><input type="button" name="catStoreBtn" id="catStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" /></h3>
-<h3 class="text-muted hide" id="text_scat"><?php $k->_e("subcat"); ?> <span id="scatStore"><input type="button" name="scatStoreBtn" id="scatStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" /></h3>
-<h3 class="text-muted hide" id="text_sscat"><?php $k->_e("subsubcat"); ?> <span id="sscatStore"><input type="button" name="sscatStoreBtn" id="sscatStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" /></h3>
+<h3 class="text-muted hide" id="text_cat"><?php $k->_e("cat"); ?> <span id="catStore"><input type="button" name="catStoreBtn" id="catStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><!--input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" /--></h3>
+<h3 class="text-muted hide" id="text_scat"><?php $k->_e("subcat"); ?> <span id="scatStore"><input type="button" name="scatStoreBtn" id="scatStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
+<h3 class="text-muted hide" id="text_sscat"><?php $k->_e("subsubcat"); ?> <span id="sscatStore"><input type="button" name="sscatStoreBtn" id="sscatStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
 
 <?php
 
@@ -165,7 +165,7 @@ foreach(array_keys($values) as $key1) {
 			$key3 = trim($key3);
 			if ($key3 == "") {$key3 = "other"; }
 			$key3_u = parseCatName($key3);
-			$subSubCatBuffer .= "<input type='button' name='btn_sub_sub_{$key3_u}' value='{$key3_u}' class='btn btn-info' onClick='set(\"sscat\", \"{$key3_u}\" , \"{$key2_u}\")' /><br />\r\n";
+			$subSubCatBuffer .= "<input type='button' name='btn_sub_sub_{$key3_u}' value='{$key3}' class='btn btn-info' onClick='set(\"sscat\", \"{$key3_u}\" , \"{$key2_u}\")' /><br />\r\n";
 		}
 		$subSubCatBuffer .= "</div>\r\n\r\n";
 	}
