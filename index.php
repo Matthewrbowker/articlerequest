@@ -8,132 +8,115 @@ $k = new translate($lang,$dev,"");
 
 $site = new site($dev);
 
-$site -> gen_opening($k -> returnKeys());
+<<<<<<< HEAD
+$site -> gen_opening($k, "");
+=======
+$site -> gen_opening($k -> returnKeys(), "");
+>>>>>>> FETCH_HEAD
 
 $db = new wpPDO();
 
 ?>
-<noscript>
-	<div class="alert alert-danger">
-		<?php echo $k -> _e("no-javascript"); ?>
-	</div>
-</noscript>
 
-<script src="categories.php"></script>
+<script>
+
+function updateCategory(cat,scat,sscat) {
+    // this gets called from the popup window and updates the field with a new value
+    var viewValue = cat + "->" + scat + "->" + sscat;
+    var storValue = viewValue.replace("->", "::").replace("->", "::").trim();
+
+    document.cookie="articlerequest_category=" . storValue;
+
+    document.getElementById("categorySelect").value = storValue;
+    document.getElementById("categorySpan").innerHTML = viewValue;
+}
+
+function loadCategory() {
+	var name = "articlerequest_category=";
+	var ca = document.cookie.split(';');
+	var value = "";
+	for(var i=0; i<ca.length; i++) {
+  		var c = ca[i].trim();
+  		if (c.indexOf(name)==0) value = c.substring(name.length,c.length);
+	}
+	
+    var viewValue = value.replace("->", "::").replace("->", "::").trim();
+
+    document.cookie="articlerequest_category=" . value;
+
+    document.getElementById("categorySelect").value = value;
+    document.getElementById("categorySpan").innerHTML = viewValue;
+}
+
+</script>
+
+<script src="vars/validate.js" type="text/javascript"></script>
+
+<div class="alert alert-danger" style="display:none;" id="id_alert_error">
+	<?php $k -> _e("error"); ?>
+</div>
 
 <br>
 
-<?php echo $k -> _e("intro"); ?>
+<?php $k -> _e("intro"); ?>
 <br>
 <br>
 
-<div class="form">
+</div>
+
 	<form method="post" action="result.php" name="mainform" onsubmit="return validate();" onreset="resetform();">
-		<table style="width: 100%">
-			<tr>
-				<td>
-					<?php echo $k -> _e("subject") ?></div>
-				</td>
-				<td>
-					<input type="text" name="subject" <?php if (ISSET($_GET['subject'])) echo "value=\"{$_GET['subject']}\" "; ?> class="form-control input-sm" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<?php echo $k -> _e("description"); ?>
-				</td>
-				<td>
-					<textarea name="comment" class="form-control"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div id="category1" class="black"><i class="icon-star"></i> 
-						<?php echo $k -> _e("category"); ?></div>
-					</td>
-					<td>
-						<!-- TODO: Convert to PHP - read array from Wikipedia -->
-						<select name="category" onchange="parseform();" class="form-control">
-							<option value="none">Please choose one</option>
-							<option value="Applied_arts_and_sciences">Applied arts and sciences</option>
-							<option value="Arts_and_entertainment">Arts and entertainment</option>
-							<option value="Biography">Biography</option>
-							<option value="Business_and_Economics">Business and economics</option>
-							<option value="Mathematcis">Mathematics</option>
-							<option value="Music">Music</option>
-							<option value="Natural_sciences">Natural sciences</option>
-							<option value="Philosophy">Philosophy</option>
-							<option value="Social_sciences">Social sciences</option>
-							<option value="Sport">Sport</option>
-						</select>
-					</td>
-				</tr>
-
-				<tr>
-					<td>
-						<div id="subcat1" class="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-chevron-right"></i> 
-							<?php echo $k -> _e("sub-category"); ?></div>
-						</td>
-						<td>
-							<div id="subcat2" class="hidden"><select name="subcat" onchange="parseform();" class="form-control" >
-							</select>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div id="subsubcat1" class="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-chevron-right"></i> 
-							<?php echo $k -> _e("sub-sub-category"); ?></div>
-						</td>
-						<td>
-							<div id="subsubcat2" class="hidden"><select name="subsubcat" class="form-control">
-							</select>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<?php echo $k -> _e("username"); ?>
-					</td>
-					<td>
-						<input type="text" name="username" onblur="checkusername()" class="form-control input-sm" /><div id="unameinfo"> </div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<i class="icon-star"></i> 
-						<?php echo $k -> _e("sources"); ?>
-					</td>
-					<td>
-						<textarea name="sources" class="form-control"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<div class="input-group">
-							<span class="input-group-addon">
-								<input type="checkbox" name="doublecheck" onchange="checkbox()" class="checkbox-inline"> <!-- I affirm that the article I'm submitting for creation follows all of Wikipedia's guidelines.<br>I've checked <a href="http://en.wikipedia.org/wiki/Wikipedia:Requested_articles" target=_blank>the request list</a> and I'm not submitting a duplicate.-->
-							</span>
-							<span class="form-control">
-								<?php echo $k -> _e("check"); ?>
-							</span>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p style="text-align: center">
-							<input type="reset" value="<?php echo $k -> _e("reset"); ?>" class="btn btn-danger" />
-						</p>
-					</td>
-					<td>
-						<p style="text-align: center">
-							<input type="submit" id="submit" value="<?php echo $k -> _e("submit"); ?>" class="btn btn-success" disabled/>
-						</p>
-					</td>
-				</tr>
-			</table>
-		</form>
+<div class="col-md-3">
+	&nbsp;
+</div>
+<div class="col-md-6">
+	<div class="form-group" id="id_subject">
+		<label class="control-label" for="subject"><?php $k->_e("subject"); ?></label>
+		<input type="text" class="form-control" id="subject">
 	</div>
+	<div class="form-group" id="id_comment">
+		<label class="control-label" for="comment"><?php $k->_e("description"); ?></label><br />
+		<!-- input type="text" class="form-control" id="inputError" -->
+		<textarea id="comment" class="form-control"><?php if (ISSET($_GET['description'])) echo $_GET['description']; ?></textarea>
+	</div>
+	<div class="form-group" id="id_username">
+		<label class="control-label" for="inputError"><?php $k->_e("username"); ?></label>
+		<input type="text" class="form-control" id="inputError">
+	</div>
+	<div class="form-group" id="id_category">
+		<label class="control-label" for="categorySelect"><?php $k->_e("category"); ?></label>
+		<input type="hidden" name="categorySelect" id="categorySelect" value="" /><!--a href="category.php" target=_new>[Select]</a -->
+		<span id="categorySpan" class="text-muted">
+			&nbsp;
+		</span>
+		<a href="category.php" onclick="javascript:void window.open('category.php','1395353426095','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">[Select]</a>
+	<div class="form-group" id="sources">
+		<label class="control-label" for="inputError"><?php $k->_e("sources"); ?></label>
+		<a href="sources.php" onclick="javascript:void window.open('sources.php','1395353426095','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">[Select]</a>
+		<span id="sourcesSpan">
+			&nbsp;
+		</span>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon">
+			<input type="checkbox" name="doublecheck" onchange="checkbox()" class="checkbox-inline" id="checkbox" />
+		</span>
+		<span class="form-control">
+			<?php $k -> _e("check"); ?>
+		</span>
+	</div>
+	<p>&nbsp; <!-- for padding --></p>
+	<div class="col-md-6">
+		<input type="reset" value="<?php $k -> _e("reset"); ?>" class="btn btn-danger center-block" />
+	</div>
+	<div class="col-md-6">
+		<input type="submit" id="submit" value="<?php $k -> _e("submit"); ?>" class="btn btn-success center-block" disabled/>
+	</div>
+</div>
 
+</form>
+<div class="col-md-3">
+	&nbsp;
+</div>
+</div>
+<div class="col-md-12">
 	<? $site -> gen_closing(); ?>

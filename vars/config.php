@@ -1,5 +1,7 @@
 <?php
 
-$version = "0.1devel2";
+$version = "0.1devel4";
+
+$dev = true;
 
 ?>

@@ -8,9 +8,9 @@ $k = new translate($lang,true,"about");
 
 $site = new site($dev);
 
-$site -> gen_opening($k -> returnKeys(), "about");
+$site -> gen_opening($k, "about");
 
-echo $k -> _e("content");
+$k -> _e("content");
 
 $site -> gen_closing();
 
