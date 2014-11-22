@@ -18,9 +18,6 @@ class site {
     $this -> version = $version;
 		
 		$this -> page = $page;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
     $this -> about = $k-> _r("about");
 
     $nav = "";
@@ -47,49 +44,6 @@ class site {
 
     if ($k->_r("return_on")) {
       $nav .= "<li><a href=\"" . $k->_r("return_url") . "\">" . $k->_r("return") . "</a></li>";
-=======
-=======
->>>>>>> FETCH_HEAD
-    $this -> about = $keys["about"];
-
-    $nav = "";
-
-    if ($keys["article_on"]) {
-      if ($page == "") $nav .= "<li class=\"active\"><a href=\"index.php\">" . $keys["article"] . "</a></li>";
-      else $nav .= "<li><a href=\"index.php\">" . $keys["article"] . "</a></li>";
-    }
-
-    if ($keys["about_on"]) {
-      if ($page == "about") $nav .= "<li class=\"active\"><a href=\"about.php\">" . $keys["about"] . "</a></li>";
-      else $nav .= "<li><a href=\"about.php\">" . $keys["about"] . "</a></li>";
-<<<<<<< HEAD
-    }
-
-    if ($keys["redirect_on"]) {
-      if ($page == "redirect") $nav .= "<li class=\"active\"><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>";
-      else $nav .= "<li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>";
-    }
-
-=======
-    }
-
-    if ($keys["redirect_on"]) {
-      if ($page == "redirect") $nav .= "<li class=\"active\"><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>";
-      else $nav .= "<li><a href=\"redirect.php\">" . $keys["redirect"] . "</a></li>";
-    }
-
->>>>>>> FETCH_HEAD
-    if ($keys["search_on"]) {
-      if ($page == "search") $nav .= "<li class=\"active\"><a href=\"search.php\">" . $keys["search"] . "</a></li>";
-      else $nav .= "<li><a href=\"search.php\">" . $keys["search"] . "</a></li>";
-    }
-
-    if ($keys["return_on"]) {
-      $nav .= "<li><a href=\"" . $keys["return_url"] . "\">" . $keys["return"] . "</a></li>";
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
     }
 	?>
 <!DOCTYPE HTML>
@@ -145,19 +99,8 @@ class site {
 	  
 	 <?php 
 }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 function gen_opening_min(translate $k = NULL, $page = "") {
     if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
-=======
-function gen_opening_min($keys = NULL, $page = "") {
-    if ($keys == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
->>>>>>> FETCH_HEAD
-=======
-function gen_opening_min($keys = NULL, $page = "") {
-    if ($keys == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
->>>>>>> FETCH_HEAD
     require('config.php');
     require('config.inc.php');
 
@@ -165,29 +108,13 @@ function gen_opening_min($keys = NULL, $page = "") {
     
     $this -> page = $page;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     $this -> about = $k->_r("about");
-=======
-    $this -> about = $keys["about"];
->>>>>>> FETCH_HEAD
-=======
-    $this -> about = $keys["about"];
->>>>>>> FETCH_HEAD
     ?>
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
 <TITLE>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <?php $k->_e("title"); ?>
-=======
-<?php echo $keys["title"]; ?>
->>>>>>> FETCH_HEAD
-=======
-<?php echo $keys["title"]; ?>
->>>>>>> FETCH_HEAD
 </TITLE>
 <meta charset="UTF-8">
 <script src="vars/validate.js" type="text/javascript"></script>
@@ -214,15 +141,7 @@ function gen_opening_min($keys = NULL, $page = "") {
   <div class="col-md-10">
 
       <div class="page-header">
-<<<<<<< HEAD
-<<<<<<< HEAD
        <h3><?php $k->_e("page_title"); ?></h3>
-=======
-       <h3><?php echo $keys["page_title"]; ?></h3>
->>>>>>> FETCH_HEAD
-=======
-       <h3><?php echo $keys["page_title"]; ?></h3>
->>>>>>> FETCH_HEAD
       </div>
 
       <div class="row marketing">
@@ -230,21 +149,11 @@ function gen_opening_min($keys = NULL, $page = "") {
     
 <noscript>
   <div class="alert alert-danger">
-<<<<<<< HEAD
-<<<<<<< HEAD
     <?php $k->_e("no-javascript"); ?>
   </div>
   <style type="text/css">
   .mainform{display:none;}
   </style>
-=======
-    <?php echo $keys["no-javascript"]; ?>
-  </div>
->>>>>>> FETCH_HEAD
-=======
-    <?php echo $keys["no-javascript"]; ?>
-  </div>
->>>>>>> FETCH_HEAD
 </noscript>
     
    <?php 

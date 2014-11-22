@@ -8,7 +8,7 @@ $k = new translate($lang,$dev,"sources");
 
 $site = new site($dev);
 
-$site -> gen_opening_min($k -> returnKeys(), "sources");
+$site -> gen_opening_min($k, "sources");
 
 //Testing
 $dev = false;

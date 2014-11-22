@@ -8,16 +8,8 @@ ini_set('user_agent',
 // Require all the files we need.
 require('vars/config.php');
 require('vars/config.inc.php');
-<<<<<<< HEAD
 //require('vars/functions.php');
 //require('vars/categories.php');
-=======
-require('vars/functions.php');
-require('vars/categories.php');
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
 
 require('vars/translate.php');
 require('vars/site.php');
