@@ -46,7 +46,7 @@ class wpPDO {
 
 	}
 
-	function store($sSubject = "", $sDescription = "", $sCategory = "", $sSubCategory = "", $sSubSubCategory = "", $sUsername = "", $sSources = "") {
+	function store($sSubject, $sDescription, $sCategory, $sUsername, $sSources) {
 
 		try {
 			//$num = $this->link->query("SELECT 'id' from 'requests' where 1;")->rowCount();
