@@ -5,25 +5,25 @@ class translate {
 private $keys;
 
 	function __construct($lang = 'en', $dev = false, $page = "") {
-		//$wpPage = "User:Matthewrbot/Config/1/interface";
+		$wpPage = "User:Matthewrbot/Config/1/interface";
 
-		$wpPage = "Article request/config";
+		//$wpPage = "Article request/config";
 
 		if ($lang != 'en') $wpPage .= "/$lang";
 
-		//if ($dev) $wpPage .= "/dev";
+		if ($dev) $wpPage .= "/dev";
 		
 		$allPage = $wpPage . "/all"; // Gotta save this first so we don't confuse anything...
 		
 		if ($page != "") $wpPage .= "/" . $page;
 		
-		//$url = "https://en.wikipedia.org/w/index.php?title=" . urlencode($wpPage) . "&action=raw";
+		$url = "https://en.wikipedia.org/w/index.php?title=" . urlencode($wpPage) . "&action=raw";
 		
-		//$allURL = "https://en.wikipedia.org/w/index.php?title=" . urlencode($allPage) . "&action=raw";
+		$allURL = "https://en.wikipedia.org/w/index.php?title=" . urlencode($allPage) . "&action=raw";
 
-		$url = "http://localhost/~wiki/index.php?title=" . urlencode($wpPage) . "&action=raw";
+		//$url = "http://localhost/~wiki/index.php?title=" . urlencode($wpPage) . "&action=raw";
 
-		$allURL = "http://localhost/~wiki/index.php?title=" . urlencode($allPage) . "&action=raw";
+		//$allURL = "http://localhost/~wiki/index.php?title=" . urlencode($allPage) . "&action=raw";
 		
 		@$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 		
