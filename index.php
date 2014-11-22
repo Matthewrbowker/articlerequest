@@ -9,7 +9,11 @@ $k = new translate($lang,$dev,"");
 $site = new site($dev);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 $site -> gen_opening($k, "");
+=======
+$site -> gen_opening($k -> returnKeys(), "");
+>>>>>>> FETCH_HEAD
 =======
 $site -> gen_opening($k -> returnKeys(), "");
 >>>>>>> FETCH_HEAD
