@@ -3,8 +3,8 @@
 class site {
 	private $dev;
 	private $page;
-  private $version;
-  private $about;
+	private $version;
+	private $about;
 	
 	function __construct($dev) {
 		$this -> dev = $dev;
@@ -201,6 +201,7 @@ function gen_opening_min(translate $k = NULL, $page = "") {
     <div class="col-md-1">&nbsp;</div>
 
     </div> <!-- /container -->
+    <script src="res/js/bootstrap.js" type="text/javascript" />
 </BODY>
 </HTML>
 <?php

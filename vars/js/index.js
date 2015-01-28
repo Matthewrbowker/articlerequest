@@ -1,30 +1,93 @@
-<?php
-require('includes.php');
+// JavaScript Document
 
-if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
-else $lang = 'en';
+// This document contains all of the scripting required to make index.php work.
 
-$k = new translate($lang,$dev,"sources");
+// Category
+function sendValue(cat, scat, sscat) {
+    window.opener.updateCategory(cat, scat, sscat);
+    window.close();
+}
 
-$site = new site($dev);
+function submitValue() {
+	var category = document.getElementById("catStoreBtn").value;
+	var subcategory = document.getElementById("scatStoreBtn").value;
+	var subsubcategory = document.getElementById("sscatStoreBtn").value;
+	sendValue(category, subcategory, subsubcategory);
+	return false;
+}
 
-$site -> gen_opening_min($k, "sources");
+function resetValue() {
+	document.getElementById("catStorebtn").value = "";
+	document.getElementById("scatStoreBtn").value = "";
+	document.getElementById("sscatStoreBtn").value = "";
+	return true;
+}
 
-//Testing
-$dev = false;
+function closeWindow() {
+	window.close();
+}
+function setField(type, cat) {
+	cat = cat.replace(/_/g, " ");
 
-//OK, Time to process the on-wiki config.
+	catBtn = type + "StoreBtn";
 
-if ($dev) $url="https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/sources/dev?action=raw";
-else $url = "https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/sources?action=raw";
+	document.getElementById(type + "StoreBtn").value = cat;
+}
 
-$url = "http://localhost/~wiki/index.php?title=Article_request/sources&action=raw";
+function set(type, curCat, prevCat) {
+	// type - cat, scat, sscat
+	// curCat - the current category
+	// prevCat - The previous category
+	var currentWell; //The current well to be hidden
+	var newWell; // The new well to unhide
+	var newText; // The new text to unhide
 
-$values = parse_ini_string(file_get_contents($url), TRUE);
+	if (type == "cat") {
+		currentWell = "well_cat";
+		newWell = "well_sub";
+		newText = "text_cat";
+	}
+	else if (type == "scat") {
+		currentWell = "well_sub";
+		newWell = "well_subsub";
+		newText = "text_scat";
+	}
+	else if (type == "sscat") {
+		currentWell = "well_subsub";
+		newWell = "well_submit";
+		newText = "text_sscat";
+	}
 
-?>
+	if (prevCat != null && prevCat != "") {
+		prevCat = prevCat.replace(/ /g, "_");
+		currentWell = currentWell + "_" + prevCat;
+	}
 
-<script>
+	if (curCat != null && curCat != "") {
+		curCat = curCat.replace(/ /g, "_");
+		newWell = newWell + "_" + curCat;
+	}
+
+	if (newWell.match(/^well_submit_/)) {
+		newWell = "well_submit";
+	}
+
+
+	setField(type, curCat);
+	document.getElementById(currentWell).className = "well hide";
+	document.getElementById(newWell).className = "well unhide";
+	document.getElementById(newText).className = "text-muted unhide"
+}
+
+function testSet(cat, subcat, subsubcat) {
+	document.getElementById("category").value = cat;
+	document.getElementById("subcategory").value = subcat;
+	document.getElementById("subsubcategory").value = subsubcat;
+
+}
+
+<!-- Sources -->
+
 function addSource(type) {
 	var buffer = "";
 	var random = randomValues();
@@ -110,53 +173,3 @@ function submitValue() {
 	window.opener.saveSources(finalJson);
 	closeWindow();
 }
-
-</script>
-
-<?php $k->_e("intro"); ?>
-<br />
-<br />
-
-<form method="get" action="#" onsubmit="submitValue()" onReset="resetValue()">
-
-<div class="panel panel-warning">
-	<div class="panel-heading">
-		Add another source:
-	</div>
-	<div class="panel-body">
-		<center>
-			<?php
-			foreach (array_keys($values) as $one) {
-				echo "<input type=\"button\" name=\"sources_{$values[$one]['shorthand']}_add\" value=\"{$values[$one]['label']}\" class=\"btn btn-warning\" onClick=\"addSource('{$values[$one]['shorthand']}')\" />\r\n";
-			}
-			?>
-		</center>
-	</div>
-</div>
-
-<hr />
-
-<div id="sources_container">
-
-Here's the sources you have so far:
-
-<!-- div class="panel panel-default" id="web_1">
-	<div class="panel-heading">
-		<div class="pull-right">
-			<input class="btn btn-danger" type="button" value="Remove this source" onClick="removeSource('web_1')" />
-		</div>
-		<label for="source_1">Web Source 1</label>
-	</div>
-	<div class="panel-body">
-		<input type="text" class="form-control">
-	</div><!- - /input-group - 	->
-</div -->
-
-</div>
-
-<input type="submit" value="Save Sources" class="btn btn-success" style="width: 100%;" /><!-- name="submit" -->
-
-<input type="button" value="Close window" class="btn btn-danger" onClick="closeWindow()" style="width: 100%;" /><!-- name="close" -->
-</form>
-
-<? $site -> gen_closing_min(); ?>
