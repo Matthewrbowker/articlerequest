@@ -12,5 +12,5 @@ require('vars/pdo.php');
 
 // Set the UA string
 ini_set('user_agent', 
-  "Article_Request_Tool - Matthewrbowker - {$version}");
+  "Article Request Tool - [[:w:en:User:Matthewrbowker]] - {$version}");
 ?>

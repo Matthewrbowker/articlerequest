@@ -80,16 +80,22 @@ die();
 		}
 		else {
 			echo "<div class=\"alert alert-danger\">Key \"" . $key . "\" not found in the configuration file.  Please re-add it.</div>";
-			return "";
+			return "{{" . $key . "}}";
 		}
 	}
 
 	function _e($key) {
-		echo $this->_r($key);
+		if (isset($_GET["keys"]) && $_GET["keys"] == "1") {
+			echo "{{{$key}}}";
+		}
+		else {
+			echo $this->_r($key);
+		}
 		return "<div class='alert alert-danger'>You're using echo with _e.  _e automatically echos, please fix this.</div>";
 	}
 	
 	function returnKeys() {
+		echo "<div class='alert alert-danger'>returnKeys() is deprciated.</div>";
 		return $this -> keys;
 	}
 }
