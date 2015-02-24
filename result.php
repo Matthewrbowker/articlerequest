@@ -8,11 +8,11 @@ else $lang = 'en';
 
 $k = new translate($lang,$dev,"result");
 
-$pdo = new wpPDO();
-
 $site -> gen_opening($k, "result");
 
-@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sourcesSelect']);
+$pdo = new wpPDO();
+
+//@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sourcesSelect']);
 
 if ($pdo->success()) {
 	echo "<div class=\"alert alert-success\">";
@@ -54,7 +54,7 @@ else {
     	next($_REQUEST);
 	}
 
-	echo "<input type=\"submit\" class=\"btn btn-danger\" value=\"{$k->_e("go_back")}\" /></form>";
+	echo "<input type=\"submit\" class=\"btn btn-danger\" value=\"{$k->_r("go_back")}\" /></form>";
 }
 
 $site -> gen_closing();
