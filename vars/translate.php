@@ -17,9 +17,9 @@ private $keys;
 		
 		if ($page != "") $wpPage .= "/" . $page;
 		
-		$url = "https://en.wikipedia.org/w/index.php?title=" . urlencode($wpPage) . "&action=raw";
+		$url = "http://en.wikipedia.org/w/index.php?title=" . urlencode($wpPage) . "&action=raw";
 		
-		$allURL = "https://en.wikipedia.org/w/index.php?title=" . urlencode($allPage) . "&action=raw";
+		$allURL = "http://en.wikipedia.org/w/index.php?title=" . urlencode($allPage) . "&action=raw";
 
 		//$url = "http://localhost/~wiki/index.php?title=" . urlencode($wpPage) . "&action=raw";
 

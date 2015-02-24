@@ -27,11 +27,6 @@ class site {
       else $nav .= "<li><a href=\"index.php\">" . $k->_r("article") . "</a></li>";
     }
 
-    if ($k->_r("about_on")) {
-      if ($page == "about") $nav .= "<li class=\"active\"><a href=\"about.php\">" . $k->_r("about") . "</a></li>";
-      else $nav .= "<li><a href=\"about.php\">" . $k->_r("about") . "</a></li>";
-    }
-
     if ($k->_r("redirect_on")) {
       if ($page == "redirect") $nav .= "<li class=\"active\"><a href=\"redirect.php\">" . $k->_r("redirect") . "</a></li>";
       else $nav .= "<li><a href=\"redirect.php\">" . $k->_r("redirect") . "</a></li>";
@@ -40,6 +35,11 @@ class site {
     if ($k->_r("search_on")) {
       if ($page == "search") $nav .= "<li class=\"active\"><a href=\"search.php\">" . $k->_r("search") . "</a></li>";
       else $nav .= "<li><a href=\"search.php\">" . $k->_r("search") . "</a></li>";
+    }
+
+    if ($k->_r("about_on")) {
+      if ($page == "about") $nav .= "<li class=\"active\"><a href=\"about.php\">" . $k->_r("about") . "</a></li>";
+      else $nav .= "<li><a href=\"about.php\">" . $k->_r("about") . "</a></li>";
     }
 
     if ($k->_r("return_on")) {
@@ -56,8 +56,9 @@ class site {
 <LINK REL="stylesheet" href="res/css/bootstrap.css" />
     <style type="text/css">
       body {
-        padding-top: 20px;
-        padding-bottom: 40px;
+        padding-top: 60px;
+/*        padding-top: 20px;
+*/        padding-bottom: 40px;
       }
 
       /* Custom container */
@@ -72,16 +73,28 @@ class site {
     </style>
 </HEAD>
 <BODY>
-<div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><?php $k->_e("title"); ?></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <?php echo $nav; ?>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<div class="container-fluid">
   <div class="col-md-1">&nbsp;</div>
   <div class="col-md-10">
 
-      <div class="page-header">
+      <!-- div class="page-header">
         <ul class="nav nav-pills pull-right">
 		      <?php echo $nav ?>
         </ul>
 		    <h1><?php $k->_e("title"); ?></h1>
-      </div>
+      </div -->
 
       <div class="row marketing">
 	  <div class="col-md-12">
