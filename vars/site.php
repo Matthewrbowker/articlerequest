@@ -17,10 +17,11 @@ class site {
 
     $this -> version = $version;
 		
-		$this -> page = $page;
+	$this -> page = $page;
     $this -> about = $k-> _r("about");
 
     $nav = "";
+	$navRight = "";
 
     if ($k->_r("article_on")) {
       if ($page == "") $nav .= "<li class=\"active\"><a href=\"index.php\">" . $k->_r("article") . "</a></li>";
@@ -43,7 +44,7 @@ class site {
     }
 
     if ($k->_r("return_on")) {
-      $nav .= "<li><a href=\"" . $k->_r("return_url") . "\">" . $k->_r("return") . "</a></li>";
+      $navRight .= "<li><a href=\"" . $k->_r("return_url") . "\">" . $k->_r("return") . "</a></li>";
     }
 	?>
 <!DOCTYPE HTML>
@@ -76,7 +77,12 @@ class site {
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"><?php $k->_e("title"); ?></a>
+          <span class="navbar-brand"><?php $k->_e("title"); ?></span>
+        </div>
+        <div class="navbar=collapse navbar-right">
+        	<ul class="nav navbar-nav">
+      			<?php echo $navRight; ?>
+            </ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
