@@ -281,9 +281,9 @@ function parseCatName($string) {
 <input type="hidden" name="subcategory" id="subcategory" value="" />
 <input type="hidden" name="subsubcategory" id="subsubcategory" value="" />
 
-<h3 class="text-muted hide" id="text_cat"><?php $k->_e("cat"); ?> <span id="catStore"><input type="button" name="catStoreBtn" id="catStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><!--input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" /--></h3>
-<h3 class="text-muted hide" id="text_scat"><?php $k->_e("subcat"); ?> <span id="scatStore"><input type="button" name="scatStoreBtn" id="scatStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
-<h3 class="text-muted hide" id="text_sscat"><?php $k->_e("subsubcat"); ?> <span id="sscatStore"><input type="button" name="sscatStoreBtn" id="sscatStoreBtn" value="" class="btn btn-info btn-disabled" disabled /></span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
+<h3 class="text-muted hide" id="text_cat"><?php $k->_e("cat"); ?> <span id="catStore"><input type="button" name="catStoreBtn" id="catStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" /></span><!--input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" /--></h3>
+<h3 class="text-muted hide" id="text_scat"><?php $k->_e("subcat"); ?> <span id="scatStore"><input type="button" name="scatStoreBtn" id="scatStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" /></span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
+<h3 class="text-muted hide" id="text_sscat"><?php $k->_e("subsubcat"); ?> <span id="sscatStore"><input type="button" name="sscatStoreBtn" id="sscatStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" /></span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
 
 <?php
 
@@ -354,7 +354,7 @@ $catBuffer .= "</div>";
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><?php $k->_e("sources-heading"); ?></h4>
+        <h4 class="modal-title" id="categoryModalLabel"><?php $k->_e("sources-heading"); ?></h4>
       </div>
       <div class="modal-body">
         SOURCES!
@@ -381,11 +381,11 @@ $catBuffer .= "</div>";
 
 </div>
 
-	<form method="post" action="result.php" name="mainform" onsubmit="return validate();" onreset="resetform();">
 <div class="col-md-3">
 	&nbsp;
 </div>
 <div class="col-md-6">
+	<form method="post" action="result.php" name="mainform" onsubmit="return validate();" onreset="resetform();">
 	<div class="form-group" id="id_subject">
 		<label class="control-label" for="subject"><?php $k->_e("subject"); ?></label>
 		<input type="text" class="form-control" id="subject" name="subject">
@@ -429,7 +429,7 @@ $catBuffer .= "</div>";
 		<input type="reset" value="<?php $k -> _e("reset"); ?>" class="btn btn-danger center-block" />
 	</div>
 	<div class="col-md-6">
-		<input type="submit" id="btnSubmit" value="<?php $k -> _e("submit"); ?>" class="btn btn-success center-block" disabled/>
+		<input type="submit" id="btnSubmit" value="<?php $k -> _e("submit"); ?>" class="btn btn-success center-block" disabled="disabled" />
 	</div>
 </div>
 
