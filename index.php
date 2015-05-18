@@ -215,9 +215,9 @@ $catBuffer .= "</div>";
         <a href="#" data-toggle="modal" data-target="#sourcesModal">[Select]</a> </div>
       <div class="input-group"> <span class="input-group-addon">
         <input type="checkbox" name="doublecheck" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox" />
-        </span> <span class="form-control">
+        </span> <label for="dobulecheck" class="form-control" style="display: block;text-align: left;width: 100%; height:100%; white-space: normal;">
         <?php $k -> _e("check"); ?>
-        </span> </div>
+        </label> </div>
       <p>&nbsp; <!-- for padding --></p>
       <div class="col-md-6">
         <input type="reset" value="<?php $k -> _e("reset"); ?>" class="btn btn-danger center-block" />
