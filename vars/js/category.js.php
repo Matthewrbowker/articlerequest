@@ -5,7 +5,24 @@ require("../../includes.php");
 
 ?>
 
-alert("it worked!");
+category = "";
+subCategory = "";
+subSubCategory = "";
+
+//alert("it worked!");
+
+function onClickCategory(type, name) {
+	if (type == "cateogry") {
+    	category = name;
+        document.getElementById("catStorebtn").value = name;
+    } else if (type == "sub") {
+    	subCategory = name;
+    } else if (type == "subsub") {
+    	subSubCategory = name;
+    } else {
+    	alert("Something broke");
+    }
+}
 
 function sendValue(cat, scat, sscat) {
     window.opener.updateCategory(cat, scat, sscat);
