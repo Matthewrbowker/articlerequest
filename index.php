@@ -86,7 +86,7 @@ $subSubCatBuffer = "";
 foreach(array_keys($values) as $key1) {
 	$key1 = trim($key1);
 	$key1_u = parseCatName($key1);
-	$catBuffer .= "<input type='button' name='btn_category_{$key1_u}' value='{$key1}' class='btn btn-info' onClick='set(\"cat\", \"{$key1_u}\")' /><br />\r\n";
+	$catBuffer .= "<input type='button' name='btn_category_{$key1_u}' value='{$key1}' class='btn btn-info'  onClick=\"onClickCategory('category','{$key1}');\" /><br />\r\n"; //onClick='set(\"cat\", \"{$key1_u}\")'
 	
 	// Sub Category Stuff now
 	$subCatBuffer .= "<div class='well hide' id='well_sub_{$key1_u}'>\r\n";

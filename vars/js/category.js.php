@@ -15,6 +15,7 @@ function onClickCategory(type, name) {
 	if (type == "cateogry") {
     	category = name;
         document.getElementById("catStorebtn").value = name;
+        alert(category);
     } else if (type == "sub") {
     	subCategory = name;
     } else if (type == "subsub") {
@@ -25,8 +26,7 @@ function onClickCategory(type, name) {
 }
 
 function sendValue(cat, scat, sscat) {
-    window.opener.updateCategory(cat, scat, sscat);
-    window.close();
+    document.getElementById("categorySpan").innerHTML = category + " &lt; " + subCateogry + " &lt; " + subSubCategory;
 }
 
 function submitValue() {
