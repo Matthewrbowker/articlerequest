@@ -12,13 +12,14 @@ subSubCategory = "";
 //alert("it worked!");
 
 function onClickCategory(type, name) {
-	if (type == "cateogry") {
+	if (type == "cat") {
     	category = name;
-        document.getElementById("catStorebtn").value = name;
+        document.getElementById("catStoreBtn").value = name;
         alert(category);
-    } else if (type == "sub") {
+        well('cat','test',"");
+    } else if (type == "scat") {
     	subCategory = name;
-    } else if (type == "subsub") {
+    } else if (type == "sscat") {
     	subSubCategory = name;
     } else {
     	alert("Something broke");
@@ -28,6 +29,55 @@ function onClickCategory(type, name) {
 function sendValue(cat, scat, sscat) {
     document.getElementById("categorySpan").innerHTML = category + " &lt; " + subCateogry + " &lt; " + subSubCategory;
 }
+
+
+
+function well(type, curCat, prevCat) {
+	// type - category, scat, sscat
+	// curCat - the current category
+	// prevCat - The previous category
+	var currentWell; //The current well to be hidden
+	var newWell; // The new well to unhide
+	var newText; // The new text to unhide
+
+	if (type == "cat") {
+		currentWell = "well_cat";
+		newWell = "well_sub";
+		newText = "text_cat";
+	}
+	else if (type == "scat") {
+		currentWell = "well_sub";
+		newWell = "well_subsub";
+		newText = "text_scat";
+	}
+	else if (type == "sscat") {
+		currentWell = "well_subsub";
+		newWell = "well_submit";
+		newText = "text_sscat";
+	}
+
+	if (prevCat != null && prevCat != "") {
+		prevCat = prevCat.replace(/ /g, "_");
+		currentWell = currentWell + "_" + prevCat;
+	}
+
+	if (curCat != null && curCat != "") {
+		curCat = curCat.replace(/ /g, "_");
+		newWell = newWell + "_" + curCat;
+	}
+
+	if (newWell.match(/^well_submit_/)) {
+		newWell = "well_submit";
+	}
+
+
+	setField(type, curCat);
+	document.getElementById(currentWell).className = "well hide";
+	document.getElementById(newWell).className = "well unhide";
+	document.getElementById(newText).className = "text-muted unhide"
+}
+
+// OLD CODE HERE
 
 function submitValue() {
 	var category = document.getElementById("catStoreBtn").value;
