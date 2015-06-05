@@ -7,9 +7,9 @@ else $lang = 'en';
 if (isset($_GET['id'])) $txt=$_GET['id'];
 else die("Error getting proper ID");
 
-$k = new translate($lang, $dev, "view"); 
+$k = new translate($lang, "view"); 
 
-$site = new site($dev);
+$site = new site();
 
 $site ->gen_opening();
 

@@ -4,26 +4,31 @@ class translate {
 
 private $keys;
 
-	function __construct($lang = 'en', $dev = false, $page = "") {
-		$wpPage = "User:Matthewrbot/Config/1/interface";
-
-		//$wpPage = "Article request/config";
-
+	function __construct($lang = 'en', $page = "") {
+		// Test role is designed to be run on my local server
+		if ($GLOBALS['role'] == "test") {
+			$wpPage = "Article request/config";
+		}
+		else {
+			$wpPage = "User:Matthewrbot/Config/1/interface";
+		}
+		
 		if ($lang != 'en') $wpPage .= "/$lang";
 
-		if ($dev) $wpPage .= "/dev";
+		if ($GLOBALS["role"] == "staging") $wpPage .= "/dev";
 		
 		$allPage = $wpPage . "/all"; // Gotta save this first so we don't confuse anything...
 		
 		if ($page != "") $wpPage .= "/" . $page;
 		
-		$url = "http://en.wikipedia.org/w/index.php?title=" . urlencode($wpPage) . "&action=raw";
-		
-		$allURL = "http://en.wikipedia.org/w/index.php?title=" . urlencode($allPage) . "&action=raw";
-
-		//$url = "http://localhost/~wiki/index.php?title=" . urlencode($wpPage) . "&action=raw";
-
-		//$allURL = "http://localhost/~wiki/index.php?title=" . urlencode($allPage) . "&action=raw";
+		if ($GLOBALS["role"] == "test") {
+			$url = "http://localhost/~wiki/index.php?title=" . urlencode($wpPage) . "&action=raw";
+			$allURL = "http://localhost/~wiki/index.php?title=" . urlencode($allPage) . "&action=raw";
+		}
+		else {
+			$url = "http://en.wikipedia.org/w/index.php?title=" . urlencode($wpPage) . "&action=raw";
+			$allURL = "http://en.wikipedia.org/w/index.php?title=" . urlencode($allPage) . "&action=raw";
+		}
 		
 		@$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 		
@@ -92,10 +97,5 @@ die();
 			echo $this->_r($key);
 		}
 		return "<div class='alert alert-danger'>You're using echo with _e.  _e automatically echos, please fix this.</div>";
-	}
-	
-	function returnKeys() {
-		echo "<div class='alert alert-danger'>returnKeys() is deprciated.</div>";
-		return $this -> keys;
 	}
 }

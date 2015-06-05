@@ -3,9 +3,11 @@
 class Category {
 	private $values;
 
-	function __construct($dev = false) {
+	function __construct() {
 
-		if ($dev) $url="https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category/dev?action=raw";
+
+		if ($GLOBALS["role"] == "test") $url = "http://localhost/~wiki/index.php?title=Article_request/category&action=raw";
+		else if ($GLOBALS["role"] == "staging") $url="https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category/dev?action=raw";
 		else $url = "https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category?action=raw";
 
 		$this->values = parse_ini_string(file_get_contents($url), TRUE);

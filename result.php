@@ -1,12 +1,12 @@
 <?php
 require('includes.php');
 
-$site = new site($dev);
+$site = new site();
 
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
-$k = new translate($lang,$dev,"result");
+$k = new translate($lang,"result");
 
 $site -> gen_opening($k, "result");
 
@@ -25,7 +25,7 @@ else {
 	echo "</div>";
 }
 
-if ($dev) :
+if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") :
 ?>
 <hr />
 <?php $k->_e("dev"); ?>

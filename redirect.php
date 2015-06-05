@@ -4,9 +4,9 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
-$k = new translate($lang,$dev,"redirect");
+$k = new translate($lang,"redirect");
 
-$site = new site($dev);
+$site = new site();
 
 $site -> gen_opening($k, "redirect");
 

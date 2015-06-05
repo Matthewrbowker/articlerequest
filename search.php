@@ -1,9 +1,9 @@
 <?php
 require('includes.php');
 
-$k = new translate("en",$dev,"search");
+$k = new translate("en","search");
 
-$site = new site($dev);
+$site = new site();
 
 $site -> gen_opening($k, "search");
 

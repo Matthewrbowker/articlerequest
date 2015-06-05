@@ -1,21 +1,11 @@
 <?php
 
 class site {
-	private $dev;
 	private $page;
-	private $version;
 	private $about;
-	
-	function __construct($dev) {
-		$this -> dev = $dev;
-	}
 	
 	function gen_opening(translate $k = NULL, $page = "") {
 		if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
-		require('config.php');
-		require('config.inc.php');
-
-    $this -> version = $version;
 		
 	$this -> page = $page;
     $this -> about = $k-> _r("about");
@@ -122,8 +112,6 @@ function gen_opening_min(translate $k = NULL, $page = "") {
     if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
     require('config.php');
     require('config.inc.php');
-
-    $this -> version = $version;
     
     $this -> page = $page;
 
@@ -184,7 +172,7 @@ function gen_opening_min(translate $k = NULL, $page = "") {
         <hr>
 
       <div class="footer">
-        <p style="text-align:right"><small>Article request tool version <?php echo $this ->version ?> (<a href="about.php"><?php echo $this->about; ?></a>)<br />
+        <p style="text-align:right"><small>Article request tool version <?php echo $GLOBALS["version"] ?> (<a href="about.php"><?php echo $this->about; ?></a>)<br />
           Content pulled from the Wikipedia page "<a href="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?>" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?></a>," and "<a href="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all</a>"</small>
         </p>
       </div>
@@ -205,7 +193,7 @@ function gen_opening_min(translate $k = NULL, $page = "") {
         <hr>
 
       <div class="footer">
-        <p style="text-align:right"><small>Article request tool version <?php echo $this ->version ?><br />
+        <p style="text-align:right"><small>Article request tool version <?php echo $GLOBALS["version"] ?><br />
           Content pulled from the Wikipedia page "<a href="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?>" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?></a>"</small>
         </p>
         <br />

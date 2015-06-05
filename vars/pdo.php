@@ -6,7 +6,8 @@ class wpPDO {
 
 	function __construct() {
 		try {
-			$this -> link = new PDO('mysql:host=localhost;dbname=articlerequest;charset=utf8', 'root', '');
+			$hostString = "mysql:host={$GLOBALS['db_host']};dbname={$GLOBALS['db_database']};charset=utf8";
+			$this -> link = new PDO($hostString, $GLOBALS['db_user'],$GLOBALS['db_pass']);
 			$this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$this->link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 			$this -> resultSuccess = true;
@@ -20,11 +21,9 @@ class wpPDO {
 	function errorCatch($ex) {
 		$this -> resultSuccess = false;
 
-		require('config.inc.php');
-
 		echo "<div class=\"alert alert-danger\">An error has occured.";
 
-		if ($dev) {
+		if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
 			echo "<br /><br />Error details: " . $ex->getMessage() . "";
 		}
 
@@ -34,11 +33,9 @@ class wpPDO {
 	function errorCatchString($ex) {
 		$this -> resultSuccess = false;
 
-		require('config.inc.php');
-
 		echo "<div class=\"alert alert-danger\">An error has occured.";
 
-		if ($dev) {
+		if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
 			echo "<br /><br />Error details: " . $ex[2] . "";
 		}
 

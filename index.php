@@ -4,9 +4,9 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
-$k = new translate($lang,$dev,"");
+$k = new translate($lang,"");
 
-$site = new site($dev);
+$site = new site();
 
 $site -> gen_opening($k, "");
 
@@ -37,7 +37,8 @@ $opt=array(
     ),
 );  
 
-if ($dev) $url="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category/dev?action=raw";
+if ($GLOBALS["role"] == "test") $url = "http://localhost/~wiki/index.php?title=Article_request/category&action=raw";
+else if ($GLOBALS["role"] == "staging") $url="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category/dev?action=raw";
 else $url = "http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/category?action=raw";
 
 // TEMPORARY CHANGE - MOVE CONFIG LOCALLY

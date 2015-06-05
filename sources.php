@@ -4,22 +4,17 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
-$k = new translate($lang,$dev,"sources");
+$k = new translate($lang,"sources");
 
-$site = new site($dev);
+$site = new site();
 
 $site -> gen_opening_min($k, "sources");
 
-//Testing
-$dev = false;
-
 //OK, Time to process the on-wiki config.
 
-if ($dev) $url="https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/sources/dev?action=raw";
+if ($GLOBALS["role"] == "test") $url = "http://localhost/~wiki/index.php?title=Article_request/sources&action=raw";
+else if ($GLOBALS["role"] == "staging") $url="https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/sources/dev?action=raw";
 else $url = "https://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/sources?action=raw";
-
-$url = "http://localhost/~wiki/index.php?title=Article_request/sources&action=raw";
-
 $values = parse_ini_string(file_get_contents($url), TRUE);
 
 ?>
