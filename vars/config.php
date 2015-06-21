@@ -7,4 +7,6 @@ $GLOBALS["db_pass"] = "";
 $GLOBALS["db_database"] = "";
 $GLOBALS["db_host"] = "";
 
+$GLOBALS["url"] = "http://en.wikipedia.org/wiki";
+
 ?>

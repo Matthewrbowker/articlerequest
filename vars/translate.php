@@ -22,12 +22,12 @@ private $keys;
 		if ($page != "") $wpPage .= "/" . $page;
 		
 		if ($GLOBALS["role"] == "test") {
-			$url = "http://localhost/~wiki/index.php?title=" . urlencode($wpPage) . "&action=raw";
-			$allURL = "http://localhost/~wiki/index.php?title=" . urlencode($allPage) . "&action=raw";
+			$url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage) . "&action=raw";
+			$allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage) . "&action=raw";
 		}
 		else {
-			$url = "http://en.wikipedia.org/w/index.php?title=" . urlencode($wpPage) . "&action=raw";
-			$allURL = "http://en.wikipedia.org/w/index.php?title=" . urlencode($allPage) . "&action=raw";
+			$url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage) . "&action=raw";
+			$allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage) . "&action=raw";
 		}
 		
 		@$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
@@ -64,7 +64,7 @@ padding-bottom: 40px;
     <center>Error: $message
     <br />
     <br />
-    For assistance on this error, please contact User:Matthewrbowker at his <a href="http://en.wikipedia.org/wiki/User_talk:Matthewrbowker" target=_blank>talk page</a>.</center>
+    For assistance on this error, please contact User:Matthewrbowker at his <a href="{$GLOBALS['url']}/User_talk:Matthewrbowker" target=_blank>talk page</a>.</center>
   </div>
 
     </div> <!-- /col-md-12 -->

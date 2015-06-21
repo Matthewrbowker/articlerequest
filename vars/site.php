@@ -173,7 +173,7 @@ function gen_opening_min(translate $k = NULL, $page = "") {
 
       <div class="footer">
         <p style="text-align:right"><small>Article request tool version <?php echo $GLOBALS["version"] ?> (<a href="about.php"><?php echo $this->about; ?></a>)<br />
-          Content pulled from the Wikipedia page "<a href="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?>" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?></a>," and "<a href="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all</a>"</small>
+          Content pulled from the Wikipedia page "<a href="<?php echo $GLOBALS['url']; ?>/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?>" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?></a>," and "<a href="<?php echo $GLOBALS['url']; ?>/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all</a>"</small>
         </p>
       </div>
     </div>
@@ -194,7 +194,7 @@ function gen_opening_min(translate $k = NULL, $page = "") {
 
       <div class="footer">
         <p style="text-align:right"><small>Article request tool version <?php echo $GLOBALS["version"] ?><br />
-          Content pulled from the Wikipedia page "<a href="http://en.wikipedia.org/wiki/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?>" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?></a>"</small>
+          Content pulled from the Wikipedia page "<a href="<?php $GLOBALS['url'] ?>/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?>" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?></a>"</small>
         </p>
         <br />
         <!--p style="text-align:center"><a href='http://validator.w3.org/check?uri=referer' target="_blank" ><img src='images/valid-html5.png' alt='Valid HTML 5' style="border:0;width:88px;height:31px"></a>

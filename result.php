@@ -43,7 +43,7 @@ if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") :
 endif;
 
 if ($pdo->success()) {
-	echo "<form action=\"http://en.wikipedia.org\"><input type=\"submit\" class=\"btn btn-success\" value=\"{$k->_r("done")}\" /></form>";
+	echo "<form action=\"{$GLOBALS['url']}\"><input type=\"submit\" class=\"btn btn-success\" value=\"{$k->_r("done")}\" /></form>";
 
 }
 else {
