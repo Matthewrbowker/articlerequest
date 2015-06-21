@@ -233,4 +233,4 @@ $catBuffer .= "</div>";
 <script src="vars/js/category.js.php" type="text/javascript"></script> 
 <script src="vars/js/sources.js.php" type="text/javascript"></script> 
 <!-- script src="vars/js/index.js" type="text/javascript"></script -->
-<? $site -> gen_closing($k); ?>
+<?php $site -> gen_closing($k); ?>

@@ -154,4 +154,4 @@ Here's the sources you have so far:
 <input type="button" value="Close window" class="btn btn-danger" onClick="closeWindow()" style="width: 100%;" /><!-- name="close" -->
 </form>
 
-<? $site -> gen_closing_min(); ?>
+<?php $site -> gen_closing_min(); ?>

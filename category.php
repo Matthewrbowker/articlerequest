@@ -182,4 +182,4 @@ $catBuffer .= "</div>";
 <input type="button" name="close" value="Close window" class="btn btn-danger" onClick="closeWindow()" style="width: 100%;" />
 
 </form>
-<? $site -> gen_closing_min(); ?>
+<?php $site -> gen_closing_min(); ?>
