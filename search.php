@@ -43,4 +43,4 @@ $site -> gen_opening($k, "search");
 
 	</form>
 
-<?php $site -> gen_closing(); ?>
+<?php $site -> gen_closing($k); ?>

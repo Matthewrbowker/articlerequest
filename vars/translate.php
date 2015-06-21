@@ -5,6 +5,7 @@ class translate {
 private $keys;
 
 	function __construct($lang = 'en', $page = "") {
+        $urlArray = array();
 		// Test role is designed to be run on my local server
 		if ($GLOBALS['role'] == "test") {
 			$wpPage = "Article request/config";
@@ -20,21 +21,32 @@ private $keys;
 		$allPage = $wpPage . "/all"; // Gotta save this first so we don't confuse anything...
 		
 		if ($page != "") $wpPage .= "/" . $page;
+
+        $urlArray["wp-page"] = $wpPage;
+        $urlArray["wp-all-page"] = $allPage;
 		
 		if ($GLOBALS["role"] == "test") {
-			$url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage) . "&action=raw";
-			$allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage) . "&action=raw";
+			$url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage);
+			$allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage);
 		}
 		else {
-			$url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage) . "&action=raw";
-			$allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage) . "&action=raw";
+			$url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage);
+			$allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage);
 		}
-		
+
+        $urlArray["wp-url"] = $url;
+        $urlArray["wp-all-url"] = $allURL;
+
+        $url .= "&action=raw";
+        $allURL .= "&action=raw";
+
 		@$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 		
 		@$allKeys = parse_ini_string(file_get_contents($allURL)) or $this->errorMessage("Unable to get general config");
 		
 		$this -> keys = array_merge($allKeys, $wpKeys);
+
+        $this->keys = array_merge($this -> keys, $urlArray);
 		
 	}
 

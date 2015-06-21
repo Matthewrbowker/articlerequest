@@ -57,5 +57,5 @@ else {
 	echo "<input type=\"submit\" class=\"btn btn-danger\" value=\"{$k->_r("go_back")}\" /></form>";
 }
 
-$site -> gen_closing();
+$site -> gen_closing($k);
 ?>

@@ -8,7 +8,6 @@ class site {
 		if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
 		
 	$this -> page = $page;
-    $this -> about = $k-> _r("about");
 
     $nav = "";
 	$navRight = "";
@@ -167,13 +166,14 @@ function gen_opening_min(translate $k = NULL, $page = "") {
 }
 
 	
-	function gen_closing() {
+	function gen_closing(translate $k = NULL) {
+    if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
 ?>
         <hr>
 
       <div class="footer">
-        <p style="text-align:right"><small>Article request tool version <?php echo $GLOBALS["version"] ?> (<a href="about.php"><?php echo $this->about; ?></a>)<br />
-          Content pulled from the Wikipedia page "<a href="<?php echo $GLOBALS['url']; ?>/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?>" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?><?php if ($this -> page) echo "/" . $this -> page; ?></a>," and "<a href="<?php echo $GLOBALS['url']; ?>/User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all" target=_blank>User:Matthewrbot/Config/1/interface<?php if ($this ->dev) echo "/dev"; ?>/all</a>"</small>
+        <p style="text-align:right"><small>Article request tool version <?php echo $GLOBALS["version"] ?> (<a href="about.php"><?php $k->_e("about"); ?></a>)<br />
+          Content pulled from the Wikipedia page "<a href="<?php $k -> _e("wp-url") ?>" target=_blank><?php $k -> _e("wp-page") ?></a>," and "<a href="<?php $k -> _e("wp-all-url") ?>" target=_blank><?php $k -> _e("wp-all-page") ?></a>"</small>
         </p>
       </div>
     </div>
