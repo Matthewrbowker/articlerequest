@@ -3,18 +3,18 @@
 // Name of the file
 $filename = '../sql/articlerequest.sql';
 // MySQL host
-$mysql_host = 'localhost';
+$db_host = 'localhost';
 // MySQL username
-$mysql_username = 'root';
+$db_user = 'root';
 // MySQL password
-$mysql_password = '';
+$db_pass = '';
 // Database name
-$mysql_database = 'articlerequest';
+$db_database = 'articlerequest';
 
-// Connect to MySQL server
-mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
-// Select database
-mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
+$hostString = "mysql:host={$db_host};dbname={$db_database};charset=utf8";
+$pdo = new PDO($hostString, $db_user,$db_pass);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 // Temporary variable, used to store current query
 $templine = '';
@@ -32,8 +32,14 @@ foreach ($lines as $line)
 // If it has a semicolon at the end, it's the end of the query
     if (substr(trim($line), -1, 1) == ';')
     {
-        // Perform the query
-        mysql_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+        try {
+            // Perform the query
+            $query = $pdo->prepare($templine);
+            $query->execute();
+        } catch (PDOException $ex) {
+            print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+            exit(1);
+        }
         // Reset temp variable to empty
         $templine = '';
     }
