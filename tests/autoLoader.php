@@ -1,7 +1,7 @@
 <?php
 
 // Name of the file
-$filename = '../sql/articlerequest.sql';
+$filename = 'sql/articlerequest.sql';
 // MySQL host
 $db_host = 'localhost';
 // MySQL username
