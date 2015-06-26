@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @backupGlobals disabled
+ * @backupStaticAttributes disabled
+ */
+
 // Name of the file
 $filename = 'sql/articlerequest.sql';
 // MySQL host
