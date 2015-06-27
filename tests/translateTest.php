@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @backupGlobals disabled
+ * @backupStaticAttributes disabled
+ */
+
 class TranslateTest extends PHPUnit_Framework_TestCase
 {
     public function testAdd()

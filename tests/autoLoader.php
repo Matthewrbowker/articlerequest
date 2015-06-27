@@ -14,12 +14,37 @@ $db_user = 'root';
 // MySQL password
 $db_pass = '';
 // Database name
-$db_database = 'articlerequest';
+$db_database = 'articlerequest_dev';
 
 $hostString = "mysql:host={$db_host};dbname={$db_database};charset=utf8";
 $pdo = new PDO($hostString, $db_user,$db_pass);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+try {
+    $pdo->exec("drop database IF EXISTS $db_database");
+
+} catch (PDOException $ex) {
+    print('Error performing query 1: ' . $ex->getMessage() . "\r\n\r\n");
+    exit(1);
+}
+
+try {
+    $pdo->exec("create database IF NOT EXISTS $db_database");
+
+} catch (PDOException $ex) {
+    print('Error performing query 2: ' . $ex->getMessage() . "\r\n\r\n");
+    exit(1);
+}
+
+try {
+    $pdo->exec("USE $db_database");
+    unset($query);
+
+} catch (PDOException $ex) {
+    print('Error performing query 3: ' . $ex->getMessage() . "\r\n\r\n");
+    exit(1);
+}
 
 // Temporary variable, used to store current query
 $templine = '';
@@ -42,12 +67,14 @@ foreach ($lines as $line)
             $query = $pdo->prepare($templine);
             $query->execute();
         } catch (PDOException $ex) {
-            print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+            print('Error performing query on file \'' . $templine . '\': ' . $ex->getMessage() . "\r\n\r\n");
             exit(1);
         }
         // Reset temp variable to empty
         $templine = '';
     }
 }
-echo "Tables imported successfully";
+echo "Tables imported successfully\r\n\r\n";
+
+$GLOBALS["db_database"] = $db_database;
 ?>
