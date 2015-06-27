@@ -16,7 +16,7 @@ $db_pass = '';
 // Database name
 $db_database = 'articlerequest_dev';
 
-$hostString = "mysql:host={$db_host};dbname={$db_database};charset=utf8";
+$hostString = "mysql:host={$db_host};dbname=sql;charset=utf8";
 $pdo = new PDO($hostString, $db_user,$db_pass);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
