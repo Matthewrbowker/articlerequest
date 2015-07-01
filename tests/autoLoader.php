@@ -77,4 +77,6 @@ foreach ($lines as $line)
 echo "Tables imported successfully\r\n\r\n";
 
 $GLOBALS["db_database"] = $db_database;
+$GLOBALS["role"] = "test";
+$GLOBALS["url"] = "file://" . __DIR__ . "";
 ?>

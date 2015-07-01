@@ -40,6 +40,9 @@ private $keys;
         $url .= "&action=raw";
         $allURL .= "&action=raw";
 
+        print $url;
+        print $allURL;
+
 		@$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 		
 		@$allKeys = parse_ini_string(file_get_contents($allURL)) or $this->errorMessage("Unable to get general config");
