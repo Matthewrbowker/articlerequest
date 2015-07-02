@@ -40,8 +40,8 @@ private $keys;
         $url .= "&action=raw";
         $allURL .= "&action=raw";
 
-        print $url;
-        print $allURL;
+        // print $url;
+        // print $allURL;
 
 		@$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 		
@@ -88,7 +88,7 @@ padding-bottom: 40px;
 </BODY>
 </HTML>
 END;
-die();
+exit(1);
 	  
 	}
 		
