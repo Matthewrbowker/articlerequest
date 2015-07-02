@@ -40,8 +40,11 @@ private $keys;
         $url .= "&action=raw";
         $allURL .= "&action=raw";
 
-        // print $url;
-        // print $allURL;
+        if ($GLOBALS["role"] == "autotest") {
+            $url = explode("?", $url)[0];
+            $allURL = explode("?", $allURL)[0];
+
+        }
 
 		@$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 		
