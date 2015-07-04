@@ -12,6 +12,8 @@ $site -> gen_opening($k, "");
 
 $db = new wpPDO();
 
+$c = new category($k);
+
 ?>
 
 <!-- Modals for the Category and sources -->
@@ -30,26 +32,14 @@ $db = new wpPDO();
       <div class="modal-body">
         <?php
 
-$opt=array(
-    "ssl"=>array(
-        "verify_peer"=>false,
-        "verify_peer_name"=>false,
-    ),
-);  
+//$opt=array(
+//    "ssl"=>array(
+//        "verify_peer"=>false,
+//        "verify_peer_name"=>false,
+//    ),
+//);
 
-if ($GLOBALS["role"] == "test") $url = "{$GLOBALS['url']}/index.php?title=Article_request/category&action=raw";
-else if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/User:Matthewrbot/Config/1/category/dev?action=raw";
-else $url = "{$GLOBALS['url']}/User:Matthewrbot/Config/1/category?action=raw";
-
-$values = parse_ini_string(file_get_contents($url), TRUE);
-
-// Small function to quickly fix the category names-
-function parseCatName($string) {
-	$string = str_replace(" ", "_", $string);
-	$string = str_replace("&", "&amp;", $string);
-	return $string;
-}
-?>
+        ?>
         <form method="get" action="#" onsubmit="submitValue()" onReset="resetValue()">
           <input type="hidden" name="category"  id="category" value="" />
           <input type="hidden" name="subcategory" id="subcategory" value="" />
@@ -69,53 +59,11 @@ function parseCatName($string) {
             <span id="sscatStore">
             <input type="button" name="sscatStoreBtn" id="sscatStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" />
             </span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
-          <?php
-
-$catBuffer = "<div class='well' id='well_cat'>\r\n";
-$catBuffer .= "<h3>";
-$catBuffer .= $k->_r("cat");
-$catBuffer .= "</h3>\r\n";
-
-
-//Initialize the other ones.
-$subCatBuffer = "";
-$subSubCatBuffer = "";
-
-foreach(array_keys($values) as $key1) {
-	$key1 = trim($key1);
-	$key1_u = parseCatName($key1);
-	$catBuffer .= "<input type='button' name='btn_category_{$key1_u}' value='{$key1}' class='btn btn-info'  onClick=\"onClickCategory('cat','{$key1}');\" /><br />\r\n"; //onClick='set(\"cat\", \"{$key1_u}\")'
-	
-	// Sub Category Stuff now
-	$subCatBuffer .= "<div class='well hide' id='well_sub_{$key1_u}'>\r\n";
-	$subCatBuffer .= "<h3>";
-	$subCatBuffer .= $k->_r("subcat");
-	$subCatBuffer .= "</h3>\r\n";
-
-	foreach(array_keys($values[$key1]) as $key2) {
-		$key2 = trim($key2);
-		$key2_u = parseCatName($key2);
-		$subCatBuffer .= "<input type='button' name='btn_sub_{$key2_u}' value='{$key2}' class='btn btn-info' onClick='set(\"scat\", \"{$key2_u}\", \"{$key1_u}\")' /><br />\r\n";
-
-		$subSubCatBuffer .= "<div class='well hide' id='well_subsub_{$key2_u}'>\r";
-		$subSubCatBuffer .= "<h3>";
-		$subSubCatBuffer .= $k->_r("subsubcat");
-		//$subSubCatBuffer .= "<span id=\"sscatStore\"></span>";
-		$subSubCatBuffer .= "</h3>\r\n";		
-		foreach(explode(";", $values[$key1][$key2]) as $key3) {
-			$key3 = trim($key3);
-			if ($key3 == "") {$key3 = "other"; }
-			$key3_u = parseCatName($key3);
-			$subSubCatBuffer .= "<input type='button' name='btn_sub_sub_{$key3_u}' value='{$key3}' class='btn btn-info' onClick='set(\"sscat\", \"{$key3_u}\" , \"{$key2_u}\")' /><br />\r\n";
-		}
-		$subSubCatBuffer .= "</div>\r\n\r\n";
-	}
-	$subCatBuffer .= "</div>\r\n\r\n";
-}
-$catBuffer .= "</div>";
-
-?>
-          <?php echo $catBuffer; ?> <?php echo $subCatBuffer; ?> <?php echo $subSubCatBuffer; ?>
+        <?php
+        $c->echoCat();
+        $c->echoSubCat();
+        $c->echoSubSubCat();
+        ?>
         </form>
       </div>
       <div class="modal-footer">

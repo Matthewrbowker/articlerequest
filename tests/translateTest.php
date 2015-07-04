@@ -30,5 +30,6 @@ class TranslateTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->translate->_r("test3"), "TEST 3");
         $this->assertNotEquals($this->translate->_r("test3"), "TEST 1");
         $this->assertNotEquals($this->translate->_r("test1"), "TEST 2");
+        $this->assertNotEquals($this->translate->_r("test2"), "TEST 3");
     }
 }

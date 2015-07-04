@@ -9,8 +9,6 @@ category = "";
 subCategory = "";
 subSubCategory = "";
 
-//alert("it worked!");
-
 function onClickCategory(type, name) {
 	if (type == "cat") {
     	category = name;
@@ -19,8 +17,12 @@ function onClickCategory(type, name) {
         well('cat','test',"");
     } else if (type == "scat") {
     	subCategory = name;
+        document.getElementById("catStoreBtn").value = name;
+        alert(category);
     } else if (type == "sscat") {
     	subSubCategory = name;
+document.getElementById("catStoreBtn").value = name;
+alert(category);
     } else {
     	alert("Something broke");
     }
@@ -29,8 +31,6 @@ function onClickCategory(type, name) {
 function sendValue(cat, scat, sscat) {
     document.getElementById("categorySpan").innerHTML = category + " &lt; " + subCateogry + " &lt; " + subSubCategory;
 }
-
-
 
 function well(type, curCat, prevCat) {
 	// type - category, scat, sscat

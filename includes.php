@@ -7,6 +7,7 @@ require('vars/config.inc.php');
 require('vars/translate.php');
 require('vars/site.php');
 require('vars/pdo.php');
+require('vars/categories.php');
 
 // Set the UA string
 ini_set('user_agent', 
