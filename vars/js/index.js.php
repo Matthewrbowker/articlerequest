@@ -13,3 +13,11 @@ function validate_checkbox() {
         document.getElementById("btnSubmit").disabled = false;
     }
 }
+
+function validate() {
+    // TODO: Validate form submission and provide for a usable JSON value for submitting.
+}
+
+function resetForm() {
+    // TODO: Form reset code
+}

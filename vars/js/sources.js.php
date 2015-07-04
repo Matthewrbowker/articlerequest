@@ -25,6 +25,10 @@ function randomValues() {
 }
 
 function removeSource(name) {
-    document.getElementById("sources_container").removeChild(name);
-    alert(name);
+    var node = document.getElementById(name);
+    node.parentNode.removeChild(node);
+}
+
+function saveSources() {
+    // Iterate through the fields, saving the values into a UL
 }

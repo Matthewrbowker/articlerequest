@@ -109,8 +109,6 @@ $s = new sources($k);
   </div>
 </div>
 
-<!-- script src="vars/validate.js" type="text/javascript"></script -->
-
 <div class="alert alert-danger" style="display:none;" id="id_alert_error">
   <?php $k -> _e("error"); ?>
 </div>
