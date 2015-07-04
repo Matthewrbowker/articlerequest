@@ -67,8 +67,8 @@ $c = new category($k);
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="sendValue()" data-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
@@ -177,8 +177,8 @@ $c = new category($k);
 </div>
 <div class="col-md-12">
 <script src="res/js/jquery-2.1.3.js" type="text/javascript"></script> 
-<script src="res/js/bootstrap.js" type="text/javascript"></script> 
+<script src="res/js/bootstrap.js" type="text/javascript"></script>
+<script src="vars/js/index.js.php" type="text/javascript"></script>
 <script src="vars/js/category.js.php" type="text/javascript"></script> 
-<script src="vars/js/sources.js.php" type="text/javascript"></script> 
-<!-- script src="vars/js/index.js" type="text/javascript"></script -->
+<script src="vars/js/sources.js.php" type="text/javascript"></script>
 <?php $site -> gen_closing($k); ?>

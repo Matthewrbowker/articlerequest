@@ -33,7 +33,7 @@ class category {
         foreach(array_keys($this->values) as $key1) {
             $key1 = trim($key1);
             $key1_u = $this->parseCatName($key1);
-            $this->catBuffer .= "<input type='button' name='btn_category_{$key1_u}' value='{$key1}' class='btn btn-info'  onClick=\"onClickCategory('cat','{$key1}');\" /><br />\r\n"; //onClick='set(\"cat\", \"{$key1_u}\")'
+            $this->catBuffer .= "<input type='button' name='btn_category_{$key1_u}' value='{$key1}' class='btn btn-info'  onClick=\"onClickCategory('cat','{$key1}','');\" /><br />\r\n"; //onClick='set(\"cat\", \"{$key1_u}\")'
 
             // Sub Category Stuff now
             $this->subCatBuffer .= "<div class='well hide' id='well_sub_{$key1_u}'>\r\n";
@@ -44,7 +44,7 @@ class category {
             foreach(array_keys($this->values[$key1]) as $key2) {
                 $key2 = trim($key2);
                 $key2_u = $this->parseCatName($key2);
-                $this->subCatBuffer .= "<input type='button' name='btn_sub_{$key2_u}' value='{$key2}' class='btn btn-info' onClick='set(\"scat\", \"{$key2_u}\", \"{$key1_u}\")' /><br />\r\n";
+                $this->subCatBuffer .= "<input type='button' name='btn_sub_{$key2_u}' value='{$key2}' class='btn btn-info' onClick='onClickCategory(\"scat\", \"{$key2_u}\", \"{$key1_u}\")' /><br />\r\n";
 
                 $this->subSubCatBuffer .= "<div class='well hide' id='well_subsub_{$key2_u}'>\r";
                 $this->subSubCatBuffer .= "<h3>";
@@ -55,7 +55,7 @@ class category {
                     $key3 = trim($key3);
                     if ($key3 == "") {$key3 = "other"; }
                     $key3_u = $this->parseCatName($key3);
-                    $this->subSubCatBuffer .= "<input type='button' name='btn_sub_sub_{$key3_u}' value='{$key3}' class='btn btn-info' onClick='set(\"sscat\", \"{$key3_u}\" , \"{$key2_u}\")' /><br />\r\n";
+                    $this->subSubCatBuffer .= "<input type='button' name='btn_sub_sub_{$key3_u}' value='{$key3}' class='btn btn-info' onClick='onClickCategory(\"sscat\", \"{$key3_u}\" , \"{$key2_u}\")' /><br />\r\n";
                 }
                 $this->subSubCatBuffer .= "</div>\r\n\r\n";
             }
