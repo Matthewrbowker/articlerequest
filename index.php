@@ -14,6 +14,8 @@ $db = new wpPDO();
 
 $c = new category($k);
 
+$s = new sources($k);
+
 ?>
 
 <!-- Modals for the Category and sources -->
@@ -88,17 +90,16 @@ $c = new category($k);
         <div class="panel panel-warning">
           <div class="panel-heading"> Add another source: </div>
           <div class="panel-body">
-            <center>
-              <?php
-			foreach (array_keys($values) as $one) {
-				echo "<input type=\"button\" name=\"sources_{$values[$one]['shorthand']}_add\" value=\"{$values[$one]['label']}\" class=\"btn btn-warning\" onClick=\"addSource('{$values[$one]['shorthand']}')\" />\r\n";
-			}
-			?>
-            </center>
+              <?php $s -> echoButtonBuffer(); ?>
           </div>
         </div>
+          <div class="hide">
+              <?php $s ->echoDivBuffer(); ?>
+          </div>
         <hr />
-        <div id="sources_container"> Here's the sources you have so far: </div>
+        <div id="sources_container"> Here's the sources you have so far:
+
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
