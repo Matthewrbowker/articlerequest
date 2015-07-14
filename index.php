@@ -87,7 +87,8 @@ $s = new sources($k);
               <?php $s ->echoDivBuffer(); ?>
           </div>
         <hr />
-        <div id="sources_container"> Here's the sources you have so far:
+        Here's the sources you have so far:
+        <div id="sources_container">
 
         </div>
       </div>

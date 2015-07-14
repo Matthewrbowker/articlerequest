@@ -30,11 +30,9 @@ function removeSource(name) {
 }
 
 function saveSources() {
-    buffer = document.createElement("ul");
-
     var nodes = document.getElementById("sources_container").childNodes;
 
     for(i=0; i < nodes.length; i++) {
-        alert(nodes[i].childNodes[0].innerHTML);
+        alert(nodes[i]);
     }
 }
