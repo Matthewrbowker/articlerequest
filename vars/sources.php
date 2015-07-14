@@ -35,7 +35,7 @@ class sources {
             <label for='%RANDOMINS%'>{$this->values[$one]['id']}</label>
             </div>
             <div class='panel-body'>
-            <a name='%RANDOMINS%'></a>
+            <a name='%RANDOMINS%'></a><div id="sources">
 END;
             for ($l = 0; $l < count($fields); $l++) {
                 $this->divBuffer .= <<<END
@@ -43,7 +43,7 @@ END;
 
 END;
             }
-            $this->divBuffer .= "</div></div>";
+            $this->divBuffer .= "</div></div></div>";
         }
     }
 

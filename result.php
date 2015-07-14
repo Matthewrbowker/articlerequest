@@ -12,7 +12,7 @@ $site -> gen_opening($k, "result");
 
 $pdo = new wpPDO();
 
-//@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sourcesSelect']);
+@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sources']);
 
 if ($pdo->success()) {
 	echo "<div class=\"alert alert-success\">";

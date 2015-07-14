@@ -14,7 +14,7 @@ function addSource(type) {
     else {
         buffer = document.createElement("div");
         buffer.id = randomIns;
-        buffer.className = "pannel panel-info";
+        buffer.className = "panel panel-info";
         buffer.innerHTML = document.getElementById("template_" + type).innerHTML.replace("%RANDOMINS%", randomIns);
         document.getElementById("sources_container").appendChild(buffer);
     }
@@ -30,5 +30,11 @@ function removeSource(name) {
 }
 
 function saveSources() {
-    // Iterate through the fields, saving the values into a UL
+    buffer = document.createElement("ul");
+
+    var nodes = document.getElementById("sources_container").childNodes;
+
+    for(i=0; i < nodes.length; i++) {
+        alert(nodes[i].childNodes[0].innerHTML);
+    }
 }

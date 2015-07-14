@@ -10,15 +10,12 @@ subSubCategory = "";
 
 function onClickCategory(type, cur, prev) {
 	if (type == "cat") {
-        alert(cur);
         category=cur;
         well(type, cur,"");
     } else if (type == "scat") {
-        alert(cur);
         subCategory=cur;
         well(type, cur, prev);
     } else if (type == "sscat") {
-        alert(cur);
         subSubCategory=cur;
         well(type, cur, prev);
     } else {
@@ -26,8 +23,10 @@ function onClickCategory(type, cur, prev) {
     }
 }
 
-function sendValue(cat, scat, sscat) {
+function sendValue() {
     document.getElementById("categorySpan").innerHTML = category + " &gt; " + subCategory + " &gt; " + subSubCategory;
+    alert(category + "::" + subCategory + "::" + subSubCategory);
+    alert(document.getElementById("categorySelect").value = category + "::" + subCategory + "::" + subSubCategory);
 }
 
 function well(type, curCat, prevCat) {

@@ -32,16 +32,6 @@ $s = new sources($k);
         </h4>
       </div>
       <div class="modal-body">
-        <?php
-
-//$opt=array(
-//    "ssl"=>array(
-//        "verify_peer"=>false,
-//        "verify_peer_name"=>false,
-//    ),
-//);
-
-        ?>
         <form method="get" action="#" onsubmit="submitValue()" onReset="resetValue()">
           <input type="hidden" name="category"  id="category" value="" />
           <input type="hidden" name="subcategory" id="subcategory" value="" />
@@ -50,17 +40,17 @@ $s = new sources($k);
             <?php $k->_e("cat"); ?>
             <span id="catStore">
             <input type="button" name="catStoreBtn" id="catStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" />
-            </span><!--input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" /--></h3>
+            </span><input type="button" name="catEditBtn" value="Edit" class="btn btn-warning" /></h3>
           <h3 class="text-muted hide" id="text_scat">
             <?php $k->_e("subcat"); ?>
             <span id="scatStore">
             <input type="button" name="scatStoreBtn" id="scatStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" />
-            </span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
+            </span><input type="button" name="scatEditBtn" value="Edit" class="btn btn-warning" /></h3>
           <h3 class="text-muted hide" id="text_sscat">
             <?php $k->_e("subsubcat"); ?>
             <span id="sscatStore">
             <input type="button" name="sscatStoreBtn" id="sscatStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" />
-            </span><!-- input type="button" name="catEditBtn" value="Edit Category" class="btn btn-warning" / --></h3>
+            </span><input type="button" name="sscatEditBtn" value="Edit" class="btn btn-warning" /></h3>
         <?php
         $c->echoCat();
         $c->echoSubCat();
@@ -86,7 +76,7 @@ $s = new sources($k);
           <?php $k->_e("sources-heading"); ?>
         </h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="max-height:420px; overflow-y:auto;">
         <div class="panel panel-warning">
           <div class="panel-heading"> Add another source: </div>
           <div class="panel-body">
@@ -103,7 +93,7 @@ $s = new sources($k);
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" onClick="saveSources()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
@@ -146,9 +136,7 @@ $s = new sources($k);
         <?php $k->_e("category"); ?>
       </label>
       <input type="hidden" name="categorySelect" id="categorySelect" value="" />
-      <!--a href="category.php" target=_new>[Select]</a --> 
-      <span id="categorySpan" class="text-muted"> &nbsp; </span> 
-      <!-- a href="category.php" onclick="javascript:void window.open('category.php','1395353426095','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">[Select]</a --> 
+      <span id="categorySpan" class="text-muted"> &nbsp; </span>
       <a href="#" data-toggle="modal" data-target="#categoryModal">[Select]</a>
       <div class="form-group" id="sources">
         <label class="control-label" for="inputError">
@@ -156,7 +144,6 @@ $s = new sources($k);
         </label>
         <input type="hidden" id="sourcesSelect" name="sourcesSelect" value ="" />
         <span id="sourcesSpan" class="hide"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </span> 
-        <!-- a href="sources.php" onclick="javascript:void window.open('sources.php','1395353426095','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">[Select]</a --> 
         <a href="#" data-toggle="modal" data-target="#sourcesModal">[Select]</a> </div>
       <div class="input-group"> <span class="input-group-addon">
         <input type="checkbox" name="doublecheck" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox" />
