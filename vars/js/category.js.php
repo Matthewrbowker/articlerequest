@@ -25,8 +25,8 @@ function onClickCategory(type, cur, prev) {
 
 function sendValue() {
     document.getElementById("categorySpan").innerHTML = category + " &gt; " + subCategory + " &gt; " + subSubCategory;
-    alert(category + "::" + subCategory + "::" + subSubCategory);
-    alert(document.getElementById("categorySelect").value = category + "::" + subCategory + "::" + subSubCategory);
+    // alert(category + "::" + subCategory + "::" + subSubCategory);
+    document.getElementById("categorySelect").value = category + "::" + subCategory + "::" + subSubCategory;
 }
 
 function well(type, curCat, prevCat) {

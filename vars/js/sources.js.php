@@ -31,8 +31,19 @@ function removeSource(name) {
 
 function saveSources() {
     var nodes = document.getElementById("sources_container").childNodes;
+    var toConvertToJson = {};
 
-    for(i=0; i < nodes.length; i++) {
-        alert(nodes[i]);
+    for(i=1; i < nodes.length; i++) {
+        var inputs = nodes[i].getElementsByTagName("input");
+        toConvertToJson[nodes[i].id] = {};
+        for(j = 1; j < inputs.length; j++) {
+            toConvertToJson[nodes[i].id][inputs[j].name] = inputs[j].value
+            //alert(inputs[j].name + ": " + inputs[j].value);
+        }
     }
+    var parsed = JSON.stringify(toConvertToJson);
+
+    alert(parsed);
+
+    document.getElementById("sourcesSelect").value = parsed;
 }
