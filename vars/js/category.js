@@ -1,9 +1,3 @@
-<?php
-header("content-type:text/javascript");
-
-require("../../includes.php");
-?>
-
 category = "";
 subCategory = "";
 subSubCategory = "";

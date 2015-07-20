@@ -112,7 +112,7 @@ $s = new sources($k);
 <div class="col-md-6">
   <form method="post" action="result.php" name="mainform" onsubmit="return validate();" onreset="resetform();">
     <div class="form-group" id="id_subject">
-      <label class="control-label" for="subject">
+      <label class="control-label" for="subject" id="subjectLabel">
         <?php $k->_e("subject"); ?>
       </label>
       <input type="text" class="form-control" id="subject" name="subject">
@@ -139,7 +139,8 @@ $s = new sources($k);
       <input type="hidden" name="categorySelect" id="categorySelect" value="" />
       <span id="categorySpan" class="text-muted"> &nbsp; </span>
       <a href="#" data-toggle="modal" data-target="#categoryModal">[Select]</a>
-      <div class="form-group" id="sources">
+      </div>
+      <div class="form-group" id="id_sources">
         <label class="control-label" for="inputError">
           <?php $k->_e("sources"); ?>
         </label>
@@ -165,7 +166,7 @@ $s = new sources($k);
 <div class="col-md-12">
 <script src="res/js/jquery-2.1.3.js" type="text/javascript"></script> 
 <script src="res/js/bootstrap.js" type="text/javascript"></script>
-<script src="vars/js/index.js.php" type="text/javascript"></script>
-<script src="vars/js/category.js.php" type="text/javascript"></script> 
-<script src="vars/js/sources.js.php" type="text/javascript"></script>
+<script src="vars/js/index.js" type="text/javascript"></script>
+<script src="vars/js/category.js" type="text/javascript"></script>
+<script src="vars/js/sources.js" type="text/javascript"></script>
 <?php $site -> gen_closing($k); ?>

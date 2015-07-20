@@ -1,8 +1,3 @@
-<?php
-header("content-type:text/javascript");
-
-require("../../includes.php");
-?>
 function addSource(type) {
 	var buffer = "";
 	var random = randomValues();
