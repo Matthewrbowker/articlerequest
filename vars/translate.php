@@ -4,7 +4,7 @@ class translate {
 
 private $keys;
 
-	function __construct($lang = 'en', $page = "") {
+	public function __construct($lang = 'en', $page = "") {
         $urlArray = array();
 		// Test role is designed to be run on my local server
 		if ($GLOBALS['role'] == "test") {
@@ -56,7 +56,7 @@ private $keys;
 		
 	}
 
-	function errorMessage($message) {
+	public function errorMessage($message) {
 		echo <<<END
 <!DOCTYPE HTML>
 <HTML>
@@ -96,7 +96,7 @@ exit(1);
 	}
 		
 	
-	function _r($key) {
+	public function _r($key) {
 		if (array_key_exists($key, $this ->keys)) {
 			$string = str_replace("{star}", "<i class=\"glyphicon glyphicon-star\"></i>", $this-> keys[$key]);
 			return $string;
@@ -107,7 +107,7 @@ exit(1);
 		}
 	}
 
-	function _e($key) {
+	public function _e($key) {
 		if (isset($_GET["keys"]) && $_GET["keys"] == "1") {
 			echo "{{{$key}}}";
 		}

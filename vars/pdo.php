@@ -4,7 +4,7 @@ class wpPDO {
 	private $link;
 	private $resultSuccess;
 
-	function __construct() {
+	public function __construct() {
 		try {
 			$hostString = "mysql:host={$GLOBALS['db_host']};dbname={$GLOBALS['db_database']};charset=utf8";
 			$this -> link = new PDO($hostString, $GLOBALS['db_user'],$GLOBALS['db_pass']);
@@ -18,19 +18,11 @@ class wpPDO {
 		}
 	}
 
-	function errorCatch($ex) {
-		$this -> resultSuccess = false;
-
-		echo "<div class=\"alert alert-danger\">An error has occured.";
-
-		if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
-			echo "<br /><br />Error details: " . $ex->getMessage() . "";
-		}
-
-		echo "</div>";
+	public function errorCatch($ex) {
+		$this->errorCatchString($ex->getMessage());
 	}
 
-	function errorCatchString($ex) {
+	public function errorCatchString($ex) {
 		$this -> resultSuccess = false;
 
 		echo "<div class=\"alert alert-danger\">An error has occured.";
@@ -43,18 +35,9 @@ class wpPDO {
 
 	}
 
-	function store($sSubject, $sDescription, $sCategory, $sUsername, $sSources) {
+	public function store($sSubject, $sDescription, $sCategory, $sUsername, $sSources) {
 
 		try {
-			//$num = $this->link->query("SELECT 'id' from 'requests' where 1;")->rowCount();
-			//echo $num;
-			//$sql="SELECT count(*) FROM requests WHERE 1 ";
-			//$result = $this->link->query($sql) or $this->errorCatchString($this->link->errorInfo() );
-			//$row = $result->fetch(PDO::FETCH_NUM);
-			//$num = $row[0];
-
-			//$num = $num + 1;
-
 			$insertStmt = $this->link->prepare("INSERT INTO `requests` (`subject`, `Description`, `Category`, `Username`, `Sources`) VALUES(:subject, :description, :category, :username, :sources)");
 			$insertStmt->bindValue(':subject', $sSubject);
 			$insertStmt->bindValue(':description', $sDescription);
@@ -67,21 +50,13 @@ class wpPDO {
 			$this -> resultSuccess = false;
 			$this->errorCatch($ex);
 		}
-
-		//$this->link->prepare(INSERT INTO `messages` (name, email, subject, message) VALUES (':name', ':email', '$subj', '$msg');")
 	}
 
-	function get($target = "", $id = "") {
-		if ($target == "rd"){
-			$table = "";
-		}
-	}
-
-	function success() {
+	public function success() {
 		return $this->resultSuccess;
 	}
 
-	function __destruct() {
+	public function __destruct() {
 		$this->link = null;
 	}
 }

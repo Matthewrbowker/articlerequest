@@ -12,7 +12,7 @@ class category {
         return $string;
     }
 
-	function __construct(translate $k = NULL) {
+	public function __construct(translate $k = NULL) {
         if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
 
         // TODO: Better handling of urls
@@ -49,7 +49,6 @@ class category {
                 $this->subSubCatBuffer .= "<div class='well hide' id='well_subsub_{$key2_u}'>\r";
                 $this->subSubCatBuffer .= "<h3>";
                 $this->subSubCatBuffer .= $k->_r("subsubcat");
-                //$subSubCatBuffer .= "<span id=\"sscatStore\"></span>";
                 $this->subSubCatBuffer .= "</h3>\r\n";
                 foreach(explode(";", $this->values[$key1][$key2]) as $key3) {
                     $key3 = trim($key3);
@@ -64,7 +63,7 @@ class category {
         $this->catBuffer .= "</div>";
 	}
 
-	function __destruct() {
+	public function __destruct() {
 		unset($this->values);
 		unset($this->catBuffer);
 		unset($this->subCatBuffer);
@@ -72,31 +71,31 @@ class category {
 
 	}
 
-	function getCat() {
+	public function getCat() {
         return $this->catBuffer;
 	}
 
-	function echoCat() {
+	public function echoCat() {
 		print $this->getCat();
 	}
 
-    function getSubCat() {
+    public function getSubCat() {
         return $this->subCatBuffer;
     }
 
-    function echoSubCat() {
+    public function echoSubCat() {
         print $this->getSubCat();
     }
 
-    function getSubSubCat() {
+    public function getSubSubCat() {
         return $this->subSubCatBuffer;
     }
 
-    function echoSubSubCat() {
+    public function echoSubSubCat() {
         print $this->getSubSubCat();
     }
 
-	function echoValues() {
+	public function echoValues() {
         print $this->values;
 	}
 }

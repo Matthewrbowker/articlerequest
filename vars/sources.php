@@ -5,7 +5,7 @@ class sources {
     private $buttonBuffer;
     private $divBuffer;
 
-    function __construct(translate $k) {
+    public function __construct() {
         # TODO: Better URL handling
         if ($GLOBALS["role"] == "test") $url = "{$GLOBALS['url']}/index.php?title=Article_request/sources&action=raw";
         else if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/User:Matthewrbot/Config/1/sources/dev?action=raw";
@@ -37,7 +37,8 @@ class sources {
             <div class='panel-body'>
             <a name='%RANDOMINS%'></a><div id="sources">
 END;
-            for ($l = 0; $l < count($fields); $l++) {
+            $size = count($fields);
+            for ($l = 0; $l < $size; $l++) {
                 $this->divBuffer .= <<<END
 			<label>{$headings[$l]}:</label> <input type='text' class='form-control' name='{$fields[$l]}'><br />
 
@@ -47,7 +48,7 @@ END;
         }
     }
 
-    function __destruct() {
+    public function __destruct() {
         unset($this->values);
         unset($this->buttonBuffer);
     }

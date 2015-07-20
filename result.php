@@ -11,8 +11,7 @@ $k = new translate($lang,"result");
 $site -> gen_opening($k, "result");
 
 $pdo = new wpPDO();
-
-@$pdo -> store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sources']);
+@$pdo->store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sources']);
 
 if ($pdo->success()) {
 	echo "<div class=\"alert alert-success\">";
@@ -39,7 +38,7 @@ if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") :
 	?>
 </pre>
 
-<?
+<?php
 endif;
 
 if ($pdo->success()) {

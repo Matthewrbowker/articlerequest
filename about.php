@@ -13,5 +13,3 @@ $site -> gen_opening($k, "about");
 $k -> _e("content");
 
 $site -> gen_closing($k);
-
-?>

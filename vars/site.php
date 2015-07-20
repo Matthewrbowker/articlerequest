@@ -2,9 +2,8 @@
 
 class site {
 	private $page;
-	private $about;
 	
-	function gen_opening(translate $k = NULL, $page = "") {
+	public function gen_opening(translate $k = NULL, $page = "") {
 		if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
 		
 	$this -> page = $page;
@@ -98,7 +97,7 @@ class site {
 }
 
 	
-	function gen_closing(translate $k = NULL) {
+	public function gen_closing(translate $k = NULL) {
     if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
 ?>
         <hr>
@@ -118,8 +117,4 @@ class site {
 </HTML>
 <?php
 	}
-
-  function categoryForm() {
-    echo "Category form to go here";
-  }
 }

@@ -34,4 +34,3 @@ $site ->gen_opening();
   print "($word1) ($c1) ($int1) \n";
   
   $site ->gen_closing($k);
-?>
