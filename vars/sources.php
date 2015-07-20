@@ -53,19 +53,19 @@ END;
         unset($this->buttonBuffer);
     }
 
-    function getButtonBuffer() {
+    public function getButtonBuffer() {
         return $this->buttonBuffer;
     }
 
-    function echoButtonBuffer() {
+    public function echoButtonBuffer() {
         echo $this->getButtonBuffer();
     }
 
-    function getDivBuffer() {
+    public function getDivBuffer() {
         return $this->divBuffer;
     }
 
-    function echoDivBuffer() {
+    public function echoDivBuffer() {
         echo $this->getDivBuffer();
     }
 

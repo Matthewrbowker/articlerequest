@@ -18,7 +18,7 @@ $site -> gen_opening($k, "search");
 	<?php endif; ?>
 
 	<?php if(ISSET($_GET["adv"]) && $_GET["adv"]):?>
-		<?php $k -> _e("category") ?> <?php $site -> categoryForm(); ?>
+		<?php $k -> _e("category") ?>
 
 	<?php endif; ?>
 

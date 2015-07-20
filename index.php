@@ -14,7 +14,7 @@ $db = new wpPDO();
 
 $c = new category($k);
 
-$s = new sources($k);
+$s = new sources();
 
 ?>
 
