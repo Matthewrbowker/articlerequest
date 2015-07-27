@@ -6,9 +6,9 @@ else $lang = 'en';
 
 $k = new translate($lang,"redirect");
 
-$site = new site();
+$site = new site($k, "redirect");
 
-$site -> gen_opening($k, "redirect");
+$site -> gen_opening();
 
 $db = new wpPDO();
 
@@ -31,4 +31,4 @@ $db = new wpPDO();
 
 </pre>
 
-<?php $site -> gen_closing($k); ?>
+<?php $site -> gen_closing(); ?>

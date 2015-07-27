@@ -3,9 +3,9 @@ require('includes.php');
 
 $k = new translate("en","search");
 
-$site = new site();
+$site = new site($k, "search");
 
-$site -> gen_opening($k, "search");
+$site -> gen_opening();
 
 ?>
 
@@ -43,4 +43,4 @@ $site -> gen_opening($k, "search");
 
 	</form>
 
-<?php $site -> gen_closing($k); ?>
+<?php $site -> gen_closing(); ?>

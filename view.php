@@ -9,7 +9,7 @@ else die("Error getting proper ID");
 
 $k = new translate($lang, "view"); 
 
-$site = new site();
+$site = new site($k, "view");
 
 $site ->gen_opening();
 

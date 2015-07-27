@@ -6,9 +6,9 @@ else $lang = 'en';
 
 $k = new translate($lang,"");
 
-$site = new site();
+$site = new site($k, "");
 
-$site -> gen_opening($k, "");
+$site -> gen_opening();
 
 $db = new wpPDO();
 
@@ -169,4 +169,4 @@ $s = new sources();
 <script src="vars/js/index.js" type="text/javascript"></script>
 <script src="vars/js/category.js" type="text/javascript"></script>
 <script src="vars/js/sources.js" type="text/javascript"></script>
-<?php $site -> gen_closing($k); ?>
+<?php $site -> gen_closing(); ?>

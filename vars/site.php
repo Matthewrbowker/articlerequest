@@ -2,44 +2,48 @@
 
 class site {
 	private $page;
-	
-	public function gen_opening(translate $k = NULL, $page = "") {
+	private $k;
+
+	public function __construct(translate $k = NULL, $page = "") {
 		if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
-		
-	$this -> page = $page;
+	    $this->k = $k;
+	    $this->page = $page;
+	}
+	
+	public function gen_opening() {
 
     $nav = "";
 	$navRight = "";
 
-    if ($k->_r("article_on")) {
-      if ($page == "") $nav .= "<li class=\"active\"><a href=\"index.php\">" . $k->_r("article") . "</a></li>";
-      else $nav .= "<li><a href=\"index.php\">" . $k->_r("article") . "</a></li>";
+    if ($this->k->_r("article_on")) {
+      if ($this->page == "") $nav .= "<li class=\"active\"><a href=\"index.php\">" . $this->k->_r("article") . "</a></li>";
+      else $nav .= "<li><a href=\"index.php\">" . $this->k->_r("article") . "</a></li>";
     }
 
-    if ($k->_r("redirect_on")) {
-      if ($page == "redirect") $nav .= "<li class=\"active\"><a href=\"redirect.php\">" . $k->_r("redirect") . "</a></li>";
-      else $nav .= "<li><a href=\"redirect.php\">" . $k->_r("redirect") . "</a></li>";
+    if ($this->k->_r("redirect_on")) {
+      if ($this->page == "redirect") $nav .= "<li class=\"active\"><a href=\"redirect.php\">" . $this->k->_r("redirect") . "</a></li>";
+      else $nav .= "<li><a href=\"redirect.php\">" . $this->k->_r("redirect") . "</a></li>";
     }
 
-    if ($k->_r("search_on")) {
-      if ($page == "search") $nav .= "<li class=\"active\"><a href=\"search.php\">" . $k->_r("search") . "</a></li>";
-      else $nav .= "<li><a href=\"search.php\">" . $k->_r("search") . "</a></li>";
+    if ($this->k->_r("search_on")) {
+      if ($this->page == "search") $nav .= "<li class=\"active\"><a href=\"search.php\">" . $this->k->_r("search") . "</a></li>";
+      else $nav .= "<li><a href=\"search.php\">" . $this->k->_r("search") . "</a></li>";
     }
 
-    if ($k->_r("about_on")) {
-      if ($page == "about") $nav .= "<li class=\"active\"><a href=\"about.php\">" . $k->_r("about") . "</a></li>";
-      else $nav .= "<li><a href=\"about.php\">" . $k->_r("about") . "</a></li>";
+    if ($this->k->_r("about_on")) {
+      if ($this->page == "about") $nav .= "<li class=\"active\"><a href=\"about.php\">" . $this->k->_r("about") . "</a></li>";
+      else $nav .= "<li><a href=\"about.php\">" . $this->k->_r("about") . "</a></li>";
     }
 
-    if ($k->_r("return_on")) {
-      $navRight .= "<li><a href=\"" . $k->_r("return_url") . "\">" . $k->_r("return") . "</a></li>";
+    if ($this->k->_r("return_on")) {
+      $navRight .= "<li><a href=\"" . $this->k->_r("return_url") . "\">" . $this->k->_r("return") . "</a></li>";
     }
-	?>
+print <<<ENDL
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
 <TITLE>
-<?php $k->_e("title"); ?>
+{$this->k->_r("title")}
 </TITLE>
 <meta charset="UTF-8">
 <LINK REL="stylesheet" href="res/css/bootstrap.css" />
@@ -54,16 +58,16 @@ class site {
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <span class="navbar-brand"><?php $k->_e("title"); ?></span>
+          <span class="navbar-brand">{$this->k->_r("title")}</span>
         </div>
         <div class="navbar=collapse navbar-right">
         	<ul class="nav navbar-nav">
-      			<?php echo $navRight; ?>
+      			{$navRight}
             </ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <?php echo $nav; ?>
+            {$nav}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -74,37 +78,35 @@ class site {
 
       <!-- div class="page-header">
         <ul class="nav nav-pills pull-right">
-		      <?php echo $nav ?>
+		      {$nav}
         </ul>
-		    <h1><?php $k->_e("title"); ?></h1>
+		    <h1>{$this->k->_r("title")}</h1>
       </div -->
 
       <div class="row marketing">
 	  <div class="col-md-12">
-    
-    <?php
-    if ($k->_r("message")) {
-      echo "<div class=\"alert alert-warning\">" . $k->_r("message-text") . "</div>";
+ENDL;
+
+    if ($this->k->_r("message")) {
+      echo "<div class=\"alert alert-warning\">" . $this->k->_r("message-text") . "</div>";
     }
-    ?>
+print <<< ENDL
 <noscript>
   <div class="alert alert-danger">
-    <?php echo $k->_r("no-javascript"); ?>
+    {$this->k->_r("no-javascript")}
   </div>
 </noscript>
-	  
-	 <?php 
+ENDL;
 }
 
 	
-	public function gen_closing(translate $k = NULL) {
-    if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
-?>
+	public function gen_closing() {
+print <<< ENDL
         <hr>
 
       <div class="footer">
-        <p style="text-align:right"><small>Article request tool version <?php echo $GLOBALS["version"] ?> (<a href="about.php"><?php $k->_e("about"); ?></a>)<br />
-          Content pulled from the Wikipedia page "<a href="<?php $k -> _e("wp-url") ?>" target=_blank><?php $k -> _e("wp-page") ?></a>," and "<a href="<?php $k -> _e("wp-all-url") ?>" target=_blank><?php $k -> _e("wp-all-page") ?></a>"</small>
+        <p style="text-align:right"><small>Article request tool version {$GLOBALS["version"]} (<a href="about.php">{$this->k->_r("about")}</a>)<br />
+          Content pulled from the Wikipedia page "<a href="{$this->k -> _r("wp-url")}" target=_blank>{$this->k -> _r("wp-page")}</a>," and "<a href="{$this->k -> _r("wp-all-url")}" target=_blank>{$this->k -> _r("wp-all-page")}</a>"</small>
         </p>
       </div>
     </div>
@@ -115,6 +117,6 @@ class site {
     </div> <!-- /container -->
 </BODY>
 </HTML>
-<?php
+ENDL;
 	}
 }

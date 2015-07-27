@@ -6,10 +6,10 @@ else $lang = 'en';
 
 $k = new translate($lang,"about");
 
-$site = new site();
+$site = new site($k, "about");
 
-$site -> gen_opening($k, "about");
+$site -> gen_opening();
 
 $k -> _e("content");
 
-$site -> gen_closing($k);
+$site -> gen_closing();

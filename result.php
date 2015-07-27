@@ -1,14 +1,14 @@
 <?php
 require('includes.php');
 
-$site = new site();
-
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
 $k = new translate($lang,"result");
 
-$site -> gen_opening($k, "result");
+$site = new site($k, "result");
+
+$site -> gen_opening();
 
 $pdo = new wpPDO();
 @$pdo->store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sources']);
@@ -56,5 +56,5 @@ else {
 	echo "<input type=\"submit\" class=\"btn btn-danger\" value=\"{$k->_r("go_back")}\" /></form>";
 }
 
-$site -> gen_closing($k);
+$site -> gen_closing();
 ?>
