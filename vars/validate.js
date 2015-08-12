@@ -18,33 +18,32 @@ function validate() {
 	var subsubcat=document.forms["mainform"]["subsubcat"].value;
 	var uname=document.forms["mainform"]["username"].value;
 	var check=document.forms["mainform"]["doublecheck"].checked;
+	var retVal = true;
 	if (subj==null || subj=="") {
 		alert("Subject must be filled out!");
 		subject.className='text-error';
-		return false;
+		retVal = false;
 	}
-	else if (cat==null || cat=="" || cat=="none") {
+	if (cat==null || cat=="" || cat=="none") {
 		alert("Please choose an article category!");
 		category1.className='text-error';
-		return false;
+        retVal = false;
 	}
-	else if (subcat==null || subcat=="" || subcat=="none") {
+	if (subcat==null || subcat=="" || subcat=="none") {
 		alert("Please choose an article sub-category!");
 		subcat1.className='text-error';
-		return false;
+        retVal = false;
 	}
-	else if (subsubcat==null || subsubcat=="" || subsubcat=="none") {
+	if (subsubcat==null || subsubcat=="" || subsubcat=="none") {
 		alert("Please choose an article sub-sub-category!");
 		subsubcat1.className='text-error';
-		return false;
+        retVal = false;
 	}
 	//else if (check == false || check==null || check=='') {
 	//	alert("Please read and agree to the agreement.");
 	//	return false;
 	//}
-	else {
-		return true;
-	}
+    return retVal;
 }
 
 function checkbox() {
