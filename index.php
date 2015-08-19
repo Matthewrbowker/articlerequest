@@ -164,8 +164,8 @@ $s = new sources();
   <div class="col-md-3"> &nbsp; </div>
 </div>
 <div class="col-md-12">
-<script src="res/js/jquery-2.1.3.js" type="text/javascript"></script> 
-<script src="res/js/bootstrap.js" type="text/javascript"></script>
+<!--script src="res/js/jquery-2.1.3.js" type="text/javascript"></script>
+<script src="res/js/bootstrap.js" type="text/javascript"></script -->
 <script src="vars/js/index.js" type="text/javascript"></script>
 <script src="vars/js/category.js" type="text/javascript"></script>
 <script src="vars/js/sources.js" type="text/javascript"></script>
