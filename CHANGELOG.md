@@ -1,3 +1,6 @@
+Changelog
+=========
+
 0.1devel5
 ---------
 - Convert key variables to globals
