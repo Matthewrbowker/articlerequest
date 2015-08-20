@@ -16,23 +16,28 @@ class site {
 	$navRight = "";
 
     if ($this->k->_r("article_on")) {
-      if ($this->page == "") $nav .= "<li class=\"active\"><a href=\"index.php\">" . $this->k->_r("article") . "</a></li>";
-      else $nav .= "<li><a href=\"index.php\">" . $this->k->_r("article") . "</a></li>";
+      $nav .= "<li";
+      if ($this->page == "") $nav .= " class='active'";
+      $nav .= "><a href=\"index.php\">" . $this->k->_r("article") . "</a></li>";
+
     }
 
     if ($this->k->_r("redirect_on")) {
-      if ($this->page == "redirect") $nav .= "<li class=\"active\"><a href=\"redirect.php\">" . $this->k->_r("redirect") . "</a></li>";
-      else $nav .= "<li><a href=\"redirect.php\">" . $this->k->_r("redirect") . "</a></li>";
+      $nav .= "<li";
+      if ($this->page == "redirect") $nav .= " class='active'";
+      $nav .= "><a href=\"redirect.php\">" . $this->k->_r("redirect") . "</a></li>";
     }
 
     if ($this->k->_r("search_on")) {
-      if ($this->page == "search") $nav .= "<li class=\"active\"><a href=\"search.php\">" . $this->k->_r("search") . "</a></li>";
-      else $nav .= "<li><a href=\"search.php\">" . $this->k->_r("search") . "</a></li>";
+      $nav .= "<li";
+      if ($this->page == "search") $nav .= " class='active'";
+      $nav .= "><a href=\"search.php\">" . $this->k->_r("search") . "</a></li>";
     }
 
     if ($this->k->_r("about_on")) {
-      if ($this->page == "about") $nav .= "<li class=\"active\"><a href=\"about.php\">" . $this->k->_r("about") . "</a></li>";
-      else $nav .= "<li><a href=\"about.php\">" . $this->k->_r("about") . "</a></li>";
+      $nav .= "<li";
+      if ($this->page == "about") $nav .= " class='active'";
+      $nav .= "><a href=\"about.php\">" . $this->k->_r("about") . "</a></li>";
     }
 
     if ($this->k->_r("return_on")) {
