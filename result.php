@@ -8,10 +8,12 @@ $k = new translate($lang,"result");
 
 $site = new site($k, "result");
 
+if (!empty($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "http://tools.wmflabs.org/articlerequest/index.php"){die();}
+
 $site -> gen_opening();
 
 $pdo = new wpPDO();
-@$pdo->store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sources']);
+$pdo->store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sourcesSelect']);
 
 if ($pdo->success()) {
 	echo "<div class=\"alert alert-success\">";
@@ -23,6 +25,8 @@ else {
 	$k->_e("failure");
 	echo "</div>";
 }
+
+    print $_SERVER["HTTP_REFERER"];
 
 if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") :
 ?>
