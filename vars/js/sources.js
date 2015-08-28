@@ -38,7 +38,5 @@ function saveSources() {
     }
     var parsed = JSON.stringify(toConvertToJson);
 
-    alert(parsed);
-
     document.getElementById("sourcesSelect").value = parsed;
 }

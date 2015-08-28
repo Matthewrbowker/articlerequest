@@ -63,7 +63,7 @@ function well(type, curCat, prevCat) {
 
 
 	setField(type, curCat);
-	document.getElementById(currentWell).className = "well hide";
+    document.getElementById(currentWell).className = "well hide";
     if (newWell != "well_submit") {	document.getElementById(newWell).className = "well unhide"; }
 	document.getElementById(newText).className = "text-muted unhide"
 }
