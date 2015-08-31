@@ -32,34 +32,36 @@ $s = new sources();
         </h4>
       </div>
       <div class="modal-body">
-        <form method="get" action="#" onsubmit="submitValue()" onReset="resetValue()">
-          <input type="hidden" name="category"  id="category" value="" />
+        <form method="get" action="#" onsubmit="submitValue()" onReset="resetValue()"><span id="categoryForm">
+          <!--input type="hidden" name="category"  id="category" value="" />
           <input type="hidden" name="subcategory" id="subcategory" value="" />
-          <input type="hidden" name="subsubcategory" id="subsubcategory" value="" />
+          <input type="hidden" name="subsubcategory" id="subsubcategory" value="" / -->
           <h3 class="text-muted hide" id="text_cat">
             <?php $k->_e("cat"); ?>
             <span id="catStore">
             <input type="button" name="catStoreBtn" id="catStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" />
-            </span><input type="button" name="catEditBtn" value="Edit" class="btn btn-warning" /></h3>
+            </span></h3>
           <h3 class="text-muted hide" id="text_scat">
             <?php $k->_e("subcat"); ?>
             <span id="scatStore">
             <input type="button" name="scatStoreBtn" id="scatStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" />
-            </span><input type="button" name="scatEditBtn" value="Edit" class="btn btn-warning" /></h3>
+            </span></h3>
           <h3 class="text-muted hide" id="text_sscat">
             <?php $k->_e("subsubcat"); ?>
             <span id="sscatStore">
             <input type="button" name="sscatStoreBtn" id="sscatStoreBtn" value=" " class="btn btn-info btn-disabled" disabled="disabled" />
-            </span><input type="button" name="sscatEditBtn" value="Edit" class="btn btn-warning" /></h3>
+            </span></h3>
         <?php
         $c->echoCat();
         $c->echoSubCat();
         $c->echoSubSubCat();
         ?>
         </form>
+        </span>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="button" name="resetBtn" value="Reset Categories" onClick = "resetCategory()" class="btn btn-warning" />
           <button type="button" class="btn btn-primary" onclick="sendValue()" data-dismiss="modal">Save changes</button>
       </div>
     </div>

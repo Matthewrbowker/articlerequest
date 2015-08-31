@@ -73,3 +73,15 @@ function setField(type, cat) {
     catBtn = type + "StoreBtn";
     document.getElementById(type + "StoreBtn").value = cat;
 }
+
+function resetCategory() {
+    category = "";
+    subCategory = "";
+    subSubCategory = "";
+    var children = document.getElementById("categoryForm").children;
+    for (var i = 0; i < children.length; i++) {
+        children[i].className = " hide";
+        // Do stuff
+    }
+    document.getElementById("well_cat").className = "well unhide"
+}
