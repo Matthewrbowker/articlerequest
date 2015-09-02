@@ -15,12 +15,12 @@ class site {
     $nav = "";
 	$navRight = "";
 
-    if ($this->k->_r("article_on")) {
+    /*if ($this->k->_r("article_on")) {
       $nav .= "<li";
       if ($this->page == "") $nav .= " class='active'";
       $nav .= "><a href=\"index.php\">" . $this->k->_r("article") . "</a></li>";
 
-    }
+    }*/
 
     if ($this->k->_r("redirect_on")) {
       $nav .= "<li";
@@ -63,7 +63,7 @@ print <<<ENDL
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <span class="navbar-brand">{$this->k->_r("title")}</span>
+          <a href="index.php" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> {$this->k->_r("title")}</a>
         </div>
         <div class="navbar=collapse navbar-right">
         	<ul class="nav navbar-nav">
@@ -80,13 +80,6 @@ print <<<ENDL
 <div class="container-fluid">
   <div class="col-md-1">&nbsp;</div>
   <div class="col-md-10">
-
-      <!-- div class="page-header">
-        <ul class="nav nav-pills pull-right">
-		      {$nav}
-        </ul>
-		    <h1>{$this->k->_r("title")}</h1>
-      </div -->
 
       <div class="row marketing">
 	  <div class="col-md-12">
