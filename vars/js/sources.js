@@ -1,11 +1,11 @@
 function addSource(type) {
-	var buffer = "";
-	var random = randomValues();
+    var buffer = "";
+    var random = randomValues();
     var randomIns = type + "_" + random;
 
-	if (type == "") {
-		alert("Sorry, our script broke. \r\n\r\nPlease refresh the page.");
-	}
+    if (type == "") {
+        alert("Sorry, our script broke. \r\n\r\nPlease refresh the page.");
+    }
     else {
         buffer = document.createElement("div");
         buffer.id = randomIns;
@@ -16,7 +16,7 @@ function addSource(type) {
 }
 
 function randomValues() {
-	return Math.random().toString(36).substring(2,9);
+    return Math.random().toString(36).substring(2,9);
 }
 
 function removeSource(name) {

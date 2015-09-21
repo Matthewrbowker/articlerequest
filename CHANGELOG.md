@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1devel6
+---------
+- Convert to hosted bootstrap
+- Code cleanup
+- Prepared for integrtion with User:Matthewrbot
+
 0.1devel5
 ---------
 - Convert key variables to globals

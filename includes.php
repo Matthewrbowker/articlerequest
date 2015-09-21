@@ -11,5 +11,4 @@ require('vars/categories.php');
 require('vars/sources.php');
 
 // Set the UA string
-ini_set('user_agent', 
-  "Article Request Tool - [[:w:en:User:Matthewrbowker]] - {$GLOBALS['version']}");
+ini_set('user_agent', "Article Request Tool - [[:w:en:User:Matthewrbowker]] - {$GLOBALS['version']}");

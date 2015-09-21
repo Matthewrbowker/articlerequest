@@ -32,3 +32,4 @@ $db = new wpPDO();
 </pre>
 
 <?php $site -> gen_closing(); ?>
+

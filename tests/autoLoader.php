@@ -80,3 +80,4 @@ $GLOBALS["db_database"] = $db_database;
 $GLOBALS["role"] = "autotest";
 $GLOBALS["url"] = "file://" . __DIR__;
 ?>
+

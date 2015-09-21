@@ -1,7 +1,7 @@
 <?php
 
 class category {
-	private $values;
+    private $values;
     private $catBuffer;
     private $subCatBuffer;
     private $subSubCatBuffer;
@@ -12,15 +12,15 @@ class category {
         return $string;
     }
 
-	public function __construct(translate $k = NULL) {
+    public function __construct(translate $k = NULL) {
         if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
 
         // TODO: Better handling of urls
-		if ($GLOBALS["role"] == "test") $url = "{$GLOBALS['url']}/index.php?title=Article_request/category&action=raw";
-		else if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/User:Matthewrbot/Config/1/category/dev?action=raw";
-		else $url = "{$GLOBALS['url']}/User:Matthewrbot/Config/1/category?action=raw";
+        if ($GLOBALS["role"] == "test") $url = "{$GLOBALS['url']}/index.php?title=Article_request/category&action=raw";
+        else if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/User:Matthewrbot/Config/1/category/dev?action=raw";
+        else $url = "{$GLOBALS['url']}/User:Matthewrbot/Config/1/category?action=raw";
 
-		$this->values = parse_ini_string(file_get_contents($url), TRUE);
+        $this->values = parse_ini_string(file_get_contents($url), TRUE);
 
         $this->catBuffer = "<div class='well' id='well_cat'>\r\n";
         $this->catBuffer .= "<h3>";
@@ -61,23 +61,23 @@ class category {
             $this->subCatBuffer .= "</div>\r\n\r\n";
         }
         $this->catBuffer .= "</div>";
-	}
+    }
 
-	public function __destruct() {
-		unset($this->values);
-		unset($this->catBuffer);
-		unset($this->subCatBuffer);
-		unset($this->subSubCatBuffer);
+    public function __destruct() {
+        unset($this->values);
+        unset($this->catBuffer);
+        unset($this->subCatBuffer);
+        unset($this->subSubCatBuffer);
 
-	}
+    }
 
-	public function getCat() {
+    public function getCat() {
         return $this->catBuffer;
-	}
+    }
 
-	public function echoCat() {
-		print $this->getCat();
-	}
+    public function echoCat() {
+        print $this->getCat();
+    }
 
     public function getSubCat() {
         return $this->subCatBuffer;
@@ -95,7 +95,7 @@ class category {
         print $this->getSubSubCat();
     }
 
-	public function echoValues() {
+    public function echoValues() {
         print $this->values;
-	}
+    }
 }

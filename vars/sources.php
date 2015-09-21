@@ -40,7 +40,7 @@ END;
             $size = count($fields);
             for ($l = 0; $l < $size; $l++) {
                 $this->divBuffer .= <<<END
-			<label>{$headings[$l]}:</label> <input type='text' class='form-control' name='{$fields[$l]}'><br />
+            <label>{$headings[$l]}:</label> <input type='text' class='form-control' name='{$fields[$l]}'><br />
 
 END;
             }

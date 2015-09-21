@@ -1,19 +1,19 @@
 <?php
 
 class site {
-	private $page;
-	private $k;
+    private $page;
+    private $k;
 
-	public function __construct(translate $k = NULL, $page = "") {
-		if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
-	    $this->k = $k;
-	    $this->page = $page;
-	}
-	
-	public function gen_opening() {
+    public function __construct(translate $k = NULL, $page = "") {
+        if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
+        $this->k = $k;
+        $this->page = $page;
+    }
+
+    public function gen_opening() {
 
     $nav = "";
-	$navRight = "";
+    $navRight = "";
 
     if ($this->k->_r("redirect_on")) {
       $nav .= "<li";
@@ -59,8 +59,8 @@ print <<<ENDL
           <a href="index.php" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> {$this->k->_r("title")}</a>
         </div>
         <div class="navbar=collapse navbar-right">
-        	<ul class="nav navbar-nav">
-      			{$navRight}
+            <ul class="nav navbar-nav">
+                  {$navRight}
             </ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
@@ -75,7 +75,7 @@ print <<<ENDL
   <div class="col-md-10">
 
       <div class="row marketing">
-	  <div class="col-md-12">
+      <div class="col-md-12">
 ENDL;
 
     if ($this->k->_r("message")) {
@@ -90,8 +90,8 @@ print <<< ENDL
 ENDL;
 }
 
-	
-	public function gen_closing() {
+
+    public function gen_closing() {
 print <<< ENDL
         <hr>
 
@@ -111,5 +111,5 @@ print <<< ENDL
 </BODY>
 </HTML>
 ENDL;
-	}
+    }
 }
