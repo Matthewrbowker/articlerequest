@@ -8,7 +8,7 @@ $k = new translate($lang,"result");
 
 $site = new site($k, "result");
 
-//if (!empty($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "http://tools.wmflabs.org/articlerequest/index.php"){die();}
+if (!empty($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "http://tools.wmflabs.org/articlerequest/index.php"){die();}
 
 $site -> gen_opening();
 

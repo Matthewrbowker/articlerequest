@@ -31,4 +31,4 @@ $word1 = strtolower($word1);
   
 print "($word1) ($c1) ($int1) \n";
   
-$site ->gen_closing($k);
+$site ->gen_closing();
