@@ -6,33 +6,21 @@ private $keys;
 
     public function __construct($lang = 'en', $page = "") {
         $urlArray = array();
-        // Test role is designed to be run on my local server
-        if ($GLOBALS['role'] == "test") {
-            $wpPage = "Article request/config";
-        }
-        else {
-            $wpPage = "User:Matthewrbot/Config/1/interface";
-        }
+        $wpPage = "User:Matthewrbot/Config/1/interface";
 
         if ($lang != 'en') $wpPage .= "/$lang";
 
         if ($GLOBALS["role"] == "staging") $wpPage .= "/dev";
 
-        $allPage = $wpPage . "/all"; // Gotta save this first so we don't confuse anything...
+        $allPage = $wpPage . "/all";
 
         if ($page != "") $wpPage .= "/" . $page;
 
         $urlArray["wp-page"] = $wpPage;
         $urlArray["wp-all-page"] = $allPage;
 
-        if ($GLOBALS["role"] == "test") {
-            $url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage);
-            $allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage);
-        }
-        else {
-            $url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage);
-            $allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage);
-        }
+        $url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage);
+        $allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage);
 
         $urlArray["wp-url"] = $url;
         $urlArray["wp-all-url"] = $allURL;

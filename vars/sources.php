@@ -6,10 +6,9 @@ class sources {
     private $divBuffer;
 
     public function __construct() {
-        # TODO: Better URL handling
-        if ($GLOBALS["role"] == "test") $url = "{$GLOBALS['url']}/index.php?title=Article_request/sources&action=raw";
-        else if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/User:Matthewrbot/Config/1/sources/dev?action=raw";
-        else $url = "{$GLOBALS['url']}/User:Matthewrbot/Config/1/sources?action=raw";
+
+        if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/index.php?title=User:Matthewrbot/Config/1/sources/dev&action=raw";
+        else $url = "{$GLOBALS['url']}/index.php?title=User:Matthewrbot/Config/1/sources&action=raw";
         $this->values = parse_ini_string(file_get_contents($url), TRUE);
 
         $this->buttonBuffer = "";
