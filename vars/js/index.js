@@ -1,10 +1,11 @@
 function validate_checkbox() {
-    var cb = document.getElementById("checkbox").checked;
-    if (cb == false) {
-        document.getElementById("btnSubmit").disabled = true;
+    var cb1 = document.getElementById("checkbox_1").checked;
+    var cb2 = document.getElementById("checkbox_2").checked;
+    if (cb1 == true && cb2 == true) {
+        document.getElementById("btnSubmit").disabled = false;
     }
     else {
-        document.getElementById("btnSubmit").disabled = false;
+        document.getElementById("btnSubmit").disabled = true;
     }
 }
 
