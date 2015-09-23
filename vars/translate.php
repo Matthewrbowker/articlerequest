@@ -85,9 +85,12 @@ exit(1);
 
 
     public function _r($key) {
-        if (array_key_exists($key, $this ->keys)) {
+        if (isset($_GET["keys"]) && $_GET["keys"] == "1") {
+            return "{{{$key}}}";
+        }
+        else if (array_key_exists($key, $this ->keys)) {
             $string = str_replace("{star}", "<i class=\"glyphicon glyphicon-star\"></i>", $this-> keys[$key]);
-            $string = str_replace("{a}", $key->_r("about"), $string);
+            $string = str_replace("{a}", $this->keys["about"], $string);
             $string = str_replace("{v}", $GLOBALS["version"], $string);
             return $string;
         }
@@ -98,12 +101,6 @@ exit(1);
     }
 
     public function _e($key) {
-        if (isset($_GET["keys"]) && $_GET["keys"] == "1") {
-            echo "{{{$key}}}";
-        }
-        else {
-            echo $this->_r($key);
-        }
-        return "<div class='alert alert-danger'>You're using echo with _e.  _e automatically echos, please fix this.</div>";
+        echo $this->_r($key);
     }
 }

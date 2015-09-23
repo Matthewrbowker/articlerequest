@@ -21,10 +21,6 @@ class TranslateTest extends PHPUnit_Framework_TestCase
 
     public function testReturn()
     {
-        // $calculator = new vars\translate;
-
-        // $result = $calculator->add(3, 4);
-
         $this->assertEquals($this->translate->_r("test1"), "TEST 1");
         $this->assertEquals($this->translate->_r("test2"), "TEST 2");
         $this->assertEquals($this->translate->_r("test3"), "TEST 3");
