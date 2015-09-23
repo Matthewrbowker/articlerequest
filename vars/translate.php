@@ -87,6 +87,8 @@ exit(1);
     public function _r($key) {
         if (array_key_exists($key, $this ->keys)) {
             $string = str_replace("{star}", "<i class=\"glyphicon glyphicon-star\"></i>", $this-> keys[$key]);
+            $string = str_replace("{a}", $key->_r("about"), $string);
+            $string = str_replace("{v}", $GLOBALS["version"], $string);
             return $string;
         }
         else {

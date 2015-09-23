@@ -96,8 +96,8 @@ print <<< ENDL
         <hr>
 
       <div class="footer">
-        <p style="text-align:right"><small>Article request tool version {$GLOBALS["version"]} (<a href="about.php">{$this->k->_r("about")}</a>)<br />
-          Content pulled from the Wikipedia page "<a href="{$this->k -> _r("wp-url")}" target=_blank>{$this->k -> _r("wp-page")}</a>," and "<a href="{$this->k -> _r("wp-all-url")}" target=_blank>{$this->k -> _r("wp-all-page")}</a>"</small>
+        <p style="text-align:right"><small>{$this->k->_r("footer")}</a>)<br />
+          <a href="{$this->k -> _r("wp-url")}" target=_blank>{$this->k -> _r("edit")}</a> &middot; <a href="{$this->k -> _r("wp-all-url")}" target=_blank>{$this->k -> _r("edit-all")}</a>"</small>
         </p>
       </div>
     </div>
