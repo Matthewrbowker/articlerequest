@@ -4,13 +4,15 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
+$fi = new fileLoader();
+
 $k = new translate($lang,"redirect");
 
 $site = new site($k, "redirect");
 
 $site -> gen_opening();
 
-$db = new wpPDO();
+$db = new wpPDO($fi);
 
 ?>
 

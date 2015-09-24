@@ -4,6 +4,8 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
+$fi = new fileLoader();
+
 $k = new translate($lang,"result");
 
 $site = new site($k, "result");
@@ -14,7 +16,7 @@ if (!empty($_SERVER['HTTP_REFERER']) && preg_match_all("/(http:\/\/|https:\/\/)(
 
 $site -> gen_opening();
 
-$pdo = new wpPDO();
+$pdo = new wpPDO($fi);
 $pdo->store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sourcesSelect']);
 
 if ($pdo->success()) {

@@ -4,10 +4,10 @@ class wpPDO {
     private $link;
     private $resultSuccess;
 
-    public function __construct() {
+    public function __construct(fileLoader $fi) {
         try {
-            $hostString = "mysql:host={$GLOBALS['db_host']};dbname={$GLOBALS['db_database']};charset=utf8";
-            $this -> link = new PDO($hostString, $GLOBALS['db_user'],$GLOBALS['db_pass']);
+            $hostString = "mysql:host=" . $fi->_r("host") . ";dbname=" . $fi->_r("database") . ";charset=utf8";
+            $this -> link = new PDO($hostString, $fi->_r("user"),$fi->_r("password"));
             $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $this -> resultSuccess = true;

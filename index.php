@@ -4,18 +4,19 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
+$fi = new fileLoader();
+
 $k = new translate($lang,"");
 
 $site = new site($k, "");
 
 $site -> gen_opening();
 
-$db = new wpPDO();
+$db = new wpPDO($fi);
 
 $c = new category($k);
 
 $s = new sources();
-
 ?>
 
 <!-- Modals for the Category and sources -->

@@ -9,6 +9,7 @@ require('vars/site.php');
 require('vars/pdo.php');
 require('vars/categories.php');
 require('vars/sources.php');
+require('vars/fileLoader.php');
 
 // Set the UA string
 ini_set('user_agent', "Article Request Tool - [[:w:en:User:Matthewrbowker]] - {$GLOBALS['version']}");
