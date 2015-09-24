@@ -92,7 +92,7 @@ exit(1);
             $string = str_replace("{star}", "<i class=\"glyphicon glyphicon-star\"></i>", $this-> keys[$key]);
             if (array_key_exists("about", $this->keys)) {$string = str_replace("{a}", $this->keys["about"], $string);}
             else {$string = str_replace("{a}", "{{about}}", $string);}
-            $string = str_replace("{v}", $GLOBALS["version"], $string);
+            if (!defined($GLOBALS["version"])) { $string = str_replace("{v}", $GLOBALS["version"], $string); }
             return $string;
         }
         else {
