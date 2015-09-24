@@ -28,7 +28,7 @@ class wpPDO {
         echo "<div class=\"alert alert-danger\">An error has occured.";
 
         if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
-            echo "<br /><br />Error details: " . $ex[2] . "";
+            echo "<br /><br />Error details: " . $ex . "";
         }
 
         echo "</div>";
