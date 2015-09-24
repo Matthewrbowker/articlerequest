@@ -8,7 +8,9 @@ $k = new translate($lang,"result");
 
 $site = new site($k, "result");
 
-if (!empty($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "http://tools.wmflabs.org/articlerequest/index.php"){die();}
+if (!empty($_SERVER['HTTP_REFERER']) && preg_match_all("/(http:\/\/|https:\/\/)(tools\.wmflabs\.org|localhost)\/(articlerequest.*)/i", $_SERVER["HTTP_REFERER"]) <= 0) {
+    die();
+}
 
 $site -> gen_opening();
 
@@ -25,8 +27,6 @@ else {
     $k->_e("failure");
     echo "</div>";
 }
-
-    print $_SERVER["HTTP_REFERER"];
 
 if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") :
 ?>
