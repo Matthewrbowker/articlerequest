@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.1devel7
+---------
+- Converted base config page to global variable
+- Convert one checkbox to two checkboxes
+- Spam protection on the web form
+- Layout fixes and performance improvements
+
 0.1devel6
 ---------
 - Convert to hosted bootstrap
