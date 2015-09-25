@@ -52,3 +52,8 @@ function validate() {
 function resetForm() {
     // TODO: Form reset code
 }
+
+function formParse() {
+    validate_checkbox()
+    document.getElementById("id_email").style.display = 'none';
+}

@@ -135,6 +135,12 @@ $s = new sources();
       </label>
       <input type="text" class="form-control" id="username" name="username">
     </div>
+    <div class="form-group" id="id_email">
+      <label class="control-label" for="email" id="emailLabel">
+        E-Mail
+      </label>
+      <input type="text" class="form-control" id="email" name="email">
+    </div>
     <div class="form-group" id="id_category">
       <label class="control-label" for="categorySelect">
         <?php $k->_e("category"); ?>

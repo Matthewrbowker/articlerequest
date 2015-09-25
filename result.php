@@ -14,6 +14,8 @@ if (!empty($_SERVER['HTTP_REFERER']) && preg_match_all("/(http:\/\/|https:\/\/)(
     die();
 }
 
+if ($_REQUEST["email"] != "") die();
+
 $site -> gen_opening();
 
 $pdo = new wpPDO($fi);

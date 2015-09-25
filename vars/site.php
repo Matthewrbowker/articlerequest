@@ -11,9 +11,11 @@ class site {
     }
 
     public function gen_opening() {
-
     $nav = "";
     $navRight = "";
+    $onload = "";
+
+    if ($this->page == "") {$onload=" onload='formParse()'";}
 
     if ($this->k->_r("redirect_on")) {
       $nav .= "<li";
@@ -52,7 +54,7 @@ print <<<ENDL
       }
       </style>
 </HEAD>
-<BODY>
+<BODY$onload>
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
