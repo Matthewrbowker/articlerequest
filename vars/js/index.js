@@ -28,7 +28,7 @@ function validate() {
         document.getElementById("id_subject").className='form-group has-error';
         retVal = false;
     }
-    else if (cat==null || cat=="" || cat==">>") {
+    else if (cat==null || cat=="" || cat==">>" || cat=="::::") {
         //alert("Please choose an article category!");
         document.getElementById("id_category").className='form-group has-error';
         retVal = false;
