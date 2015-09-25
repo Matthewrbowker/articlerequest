@@ -84,5 +84,6 @@ echo "Tables imported successfully\r\n\r\n";
 $GLOBALS["db_database"] = $db_database;
 $GLOBALS["role"] = "autotest";
 $GLOBALS["url"] = "file://" . __DIR__;
+$GLOBALS["basePage"] = "User:Matthewrbot/Config/1";
 ?>
 

@@ -6,7 +6,7 @@ private $keys;
 
     public function __construct($lang = 'en', $page = "") {
         $urlArray = array();
-        $wpPage = "User:Matthewrbot/Config/1/interface";
+        $wpPage = "{$GLOBALS["basePage"]}/interface";
 
         if ($lang != 'en') $wpPage .= "/$lang";
 

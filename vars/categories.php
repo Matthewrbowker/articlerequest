@@ -15,8 +15,7 @@ class category {
     public function __construct(translate $k = NULL) {
         if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
 
-        if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/index.php?title=User:Matthewrbot/Config/1/category/dev&action=raw";
-        else $url = "{$GLOBALS['url']}/index.php?title=User:Matthewrbot/Config/1/category&action=raw";
+        $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/category&action=raw";
 
         $this->values = parse_ini_string(file_get_contents($url), TRUE);
 

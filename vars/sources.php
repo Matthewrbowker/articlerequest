@@ -6,9 +6,7 @@ class sources {
     private $divBuffer;
 
     public function __construct() {
-
-        if ($GLOBALS["role"] == "staging") $url="{$GLOBALS['url']}/index.php?title=User:Matthewrbot/Config/1/sources/dev&action=raw";
-        else $url = "{$GLOBALS['url']}/index.php?title=User:Matthewrbot/Config/1/sources&action=raw";
+        $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/sources&action=raw";
         $this->values = parse_ini_string(file_get_contents($url), TRUE);
 
         $this->buttonBuffer = "";
