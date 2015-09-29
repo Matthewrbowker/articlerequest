@@ -1,12 +1,15 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
-else $lang = 'en';
+if (ISSET($_REQUEST['lang'])) {
+  $lang = $_REQUEST['lang'];
+} else {
+  $lang = 'en';
+}
 
 $fi = new fileLoader();
 
-$k = new translate($lang,"");
+$k = new translate($lang, "");
 
 $site = new site($k, "");
 
@@ -124,7 +127,10 @@ $s = new sources();
       </label>
       <br />
       <!-- input type="text" class="form-control" id="inputError" -->
-      <textarea id="comment" name="comment" class="form-control"><?php if (ISSET($_GET['description'])) echo $_GET['description']; ?>
+      <textarea id="comment" name="comment" class="form-control"><?php if (ISSET($_GET['description'])) {
+  echo $_GET['description'];
+}
+?>
 </textarea>
     </div>
     <div class="form-group" id="id_username">

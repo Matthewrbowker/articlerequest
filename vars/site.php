@@ -5,7 +5,9 @@ class site {
     private $k;
 
     public function __construct(translate $k = NULL, $page = "") {
-        if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
+        if ($k == NULL) {
+          die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
+        }
         $this->k = $k;
         $this->page = $page;
     }
@@ -15,23 +17,29 @@ class site {
     $navRight = "";
     $onload = "";
 
-    if ($this->page == "") {$onload=" onload='formParse()'";}
+    if ($this->page == "") {$onload = " onload='formParse()'"; }
 
     if ($this->k->_r("redirect_on")) {
       $nav .= "<li";
-      if ($this->page == "redirect") $nav .= " class='active'";
+      if ($this->page == "redirect") {
+        $nav .= " class='active'";
+      }
       $nav .= "><a href=\"redirect.php\">" . $this->k->_r("redirect") . "</a></li>";
     }
 
     if ($this->k->_r("search_on")) {
       $nav .= "<li";
-      if ($this->page == "search") $nav .= " class='active'";
+      if ($this->page == "search") {
+        $nav .= " class='active'";
+      }
       $nav .= "><a href=\"search.php\">" . $this->k->_r("search") . "</a></li>";
     }
 
     if ($this->k->_r("about_on")) {
       $nav .= "<li";
-      if ($this->page == "about") $nav .= " class='active'";
+      if ($this->page == "about") {
+        $nav .= " class='active'";
+      }
       $nav .= "><a href=\"about.php\">" . $this->k->_r("about") . "</a></li>";
     }
 

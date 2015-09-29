@@ -1,12 +1,15 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
-else $lang = 'en';
+if (ISSET($_REQUEST['lang'])) {
+  $lang = $_REQUEST['lang'];
+} else {
+  $lang = 'en';
+}
 
 $fi = new fileLoader();
 
-$k = new translate($lang,"redirect");
+$k = new translate($lang, "redirect");
 
 $site = new site($k, "redirect");
 

@@ -18,7 +18,7 @@ class sources {
         }
 
 
-        foreach(array_keys($this->values) as $one) {
+        foreach (array_keys($this->values) as $one) {
             $fields = explode("|", $this->values[$one]["fields"]);
             $headings = explode("|", $this->values[$one]["field_labels"]);
 

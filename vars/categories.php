@@ -13,7 +13,9 @@ class category {
     }
 
     public function __construct(translate $k = NULL) {
-        if ($k == NULL) die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
+        if ($k == NULL) {
+          die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
+        }
 
         $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/category&action=raw";
 
@@ -27,7 +29,7 @@ class category {
         $this->subCatBuffer = "";
         $this->subSubCatBuffer = "";
 
-        foreach(array_keys($this->values) as $key1) {
+        foreach (array_keys($this->values) as $key1) {
             $key1 = trim($key1);
             $key1_u = $this->parseCatName($key1);
             $this->catBuffer .= "<input type='button' name='btn_category_{$key1_u}' value='{$key1}' class='btn btn-info'  onClick=\"onClickCategory('cat','{$key1}','');\" /><br />\r\n"; //onClick='set(\"cat\", \"{$key1_u}\")'
@@ -38,7 +40,7 @@ class category {
             $this->subCatBuffer .= $k->_r("subcat");
             $this->subCatBuffer .= "</h3>\r\n";
 
-            foreach(array_keys($this->values[$key1]) as $key2) {
+            foreach (array_keys($this->values[$key1]) as $key2) {
                 $key2 = trim($key2);
                 $key2_u = $this->parseCatName($key2);
                 $this->subCatBuffer .= "<input type='button' name='btn_sub_{$key2_u}' value='{$key2}' class='btn btn-info' onClick='onClickCategory(\"scat\", \"{$key2_u}\", \"{$key1_u}\")' /><br />\r\n";
@@ -47,7 +49,7 @@ class category {
                 $this->subSubCatBuffer .= "<h3>";
                 $this->subSubCatBuffer .= $k->_r("subsubcat");
                 $this->subSubCatBuffer .= "</h3>\r\n";
-                foreach(explode(";", $this->values[$key1][$key2]) as $key3) {
+                foreach (explode(";", $this->values[$key1][$key2]) as $key3) {
                     $key3 = trim($key3);
                     if ($key3 == "") {$key3 = "other"; }
                     $key3_u = $this->parseCatName($key3);

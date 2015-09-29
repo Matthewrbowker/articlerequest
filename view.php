@@ -4,7 +4,7 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
-if (isset($_GET['id'])) $txt=$_GET['id'];
+if (isset($_GET['id'])) $txt = $_GET['id'];
 else die("Error getting proper ID");
 
 $k = new translate($lang, "view"); 
@@ -18,13 +18,13 @@ $site ->gen_opening();
 
 //$txt='ar-1000';
 
-$re1='((?:[a-z][a-z]+))';    # Word 1
-$re2='(-)';    # Any Single Character 1
-$re3='(\\d+)';    # Integer Number 1
-if ($c=preg_match_all ("/".$re1.$re2.$re3."/is", $txt, $matches)) {
-    $word1=$matches[1][0];
-    $c1=$matches[2][0];
-    $int1=$matches[3][0];
+$re1 = '((?:[a-z][a-z]+))'; # Word 1
+$re2 = '(-)'; # Any Single Character 1
+$re3 = '(\\d+)'; # Integer Number 1
+if ($c = preg_match_all("/" . $re1 . $re2 . $re3 . "/is", $txt, $matches)) {
+    $word1 = $matches[1][0];
+    $c1 = $matches[2][0];
+    $int1 = $matches[3][0];
 }
 
 $word1 = strtolower($word1);
