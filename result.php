@@ -1,12 +1,15 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
-else $lang = 'en';
+if (ISSET($_REQUEST['lang'])) {
+  $lang = $_REQUEST['lang'];
+} else {
+  $lang = 'en';
+}
 
 $fi = new fileLoader();
 
-$k = new translate($lang,"result");
+$k = new translate($lang, "result");
 
 $site = new site($k, "result");
 
@@ -14,7 +17,9 @@ if (!empty($_SERVER['HTTP_REFERER']) && preg_match_all("/(http:\/\/|https:\/\/)(
     die();
 }
 
-if ($_REQUEST["email"] != "") die();
+if ($_REQUEST["email"] != "") {
+  die();
+}
 
 $site -> gen_opening();
 
@@ -25,8 +30,7 @@ if ($pdo->success()) {
     echo "<div class=\"alert alert-success\">";
     $k->_e("success");
     echo "</div>";
-}
-else {
+} else {
     echo "<div class=\"alert alert-danger\">";
     $k->_e("failure");
     echo "</div>";
@@ -39,7 +43,7 @@ if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") :
 <pre>
     <ul>
     <?php
-        while($element = current($_REQUEST)) {
+        while ($element = current($_REQUEST)) {
             echo "<li>" . key($_REQUEST) . " = {$element}</li>";
             next($_REQUEST);
         }
@@ -52,11 +56,10 @@ endif;
 if ($pdo->success()) {
     echo "<form action=\"{$GLOBALS['url']}\"><input type=\"submit\" class=\"btn btn-success\" value=\"{$k->_r("done")}\" /></form>";
 
-}
-else {
+} else {
     echo "<form action=\"index.php\">";
 
-    while($element = current($_REQUEST)) {
+    while ($element = current($_REQUEST)) {
         echo "<input type=\"hidden\" name=\"" . key($_REQUEST) . "\" value=\"{$element}\" />";
         next($_REQUEST);
     }

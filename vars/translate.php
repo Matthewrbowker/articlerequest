@@ -8,13 +8,19 @@ private $keys;
         $urlArray = array();
         $wpPage = "{$GLOBALS["basePage"]}/interface";
 
-        if ($lang != 'en') $wpPage .= "/$lang";
+        if ($lang != 'en') {
+          $wpPage .= "/$lang";
+        }
 
-        if ($GLOBALS["role"] == "staging") $wpPage .= "/dev";
+        if ($GLOBALS["role"] == "staging") {
+          $wpPage .= "/dev";
+        }
 
         $allPage = $wpPage . "/all";
 
-        if ($page != "") $wpPage .= "/" . $page;
+        if ($page != "") {
+          $wpPage .= "/" . $page;
+        }
 
         $urlArray["wp-page"] = $wpPage;
         $urlArray["wp-all-page"] = $allPage;
@@ -90,8 +96,8 @@ exit(1);
         }
         else if (array_key_exists($key, $this ->keys)) {
             $string = str_replace("{star}", "<i class=\"glyphicon glyphicon-star\"></i>", $this-> keys[$key]);
-            if (array_key_exists("about", $this->keys)) {$string = str_replace("{a}", $this->keys["about"], $string);}
-            else {$string = str_replace("{a}", "{{about}}", $string);}
+            if (array_key_exists("about", $this->keys)) {$string = str_replace("{a}", $this->keys["about"], $string); }
+            else {$string = str_replace("{a}", "{{about}}", $string); }
             return $string;
         }
         else {

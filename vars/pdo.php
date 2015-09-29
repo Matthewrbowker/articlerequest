@@ -7,12 +7,11 @@ class wpPDO {
     public function __construct(fileLoader $fi) {
         try {
             $hostString = "mysql:host=" . $fi->_r("host") . ";dbname=" . $fi->_r("database") . ";charset=utf8";
-            $this -> link = new PDO($hostString, $fi->_r("user"),$fi->_r("password"));
+            $this -> link = new PDO($hostString, $fi->_r("user"), $fi->_r("password"));
             $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->link->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $this -> resultSuccess = true;
-        }
-        catch (PDOException $ex) {
+        } catch (PDOException $ex) {
             $this -> errorCatch($ex);
             $this -> resultSuccess = false;
         }
@@ -45,8 +44,7 @@ class wpPDO {
             $insertStmt->bindValue(':username', $sUsername);
             $insertStmt->bindValue(':sources', $sSources);
             $insertStmt->execute();
-        }
-        catch (PDOException $ex) {
+        } catch (PDOException $ex) {
             $this -> resultSuccess = false;
             $this->errorCatch($ex);
         }

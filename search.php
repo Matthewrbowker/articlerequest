@@ -1,7 +1,7 @@
 <?php
 require('includes.php');
 
-$k = new translate("en","search");
+$k = new translate("en", "search");
 
 $site = new site($k, "search");
 
@@ -13,11 +13,14 @@ $site -> gen_opening();
 
 <form action="search.php" method="GET">
     <div class="text-center">
-    <label for="q"><?php $k -> _e("label") ?></label> <input type="text" name="q" id="q"<?php if (ISSET($_GET["q"])) echo " value=\"" . $_GET["q"] . "\"" ?> class="input-xxlarge" />
+    <label for="q"><?php $k -> _e("label") ?></label> <input type="text" name="q" id="q"<?php if (ISSET($_GET["q"])) {
+  echo " value=\"" . $_GET["q"] . "\"" ?> class="input-xxlarge" />
     <?php if (!ISSET($_GET["adv"]) || !$_GET["adv"]): ?>
-    <?php endif; ?>
+    <?php endif;
+}
+?>
 
-    <?php if(ISSET($_GET["adv"]) && $_GET["adv"]):?>
+    <?php if (ISSET($_GET["adv"]) && $_GET["adv"]):?>
         <?php $k -> _e("category") ?>
 
     <?php endif; ?>
@@ -34,7 +37,7 @@ $site -> gen_opening();
     </table>
     
     <?php
-    if(isset($_GET["q"])) {
+    if (isset($_GET["q"])) {
         echo "Results for {$_GET['q']} here";
     }
     ?>

@@ -1,10 +1,13 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
-else $lang = 'en';
+if (ISSET($_REQUEST['lang'])) {
+  $lang = $_REQUEST['lang'];
+} else {
+  $lang = 'en';
+}
 
-$k = new translate($lang,"about");
+$k = new translate($lang, "about");
 
 $site = new site($k, "about");
 
