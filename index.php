@@ -61,9 +61,8 @@ $s = new sources();
         </span>
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <input type="button" name="resetBtn" value="Reset Categories" onClick = "resetCategory()" class="btn btn-warning" />
-          <button type="button" class="btn btn-primary" onclick="sendValue()" data-dismiss="modal">Save changes</button>
+          <input type="button" name="resetBtn" value="<?php $k->_e("clearInfo") ?>" onClick = "resetCategory()" class="btn btn-warning" />
+          <button type="button" class="btn btn-primary" onclick="sendValue()" data-dismiss="modal"><?php $k->_e("modalSave"); ?></button>
       </div>
     </div>
   </div>
@@ -96,8 +95,7 @@ $s = new sources();
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" onClick="saveSources()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        <button type="button" onClick="saveSources()" class="btn btn-primary" data-dismiss="modal"><?php $k->_e("modalSave") ?></button>
       </div>
     </div>
   </div>

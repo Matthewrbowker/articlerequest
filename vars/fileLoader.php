@@ -5,7 +5,8 @@ class fileLoader {
     public function __construct() {
         $files = ["../replica.my.cnf", "../database.my.cnf"];
         foreach($files as $file) {
-            $this->keys = array_merge($this->keys,parse_ini_string(file_get_contents($file)));
+            $inistring = @file_get_contents($file) or die("UNABLE TO LOAD: $file");
+            $this->keys = array_merge($this->keys,parse_ini_string($inistring));
         }
     }
 

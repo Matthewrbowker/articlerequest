@@ -2,7 +2,7 @@
 
 // Require all the files we need.
 require('vars/config.php');
-require('vars/config.inc.php');
+@include('vars/config.inc.php');
 
 require('vars/translate.php');
 require('vars/site.php');
