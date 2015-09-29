@@ -26,6 +26,6 @@ after_success:
   - codecov
 
 script:
-    - vendor/bin/phpunit --coverage-clover=coverage.xml
+    - phpunit --coverage-clover=coverage.xml
 
 sudo: false
