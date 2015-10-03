@@ -9,6 +9,17 @@ function validate_checkbox() {
     }
 }
 
+function toggle_checkbox(checkboxID) {
+    var cb = document.getElementById(checkboxID);
+    if (cb.checked) {
+        cb.checked = false;
+    }
+    else {
+        cb.checked = true;
+    }
+    validate_checkbox();
+}
+
 function clearerror() {
     document.getElementById("id_alert_error").style.display = "none";
     document.getElementById("id_subject").className='form-group';

@@ -40,13 +40,16 @@ private $keys;
 
         }
 
-        @$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
+        $this->keys = $urlArray;
+
+        $wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 
         @$allKeys = parse_ini_string(file_get_contents($allURL)) or $this->errorMessage("Unable to get general config");
 
-        $this -> keys = array_merge($allKeys, $wpKeys);
+        $this -> keys = array_merge($this->keys, $wpKeys);
+        $this -> keys = array_merge($this->keys, $allKeys);
 
-        $this->keys = array_merge($this -> keys, $urlArray);
+        //$this->keys = array_merge($this -> keys, $urlArray);
 
     }
 
@@ -78,6 +81,13 @@ padding-bottom: 40px;
     <br />
     For assistance on this error, please contact User:Matthewrbowker at his <a href="{$GLOBALS['url']}/User_talk:Matthewrbowker" target=_blank>talk page</a>.</center>
   </div>
+END;
+        if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
+            print "<pre>";
+            var_dump($this->keys);
+            print "</pre>";
+        }
+    echo <<<END
 
     </div> <!-- /col-md-12 -->
 

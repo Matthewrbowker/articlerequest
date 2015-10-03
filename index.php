@@ -160,12 +160,12 @@ $s = new sources();
         <input type="hidden" id="sourcesSelect" name="sourcesSelect" value ="" />
         <span id="sourcesSpan" class="hide"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </span> 
         <a href="#" data-toggle="modal" data-target="#sourcesModal"><?php $k->_e('select'); ?></a> </div>
-      <div class="input-group"> <span class="input-group-addon">
+      <div class="input-group" onclick="toggle_checkbox('checkbox_1')"> <span class="input-group-addon">
         <input type="checkbox" name="doublecheck_1" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox_1" />
         </span> <label for="dobulecheck" class="form-control" style="display: block;text-align: left;width: 100%; height:100%; white-space: normal;">
         <?php $k -> _e("check_1"); ?>
         </label> </div>
-    <div class="input-group"> <span class="input-group-addon">
+    <div class="input-group" onclick="toggle_checkbox('checkbox_2')"> <span class="input-group-addon">
         <input type="checkbox" name="doublecheck_2" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox_2" />
         </span> <label for="dobulecheck" class="form-control" style="display: block;text-align: left;width: 100%; height:100%; white-space: normal;">
         <?php $k -> _e("check_2"); ?>
