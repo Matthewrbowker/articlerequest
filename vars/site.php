@@ -106,8 +106,8 @@ print <<< ENDL
         <hr>
 
       <div class="footer">
-        <p style="text-align:right"><small>{$this->k->_r("footer")}<br />
-          <a href="{$this->k -> _r("wp-url")}" target=_blank>{$this->k -> _r("edit")}</a> &middot; <a href="{$this->k -> _r("wp-all-url")}" target=_blank>{$this->k -> _r("edit-all")}</a> &middot; Version {$GLOBALS['version']}</small>
+        <p style="text-align:right"><small>{$this->k->_r("footer")} &middot; Version {$GLOBALS['version']}<br />
+          <a href="{$this->k -> _r("wp-url")}" target=_blank>{$this->k -> _r("edit")}</a> &middot; <a href="{$this->k -> _r("wp-all-url")}" target=_blank>{$this->k -> _r("edit-all")}</a> &middot; <a href="about.php"\>{$this->k -> _r("about")}</a> </small>
         </p>
       </div>
     </div>

@@ -1,42 +1,22 @@
-function addSource(type) {
-    var buffer = "";
-    var random = randomValues();
-    var randomIns = type + "_" + random;
+var count = 0; // TODO: use sources.length
+var sources = {};
 
-    if (type == "") {
-        alert("Sorry, our script broke. \r\n\r\nPlease refresh the page.");
+function modalDisplay(action) {
+    if (action == "type") {
+        alert("type");
     }
-    else {
-        buffer = document.createElement("div");
-        buffer.id = randomIns;
-        buffer.className = "panel panel-info";
-        buffer.innerHTML = document.getElementById("template_" + type).innerHTML.replace("%RANDOMINS%", randomIns);
-        document.getElementById("sources_container").appendChild(buffer);
-    }
+    $('#sourcesModal').modal('show');
 }
 
-function randomValues() {
-    return Math.random().toString(36).substring(2,9);
+function addClick() {
+    modalDisplay('type');
 }
 
-function removeSource(name) {
-    var node = document.getElementById(name);
-    node.parentNode.removeChild(node);
+function editClick(randomins) {
+    //
 }
 
-function saveSources() {
-    var nodes = document.getElementById("sources_container").childNodes;
-    var toConvertToJson = {};
-
-    for(i=1; i < nodes.length; i++) {
-        var inputs = nodes[i].getElementsByTagName("input");
-        toConvertToJson[nodes[i].id] = {};
-        for(j = 1; j < inputs.length; j++) {
-            toConvertToJson[nodes[i].id][inputs[j].name] = inputs[j].value
-            //alert(inputs[j].name + ": " + inputs[j].value);
-        }
-    }
-    var parsed = JSON.stringify(toConvertToJson);
-
-    document.getElementById("sourcesSelect").value = parsed;
+function jsonify() {
+    // This is the lifter method that prepares the JSON for the form.
+    alert(sources);
 }

@@ -42,14 +42,12 @@ private $keys;
 
         $this->keys = $urlArray;
 
-        $wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
+        @$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
 
         @$allKeys = parse_ini_string(file_get_contents($allURL)) or $this->errorMessage("Unable to get general config");
 
         $this -> keys = array_merge($this->keys, $wpKeys);
         $this -> keys = array_merge($this->keys, $allKeys);
-
-        //$this->keys = array_merge($this -> keys, $urlArray);
 
     }
 
@@ -62,7 +60,7 @@ private $keys;
 $message
 </TITLE>
 <meta charset="UTF-8">
-<LINK REL="stylesheet" href="res/css/bootstrap.css" />
+<LINK REL="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <style type="text/css">
 body {
 padding-top: 20px;

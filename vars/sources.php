@@ -14,7 +14,7 @@ class sources {
 
 
         foreach (array_keys($this->values) as $one) {
-            $this->buttonBuffer .= "<input type=\"button\" name=\"sources_{$this->values[$one]['shorthand']}_add\" value=\"{$this->values[$one]['label']}\" class=\"btn btn-warning\" onClick=\"addSource('{$this->values[$one]['shorthand']}')\" />\r\n";
+            $this->buttonBuffer .= "<input type=\"button\" name=\"sources_{$this->values[$one]['shorthand']}_add\" value=\"{$this->values[$one]['id']}\" class=\"btn btn-warning\" onClick=\"addSource('{$this->values[$one]['shorthand']}')\" />\r\n";
         }
 
 

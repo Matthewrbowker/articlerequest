@@ -19,13 +19,19 @@ class TranslateTest extends PHPUnit_Framework_TestCase
         $this->translate = NULL;
     }
 
-    public function testReturn()
-    {
+    public function testReturn() {
+
+        // Testing that they return the correct values
         $this->assertEquals($this->translate->_r("test1"), "TEST 1");
         $this->assertEquals($this->translate->_r("test2"), "TEST 2");
         $this->assertEquals($this->translate->_r("test3"), "TEST 3");
+
+        // Testing they return the wrong values
         $this->assertNotEquals($this->translate->_r("test3"), "TEST 1");
         $this->assertNotEquals($this->translate->_r("test1"), "TEST 2");
         $this->assertNotEquals($this->translate->_r("test2"), "TEST 3");
+
+        // Test for an invalid key
+        $this->assertEquals($this->translate->_r("test4"), "{{test4}}");
     }
 }

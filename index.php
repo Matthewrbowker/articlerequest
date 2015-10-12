@@ -82,8 +82,8 @@ $s = new sources();
         </h4>
       </div>
       <div class="modal-body" style="max-height:420px; overflow-y:auto;">
-        <div class="panel panel-warning">
-          <div class="panel-heading"> Add another source: </div>
+        <div class="panel panel-warning" id="sourcesTypeButton">
+          <div class="panel-heading">Choose the source type</div>
           <div class="panel-body">
               <?php $s -> echoButtonBuffer(); ?>
           </div>
@@ -159,7 +159,7 @@ $s = new sources();
         </label>
         <input type="hidden" id="sourcesSelect" name="sourcesSelect" value ="" />
         <span id="sourcesSpan" class="hide"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </span> 
-        <a href="#" data-toggle="modal" data-target="#sourcesModal"><?php $k->_e('select'); ?></a> </div>
+        <a href="#" onclick="addClick()"><?php $k->_e('select'); ?></a> </div>
       <div class="input-group" onclick="toggle_checkbox('checkbox_1')"> <span class="input-group-addon">
         <input type="checkbox" name="doublecheck_1" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox_1" />
         </span> <label for="dobulecheck" class="form-control" style="display: block;text-align: left;width: 100%; height:100%; white-space: normal;">
