@@ -10,7 +10,7 @@ require ("vars/translate.php");
 class TranslateTest extends PHPUnit_Framework_TestCase
 {
     protected $translate;
-    protected $translateES;
+    protected $translateZYX;
 
     function setUp() {
         $this->translate = new Translate("en", "testpage" );
@@ -34,7 +34,12 @@ class TranslateTest extends PHPUnit_Framework_TestCase
         $this->assertNotEquals($this->translate->_r("test2"), "TEST 3");
 
         // Test for an invalid key
+        ob_start();
         $this->assertEquals($this->translate->_r("test4"), "{{test4}}");
+        $string=ob_get_contents();
+        ob_end_clean();
+        print $string . "\r\n";
+        $this->assertRegExp("/not found in the configuration file/", $string);
     }
 
     public function testLangCode() {
@@ -62,7 +67,7 @@ class TranslateTest extends PHPUnit_Framework_TestCase
 
     public function testError() {
 
-        $this->markTestIncomplete("Test not implemented");
+        //$this->markTestIncomplete("Test not implemented");
         ob_start();
         $this->translate->errorMessage("This is a test Error Message");
         $string=ob_get_contents();

@@ -93,7 +93,7 @@ END;
 </BODY>
 </HTML>
 END;
-exit(1);
+        if ($GLOBALS["role"] != "autotest") exit(1);
 
     }
 
