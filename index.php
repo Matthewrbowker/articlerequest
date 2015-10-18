@@ -151,7 +151,8 @@ $s = new sources();
       </label>
       <input type="hidden" name="categorySelect" id="categorySelect" value="" />
       <span id="categorySpan" class="text-muted"> &nbsp; </span>
-      <a href="#" data-toggle="modal" data-target="#categoryModal"><?php $k->_e('select'); ?></a>
+      <a href="#" data-toggle="modal" data-target="#categoryModal" id="category_select_add"><?php $k->_e('select'); ?></a>
+      <a href="#" data-toggle="modal" data-target="#categoryModal" id="category_select_edit" style="display: none; "><?php $k->_e('editInfo'); ?></a>
       </div>
       <div class="form-group" id="id_sources">
         <label class="control-label" for="inputError">

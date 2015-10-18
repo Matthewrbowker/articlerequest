@@ -19,8 +19,9 @@ function onClickCategory(type, cur, prev) {
 
 function sendValue() {
     document.getElementById("categorySpan").innerHTML = category + " &gt; " + subCategory + " &gt; " + subSubCategory;
-    // alert(category + "::" + subCategory + "::" + subSubCategory);
     document.getElementById("categorySelect").value = category + "::" + subCategory + "::" + subSubCategory;
+    document.getElementById("category_select_add").style.display = "none";
+    document.getElementById("category_select_edit").style.display = "inline";
 }
 
 function well(type, curCat, prevCat) {
