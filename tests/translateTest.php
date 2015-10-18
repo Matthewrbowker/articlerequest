@@ -14,7 +14,7 @@ class TranslateTest extends PHPUnit_Framework_TestCase
 
     function setUp() {
         $this->translate = new Translate("en", "testpage" );
-        $this->translateES = new Translate("es", "testpage" );
+        $this->translateZYX = new Translate("zyx", "testpage" );
     }
 
     function tearDown() {
@@ -38,8 +38,8 @@ class TranslateTest extends PHPUnit_Framework_TestCase
     }
 
     public function testLangCode() {
-        $this->assertContains("es", $this->translateES->_r("wp-page"));
-        $this->assertNotContains("es", $this->translate->_r("wp-page"));
+        $this->assertContains("zyx", $this->translateES->_r("wp-page"));
+        $this->assertNotContains("zyx", $this->translate->_r("wp-page"));
     }
 
     public function testDev() {
