@@ -2,7 +2,7 @@
 Welcome to the Article Request System
 **************************
 
-..toctree::
+.. toctree::
     :maxdepth: 2
     :numbered:
     :titlesonly:

@@ -10,9 +10,11 @@ require ("vars/translate.php");
 class TranslateTest extends PHPUnit_Framework_TestCase
 {
     protected $translate;
+    protected $translateES;
 
     function setUp() {
         $this->translate = new Translate("en", "testpage" );
+        $this->translateES = new Translate("es", "testpage" );
     }
 
     function tearDown() {
@@ -33,5 +35,16 @@ class TranslateTest extends PHPUnit_Framework_TestCase
 
         // Test for an invalid key
         $this->assertEquals($this->translate->_r("test4"), "{{test4}}");
+    }
+
+    public function testLangCode() {
+        $this->assertContains("es", $this->translateES->_r("wp-page"));
+    }
+
+    public function testDev() {
+        $GLOBALS["role"] = "staging";
+        $this->assertContains("/dev", $this->translate->_r("wp-page"));
+        $GLOBALS["role"] = "autotest";
+        $this->assertNotContains("/dev", $this->translate->_r("wp-page"));
     }
 }
