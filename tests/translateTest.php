@@ -39,12 +39,37 @@ class TranslateTest extends PHPUnit_Framework_TestCase
 
     public function testLangCode() {
         $this->assertContains("es", $this->translateES->_r("wp-page"));
+        $this->assertNotContains("es", $this->translate->_r("wp-page"));
     }
 
     public function testDev() {
-        $GLOBALS["role"] = "staging";
-        $this->assertContains("/dev", $this->translate->_r("wp-page"));
-        $GLOBALS["role"] = "autotest";
         $this->assertNotContains("/dev", $this->translate->_r("wp-page"));
+    }
+
+    public function testKeys() {
+        $_GET["keys"] = 1;
+        $this->assertEquals($this->translate->_r("test1"), "{{test1}}");
+        unset($_GET["keys"]);
+    }
+
+    public function testEcho() {
+        ob_start();
+        $this->translate->_e("test1");
+        $string=ob_get_contents();
+        ob_end_clean();
+        $this->assertEquals($this->translate->_r("test1"), $string);
+    }
+
+    public function testError() {
+
+        $this->markTestIncomplete("Test not implemented");
+        ob_start();
+        $this->translate->errorMessage("This is a test Error Message");
+        $string=ob_get_contents();
+        ob_end_clean();
+        $this->assertContains("Error: This is a test Error Message", $string);
+        $this->assertContains("<TITLE>
+This is a test Error Message
+</TITLE>", $string);
     }
 }
