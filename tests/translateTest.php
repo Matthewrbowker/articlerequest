@@ -38,7 +38,7 @@ class TranslateTest extends PHPUnit_Framework_TestCase
     }
 
     public function testLangCode() {
-        $this->assertContains("zyx", $this->translateES->_r("wp-page"));
+        $this->assertContains("zyx", $this->translateZYX->_r("wp-page"));
         $this->assertNotContains("zyx", $this->translate->_r("wp-page"));
     }
 
