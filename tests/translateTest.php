@@ -51,7 +51,6 @@ class TranslateTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->translate->_r("test4"), "{{test4}}");
         $string=ob_get_contents();
         ob_end_clean();
-        print $string . "\r\n";
         $this->assertRegExp("/not found in the configuration file/", $string);
     }
 

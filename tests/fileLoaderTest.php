@@ -7,6 +7,11 @@
  * Time: 11:04
  */
 
+/**
+ * @backupGlobals disabled
+ * @backupStaticAttributes disabled
+ */
+
 require ("vars/fileLoader.php");
 
 class fileLoaderTest extends PHPUnit_Framework_TestCase
@@ -21,7 +26,7 @@ class fileLoaderTest extends PHPUnit_Framework_TestCase
         $this->fl = NULL;
     }
 
-    public function checkMatches() {
+    public function testCheckMatches() {
 
         $this->assertEquals($this->fl->_r("test1"), "TEST 1");
         $this->assertEquals($this->fl->_r("test2"), "TEST 2");
@@ -33,7 +38,6 @@ class fileLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertNotEquals($this->fl->_r("test1"), "TEST 2");
         $this->assertNotEquals($this->fl->_r("test2"), "TEST 3");
         $this->assertNotEquals($this->fl->_r("test4"), "TEST 1");
-
     }
 
 }
