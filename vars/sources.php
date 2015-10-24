@@ -14,7 +14,7 @@ class sources {
 
 
         foreach (array_keys($this->values) as $one) {
-            $this->buttonBuffer .= "<input type=\"button\" name=\"sources_{$this->values[$one]['shorthand']}_add\" value=\"{$this->values[$one]['id']}\" class=\"btn btn-warning\" onClick=\"addSource('{$this->values[$one]['shorthand']}')\" />\r\n";
+            $this->buttonBuffer .= "<input type=\"button\" name=\"sources_{$this->values[$one]['shorthand']}_add\" value=\"{$this->values[$one]['id']}\" class=\"btn btn-warning\" onClick=\"toggleType('{$this->values[$one]['shorthand']}')\" />\r\n";
         }
 
 
@@ -24,15 +24,14 @@ class sources {
 
 
             $this->divBuffer .= <<<END
-            <div class="panel panel-info" id="template_{$this->values[$one]["shorthand"]}">
+            <div class="panel panel-info" id="{$this->values[$one]["shorthand"]}" style="display: none;">
             <div class='panel-heading'>
             <span class='pull-right'>
-            <input class="btn btn-danger" type="button" value="Remove this source" onClick="removeSource('%RANDOMINS%')" />
             </span>
-            <label for='%RANDOMINS%'>{$this->values[$one]['id']}</label>
+            <label for='template_{$this->values[$one]["shorthand"]}'>{$this->values[$one]['id']}</label>
             </div>
             <div class='panel-body'>
-            <a name='%RANDOMINS%'></a><div id="sources">
+            <div id="sources">
 END;
             $size = count($fields);
             for ($l = 0; $l < $size; $l++) {

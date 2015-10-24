@@ -82,7 +82,12 @@ padding-bottom: 40px;
 END;
         if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
             print "<pre>";
-            var_dump($this->keys);
+            print <<< ENDL
+            Main configuration page: {$this->keys["wp-page"]}
+            Global configuration page: {$this->keys["wp-all-page"]}
+            Main configuration URL: {$this->keys["wp-url"]}
+            Global configuration URL: {$this->keys["wp-all-url"]}
+ENDL;
             print "</pre>";
         }
     echo <<<END

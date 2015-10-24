@@ -14,8 +14,7 @@
 
 require ("vars/fileLoader.php");
 
-class fileLoaderTest extends PHPUnit_Framework_TestCase
-{
+class fileLoaderTest extends PHPUnit_Framework_TestCase {
     protected $fl;
 
     function setUp() {

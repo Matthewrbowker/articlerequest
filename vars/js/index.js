@@ -39,9 +39,18 @@ function validate() {
         document.getElementById("id_subject").className='form-group has-error';
         retVal = false;
     }
-    else if (cat==null || cat=="" || cat==">>" || cat=="::::") {
+    else if (cat=="" || cat==">>" || cat=="::::") {
         //alert("Please choose an article category!");
         document.getElementById("id_category").className='form-group has-error';
+        retVal = false;
+    }
+    else if (category==null || subCategory==null || subSubCategory==null || category==""
+        || subCategory=="" || subSubCategory=="") {
+        document.getElementById("id_category").className='form-group has-error';
+        retVal = false;
+    }
+    else if (sources.length < 2 || sources.length > 6) {
+        document.getElementById("id_sources").className='form-group has-error';
         retVal = false;
     }
     else if (source==null || source=="") {

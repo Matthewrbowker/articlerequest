@@ -15,6 +15,11 @@ function onClickCategory(type, cur, prev) {
     } else {
         alert("Something broke");
     }
+
+    if (category==null || subCategory==null || subSubCategory==null || category=="" || subCategory==""
+        || subSubCategory=="") {
+        document.getElementById("category_save_button").disabled = true;
+    } else {document.getElementById("category_save_button").disabled = false;}
 }
 
 function sendValue() {
@@ -84,5 +89,6 @@ function resetCategory() {
         children[i].className = " hide";
         // Do stuff
     }
-    document.getElementById("well_cat").className = "well unhide"
+    document.getElementById("well_cat").className = "well unhide";
+    document.getElementById("category_save_button").disabled = true;
 }

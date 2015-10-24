@@ -65,7 +65,7 @@ $s = new sources();
       </div>
       <div class="modal-footer">
           <input type="button" name="resetBtn" value="<?php $k->_e("clearInfo") ?>" onClick = "resetCategory()" class="btn btn-warning" />
-          <button type="button" class="btn btn-primary" onclick="sendValue()" data-dismiss="modal"><?php $k->_e("modalSave"); ?></button>
+          <button type="button" class="btn btn-primary" onclick="sendValue()" data-dismiss="modal" id="category_save_button" disabled><?php $k->_e("modalSave"); ?></button>
       </div>
     </div>
   </div>
@@ -81,21 +81,15 @@ $s = new sources();
           <?php $k->_e("sources-heading"); ?>
         </h4>
       </div>
-      <div class="modal-body" style="max-height:420px; overflow-y:auto;">
+      <div class="modal-body"  id="sources-modal-body"style="max-height:420px; overflow-y:auto;">
         <div class="panel panel-warning" id="sourcesTypeButton">
           <div class="panel-heading">Choose the source type</div>
           <div class="panel-body">
               <?php $s -> echoButtonBuffer(); ?>
           </div>
         </div>
-          <div class="hide">
-              <?php $s ->echoDivBuffer(); ?>
-          </div>
+          <?php $s ->echoDivBuffer(); ?>
         <hr />
-        Here's the sources you have so far:
-        <div id="sources_container">
-
-        </div>
       </div>
       <div class="modal-footer">
         <button type="button" onClick="saveSources()" class="btn btn-primary" data-dismiss="modal"><?php $k->_e("modalSave") ?></button>
