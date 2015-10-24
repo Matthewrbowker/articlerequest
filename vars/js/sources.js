@@ -8,22 +8,32 @@ function randomValues() {
 function modalDisplay(action, id = "") {
     var children = document.getElementById("sources-modal-body").children;
     for (var i = 0; i < children.length; i++) {
-        children[i].className = " hide";
+        children[i].style.display = "none";
     }
 
     if (action == "type") {
         // Show only the type selecter
         document.getElementById("sourcesTypeButton").style.display = "block";
     }
+    else if (action == "edit") {
+        editClick(id);
+    }
+    else if (action == "delete") {
+        deleteClick(id)
+    }
     else {
-        alert(id);
-        // show the contents of var id
+        alert("ERROR: Our script broke, please reload the page.");
     }
     $('#sourcesModal').modal('show');
 }
 
 function toggleType(type) {
-    document.getElementById("template_" + type).style.display = "block";
+    var children = document.getElementById("sources-modal-body").children;
+    for (var i = 0; i < children.length; i++) {
+        children[i].style.display = "none";
+    }
+    document.getElementById("sourcesTypeButton").style.display = "block";
+    document.getElementById(type).style.display = "block";
 }
 
 
@@ -32,7 +42,7 @@ function addClick() {
 }
 
 function editClick(randomins) {
-    //
+    modalDisplay("edit", randomins);
 }
 
 function saveClick() {
@@ -40,7 +50,7 @@ function saveClick() {
 }
 
 function deleteClick(randomins) {
-
+    modalDisplay("delete", randomins);
 }
 
 function jsonify() {
