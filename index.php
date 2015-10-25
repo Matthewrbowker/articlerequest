@@ -92,7 +92,7 @@ $s = new sources();
         <hr />
       </div>
       <div class="modal-footer">
-        <button type="button" onClick="saveSources()" class="btn btn-primary" data-dismiss="modal"><?php $k->_e("modalSave") ?></button>
+        <button type="button" onClick="saveClick()" class="btn btn-primary" data-dismiss="modal"><?php $k->_e("modalSave") ?></button>
       </div>
     </div>
   </div>
@@ -106,8 +106,7 @@ $s = new sources();
 <br>
 <br>
 </div>
-<div class="col-md-3"> &nbsp; </div>
-<div class="col-md-6">
+<div class="col-md-6 col-md-offset-3">
   <form method="post" action="result.php" name="mainform" onsubmit="return validate();" onreset="resetform();">
     <div class="form-group" id="id_subject">
       <label class="control-label" for="subject" id="subjectLabel">
@@ -155,6 +154,9 @@ $s = new sources();
         <input type="hidden" id="sourcesSelect" name="sourcesSelect" value ="" />
         <span id="sourcesSpan" class="hide"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </span> 
         <a href="#" onclick="addClick()"><?php $k->_e('select'); ?></a> </div>
+          <ul id="sourcesStaging">
+              <!-- will be populated by Javascript -->
+          </ul>
       <div class="input-group" onclick="toggle_checkbox('checkbox_1')"> <span class="input-group-addon">
         <input type="checkbox" name="doublecheck_1" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox_1" />
         </span> <label for="dobulecheck" class="form-control" style="display: block;text-align: left;width: 100%; height:100%; white-space: normal;">
@@ -174,7 +176,6 @@ $s = new sources();
       </div>
     </div>
   </form>
-  <div class="col-md-3"> &nbsp; </div>
 </div>
 <div class="col-md-12">
 <script src="vars/js/index.js" type="text/javascript"></script>

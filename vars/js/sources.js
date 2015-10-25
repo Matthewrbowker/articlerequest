@@ -1,5 +1,7 @@
 var count = 0; // TODO: use sources.length
-var sources = {};
+var sources = {'a': 'b', 'c': 'd'};
+var canDoSave = false;
+var lastType = "none";
 
 function randomValues() {
     return Math.random().toString(36).substring(2,9);
@@ -14,6 +16,7 @@ function modalDisplay(action, id = "") {
     if (action == "type") {
         // Show only the type selecter
         document.getElementById("sourcesTypeButton").style.display = "block";
+        lastType = "none";
     }
     else if (action == "edit") {
         editClick(id);
@@ -34,6 +37,7 @@ function toggleType(type) {
     }
     document.getElementById("sourcesTypeButton").style.display = "block";
     document.getElementById(type).style.display = "block";
+    lastType = type;
 }
 
 
@@ -42,15 +46,18 @@ function addClick() {
 }
 
 function editClick(randomins) {
-    modalDisplay("edit", randomins);
+    // Edit
 }
 
 function saveClick() {
+    var randomins = randomValues();
+    alert(randomins);
     $('#sourcesModal').modal('hide');
+    jsonify();
 }
 
 function deleteClick(randomins) {
-    modalDisplay("delete", randomins);
+    // Delete
 }
 
 function jsonify() {
@@ -60,4 +67,17 @@ function jsonify() {
     document.getElementById("sourcesSelect").value = parsed;
 
     alert(parsed);
+}
+
+function fillBullets() {
+    var children = document.getElementById("sourcesStaging").children;
+    for (var i = 0; i < children.length; i++) {
+        children[i].parentNode.removeChild(children[i]);
+    }
+    // TODO: This is currently not rendering on the page, fix.
+    for(var j = 0; j < sources.length; j++) {
+        var tmp = createElement("li");
+        tmp.innerHTML = j;
+        document.getElementById("sourcesStaging").appendChild(tmp);
+    }
 }
