@@ -81,7 +81,7 @@ $s = new sources();
           <?php $k->_e("sources-heading"); ?>
         </h4>
       </div>
-      <div class="modal-body"  id="sources-modal-body" style="max-height:420px; overflow-y:auto;">
+      <div class="modal-body"  id="sources-modal-body"><!-- style="max-height:420px; overflow-y:auto;" -->
         <div class="panel panel-warning" id="sourcesTypeButton">
           <div class="panel-heading">Choose the source type</div>
           <div class="panel-body">

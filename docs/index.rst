@@ -11,6 +11,6 @@ on the English Wikipedia.  The original version lives at
     :maxdepth: 2
     :numbered:
     :titlesonly:
+    :hidden:
 
-    index.rst
-    configuration.rst
+    configuration
