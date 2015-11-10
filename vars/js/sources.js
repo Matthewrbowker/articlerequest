@@ -1,4 +1,4 @@
-var count = 0; // TODO: use sources.length
+var count = 2;
 var sources = {'a': 'b', 'c': 'd'};
 var canDoSave = false;
 var lastType = "none";
@@ -52,8 +52,9 @@ function editClick(randomins) {
 function saveClick() {
     var randomins = randomValues();
     alert(randomins);
-    $('#sourcesModal').modal('hide');
     jsonify();
+    fillBullets();
+    $('#sourcesModal').modal('hide');
 }
 
 function deleteClick(randomins) {
@@ -74,10 +75,11 @@ function fillBullets() {
     for (var i = 0; i < children.length; i++) {
         children[i].parentNode.removeChild(children[i]);
     }
-    // TODO: This is currently not rendering on the page, fix.
-    for(var j = 0; j < sources.length; j++) {
-        var tmp = createElement("li");
-        tmp.innerHTML = j;
+
+    Object.keys(sources).forEach(function (key) {
+        var value = sources[key]
+        var tmp = document.createElement("li");
+        tmp.innerHTML = value;
         document.getElementById("sourcesStaging").appendChild(tmp);
-    }
+    })
 }
