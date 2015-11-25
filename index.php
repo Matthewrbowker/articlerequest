@@ -157,17 +157,14 @@ $s = new sources();
           <ul id="sourcesStaging">
               <!-- will be populated by Javascript -->
           </ul>
-      <div class="input-group"> <span class="input-group-addon">
-        <input type="checkbox" name="doublecheck_1" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox_1" />
-        </span> <label for="dobulecheck" class="form-control" style="display: block;text-align: left;width: 100%; height:100%; white-space: normal;" onclick="toggle_checkbox('checkbox_1')">
-        <?php $k -> _e("check_1"); ?>
-        </label> </div>
-    <div class="input-group"> <span class="input-group-addon">
-        <input type="checkbox" name="doublecheck_2" onchange="validate_checkbox()" class="checkbox-inline" id="checkbox_2" />
-        </span> <label for="dobulecheck" class="form-control" style="display: block;text-align: left;width: 100%; height:100%; white-space: normal;" onclick="toggle_checkbox('checkbox_2')">
-        <?php $k -> _e("check_2"); ?>
-      </label> </div>
+      <div class="checkbox checkbox-success">
+          <input type="checkbox" id="checkbox_1" name="doublecheck_1" onchange="validate_checkbox()" class="styled"> <label for="checkbox_1"><?php $k -> _e("check_1"); ?></label>
+      </div>
+      <div class="checkbox checkbox-success">
+          <input type="checkbox" id="checkbox_2" name="doublecheck_2" onchange="validate_checkbox()" class="styled"> <label for="checkbox_2"><?php $k -> _e("check_2"); ?></label>
+      </div>
       <p>&nbsp; <!-- for padding --></p>
+    <div class="row">
     <div class="col-md-6">
       <input type="submit" id="btnSubmit" value="<?php $k -> _e("submit"); ?>" class="btn btn-success center-block" disabled="disabled" />
     </div>
@@ -175,8 +172,10 @@ $s = new sources();
         <input type="reset" value="<?php $k -> _e("reset"); ?>" class="btn btn-danger center-block" />
       </div>
     </div>
+    </div>
   </form>
 </div>
+<div class="row">
 <div class="col-md-12">
 <script src="vars/js/index.js" type="text/javascript"></script>
 <script src="vars/js/category.js" type="text/javascript"></script>

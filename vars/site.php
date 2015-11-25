@@ -54,7 +54,11 @@ print <<<ENDL
 {$this->k->_r("title")}
 </TITLE>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -81,8 +85,8 @@ print <<<ENDL
       </div>
     </nav>
 <div class="container-fluid">
-  <div class="col-md-1">&nbsp;</div>
-  <div class="col-md-10">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
 
       <div class="row marketing">
       <div class="col-md-12">
@@ -104,7 +108,6 @@ ENDL;
     public function gen_closing() {
 print <<< ENDL
         <hr>
-
       <div class="footer">
         <p style="text-align:right"><small>{$this->k->_r("footer")} &middot; Version {$GLOBALS['version']}<br />
           <a href="{$this->k -> _r("wp-url")}" target=_blank>{$this->k -> _r("edit")}</a> &middot; <a href="{$this->k -> _r("wp-all-url")}" target=_blank>{$this->k -> _r("edit-all")}</a> &middot; <a href="about.php"\>{$this->k -> _r("about")}</a> </small>
@@ -113,7 +116,8 @@ print <<< ENDL
     </div>
 
     </div> <!-- /col-md-10 -->
-    <div class="col-md-1">&nbsp;</div>
+
+    </div>
 
     </div> <!-- /container -->
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
