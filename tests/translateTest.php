@@ -5,7 +5,7 @@
  * @backupStaticAttributes disabled
  */
 
-require ("vars/translate.php");
+require ("includes/translate.php");
 
 class TranslateTest extends PHPUnit_Framework_TestCase
 {

@@ -177,7 +177,7 @@ $s = new sources();
 </div>
 <div class="row">
 <div class="col-md-12">
-<script src="vars/js/index.js" type="text/javascript"></script>
-<script src="vars/js/category.js" type="text/javascript"></script>
-<script src="vars/js/sources.js" type="text/javascript"></script>
+<script src="includes/js/index.js" type="text/javascript"></script>
+<script src="includes/js/category.js" type="text/javascript"></script>
+<script src="includes/js/sources.js" type="text/javascript"></script>
 <?php $site -> gen_closing(); ?>

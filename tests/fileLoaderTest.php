@@ -12,7 +12,7 @@
  * @backupStaticAttributes disabled
  */
 
-require ("vars/fileLoader.php");
+require ("includes/fileLoader.php");
 
 class fileLoaderTest extends PHPUnit_Framework_TestCase {
     protected $fl;
