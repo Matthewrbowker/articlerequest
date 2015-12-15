@@ -4,6 +4,16 @@ class site {
     private $page;
     private $k;
 
+    private function gen_header_link($page) {
+        $retVal = "<li";
+        if ($this->page == $page) {
+            $retVal .= " class='active'";
+        }
+        $retVal .= "><a href=\"$page.php\">" . $this->k->_r($page) . "</a></li>";
+
+        return $retVal;
+    }
+
     public function __construct(translate $k = NULL, $page = "") {
         if ($k == NULL) {
           die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
@@ -20,27 +30,15 @@ class site {
     if ($this->page == "") {$onload = " onload='formParse()'"; }
 
     if ($this->k->_r("redirect_on")) {
-      $nav .= "<li";
-      if ($this->page == "redirect") {
-        $nav .= " class='active'";
-      }
-      $nav .= "><a href=\"redirect.php\">" . $this->k->_r("redirect") . "</a></li>";
+        $nav .= $this->gen_header_link("redirect");
     }
 
     if ($this->k->_r("search_on")) {
-      $nav .= "<li";
-      if ($this->page == "search") {
-        $nav .= " class='active'";
-      }
-      $nav .= "><a href=\"search.php\">" . $this->k->_r("search") . "</a></li>";
+        $nav .= $this->gen_header_link("search");
     }
 
     if ($this->k->_r("about_on")) {
-      $nav .= "<li";
-      if ($this->page == "about") {
-        $nav .= " class='active'";
-      }
-      $nav .= "><a href=\"about.php\">" . $this->k->_r("about") . "</a></li>";
+        $nav .= $this->gen_header_link("about");
     }
 
     if ($this->k->_r("return_on")) {
