@@ -9,15 +9,9 @@ class siteTest extends PHPUnit_Framework_TestCase
 {
     private $s;
 
-    public function setUp() {
-        ob_start();
+    function setUp() {
         $t = new Translate("en", "testpage" );
-        $string=strtolower(ob_get_contents());
         $this->s = new site($t);
-        $string2=strtolower(ob_get_contents());
-        ob_end_clean();
-        $this->assertNotContains($string, "Unable to");
-        $this->assertNotContains($string2, "KEY FILE BROKEN!");
     }
 
     public function tearDown() {
@@ -29,6 +23,8 @@ class siteTest extends PHPUnit_Framework_TestCase
         $this->s->gen_opening();
         $string=strtolower(ob_get_contents());
         ob_end_clean();
+        $this->assertNotContains($string, "unable to");
+        $this->assertNotContains($string, "key file broken!");
         $this->assertContains($string, "<html>");
         $this->assertContains($string, "<head>");
         $this->assertContains($string, "</head>");
