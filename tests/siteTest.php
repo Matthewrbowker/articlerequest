@@ -10,8 +10,14 @@ class siteTest extends PHPUnit_Framework_TestCase
     private $s;
 
     public function setUp() {
+        ob_start();
         $t = new Translate("en", "testpage" );
+        $string=strtolower(ob_get_contents());
         $this->s = new site($t);
+        $string2=strtolower(ob_get_contents());
+        ob_end_clean();
+        $this->assertNotContains($string, "Unable to");
+        $this->assertNotContains($string2, "KEY FILE BROKEN!");
     }
 
     public function tearDown() {
