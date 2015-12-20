@@ -80,7 +80,7 @@ padding-bottom: 40px;
     For assistance on this error, please contact User:Matthewrbowker at his <a href="{$GLOBALS['url']}/User_talk:Matthewrbowker" target=_blank>talk page</a>.</center>
   </div>
 END;
-        if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
+        if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging" || $GLOBALS["role"] == "autotest") {
             print "<pre>";
             print <<< ENDL
             Main configuration page: {$this->keys["wp-page"]}

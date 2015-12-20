@@ -91,5 +91,11 @@ class TranslateTest extends PHPUnit_Framework_TestCase
         $this->assertContains("<TITLE>
 $errorString
 </TITLE>", $string);
+        $this->assertContains("<pre>", $string);
+        $this->assertContains("Main configuration page:", $string);
+        $this->assertContains("Global configuration page:", $string);
+        $this->assertContains("Main configuration URL:", $string);
+        $this->assertContains("Global configuration URL:", $string);
+        $this->assertContains("</pre>", $string);
     }
 }
