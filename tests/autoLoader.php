@@ -85,5 +85,5 @@ $GLOBALS["db_database"] = $db_database;
 $GLOBALS["role"] = "autotest";
 $GLOBALS["url"] = "file://" . __DIR__;
 $GLOBALS["basePage"] = "User:Matthewrbot/Config/1";
-?>
 
+require_once('includes.php');

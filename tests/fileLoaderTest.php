@@ -1,18 +1,9 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: Matthew
- * Date: 10/19/15
- * Time: 11:04
- */
-
-/**
  * @backupGlobals disabled
  * @backupStaticAttributes disabled
  */
-
-require ("includes/fileLoader.php");
 
 class fileLoaderTest extends PHPUnit_Framework_TestCase {
     protected $fl;
