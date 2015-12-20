@@ -22,11 +22,12 @@ before_script:
 
 before_install:
   - pip install --user codecov
-after_success:
-  - codecov
+#after_success:
+#  - codecov
 
 script:
     - phpunit --coverage-clover=coverage.xml
+    - codecov
 
 sudo: false
 
