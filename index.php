@@ -13,13 +13,13 @@ $k = new translate($lang, "");
 
 $site = new site($k, "");
 
-$site -> gen_opening();
-
 $db = new wpPDO($fi);
 
 $c = new category($k);
 
 $s = new sources();
+
+$site -> gen_opening();
 ?>
 
 <!-- Modals for the Category and sources -->

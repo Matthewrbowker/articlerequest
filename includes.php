@@ -10,6 +10,7 @@ require('includes/pdo.php');
 require('includes/categories.php');
 require('includes/sources.php');
 require('includes/fileLoader.php');
+require('includes/exception.php');
 
 // Set the UA string
 ini_set('user_agent', "Article Request Tool - [[:w:en:User:Matthewrbowker]] - {$GLOBALS['version']}");

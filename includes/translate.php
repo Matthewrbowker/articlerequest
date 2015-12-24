@@ -52,53 +52,12 @@ private $keys;
     }
 
     public function errorMessage($message) {
-        echo <<<END
-<!DOCTYPE HTML>
-<HTML>
-<HEAD>
-<TITLE>
-$message
-</TITLE>
-<meta charset="UTF-8">
-<LINK REL="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<style type="text/css">
-body {
-padding-top: 20px;
-padding-bottom: 40px;
-}
-</style>
-</HEAD>
-<BODY>
-<div class="container">
-
-      <div class="col-md-12">
-    
-  <div class="alert alert-danger">
-    <center>Error: $message
-    <br />
-    <br />
-    For assistance on this error, please contact User:Matthewrbowker at his <a href="{$GLOBALS['url']}/User_talk:Matthewrbowker" target=_blank>talk page</a>.</center>
-  </div>
-END;
-        if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging" || $GLOBALS["role"] == "autotest") {
-            print "<pre>";
-            print <<< ENDL
-            Main configuration page: {$this->keys["wp-page"]}
-            Global configuration page: {$this->keys["wp-all-page"]}
-            Main configuration URL: {$this->keys["wp-url"]}
-            Global configuration URL: {$this->keys["wp-all-url"]}
-ENDL;
-            print "</pre>";
+        try {
+            throw new arException($message);
         }
-    echo <<<END
-
-    </div> <!-- /col-md-12 -->
-
-    </div> <!-- /container -->
-</BODY>
-</HTML>
-END;
-        if ($GLOBALS["role"] != "autotest") exit(1);
+        catch (arException $ex) {
+            $ex->renderHTML();
+        }
 
     }
 

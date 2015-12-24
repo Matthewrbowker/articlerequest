@@ -23,14 +23,12 @@ class wpPDO {
 
     public function errorCatchString($ex) {
         $this -> resultSuccess = false;
-
-        echo "<div class=\"alert alert-danger\">An error has occured.";
-
-        if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") {
-            echo "<br /><br />Error details: " . $ex . "";
+        try {
+            throw new arException($ex);
         }
-
-        echo "</div>";
+        catch(arException $ex2) {
+            $ex2->renderHTML();
+        }
 
     }
 

@@ -60,8 +60,13 @@ ENDL;
     }
 
     public function __construct(translate $k = NULL, $page = "") {
-        if ($k == NULL) {
-          die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
+        try {
+            if ($k == NULL) {
+                throw new arException("Key file broken");
+            }
+        }
+        catch (arException $ex) {
+            $ex->renderHTML();
         }
         $this->k = $k;
         $this->page = $page;
