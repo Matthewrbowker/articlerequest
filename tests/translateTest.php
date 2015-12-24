@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @backupGlobals disabled
  * @backupStaticAttributes disabled
@@ -74,26 +73,5 @@ class TranslateTest extends PHPUnit_Framework_TestCase
         $string=ob_get_contents();
         ob_end_clean();
         $this->assertEquals($this->translate->_r("test1"), $string);
-    }
-
-    public function testError() {
-
-        //$this->markTestIncomplete("Test not implemented");
-        $errorString = "This is a test Error Message";
-        $expectedString = "Error: $errorString";
-        ob_start();
-        $this->translate->errorMessage($errorString);
-        $string=ob_get_contents();
-        ob_end_clean();
-        $this->assertContains($expectedString, $string);
-        $this->assertContains("<TITLE>
-$errorString
-</TITLE>", $string);
-        $this->assertContains("<pre>", $string);
-        $this->assertContains("Main configuration page:", $string);
-        $this->assertContains("Global configuration page:", $string);
-        $this->assertContains("Main configuration URL:", $string);
-        $this->assertContains("Global configuration URL:", $string);
-        $this->assertContains("</pre>", $string);
     }
 }

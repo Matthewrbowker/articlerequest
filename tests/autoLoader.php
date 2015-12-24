@@ -81,9 +81,9 @@ foreach ($lines as $line)
 }
 echo "Tables imported successfully\r\n\r\n";
 
+require_once('includes.php');
+
 $GLOBALS["db_database"] = $db_database;
 $GLOBALS["role"] = "autotest";
 $GLOBALS["url"] = "file://" . __DIR__;
 $GLOBALS["basePage"] = "User:Matthewrbot/Config/1";
-
-require_once('includes.php');

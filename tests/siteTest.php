@@ -23,12 +23,12 @@ class siteTest extends PHPUnit_Framework_TestCase
         $this->s->gen_opening();
         $string=strtolower(ob_get_contents());
         ob_end_clean();
-        $this->assertNotContains($string, "unable to");
-        $this->assertNotContains($string, "key file broken!");
-        $this->assertContains($string, "<html>");
-        $this->assertContains($string, "<head>");
-        $this->assertContains($string, "</head>");
-        $this->assertContains($string, "<body>");
+        $this->assertNotContains("unable to", $string);
+        $this->assertNotContains("key file broken!", $string);
+        $this->assertContains("<html>", $string);
+        $this->assertContains("<head>", $string);
+        $this->assertContains("</head>", $string);
+        $this->assertContains("<body", $string);
     }
 
     public function testClosing() {
@@ -36,7 +36,7 @@ class siteTest extends PHPUnit_Framework_TestCase
         $this->s->gen_closing();
         $string=strtolower(ob_get_contents());
         ob_end_clean();
-        $this->assertContains($string, "</body>");
-        $this->assertContains($string, "</html>");
+        $this->assertContains("</body>", $string);
+        $this->assertContains("</html>", $string);
     }
 }
