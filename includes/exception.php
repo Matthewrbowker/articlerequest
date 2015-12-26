@@ -35,7 +35,7 @@ END;
         $url = "https://phabricator.wikimedia.org/maniphest/task/create/";
         $urlTitle = urlencode("{$this->getMessage()}");
         $urlAssigned = urlencode("matthewrbowker");
-        $urlPriority = urlencode("25");
+        $urlPriority = urlencode("75");
         $urlProject = urlencode("Tool-labs-tools-article-request");
         $urlDescription = urlencode("An error occured in Article Request: Line {$this->getLine()}: {$this->getMessage()}\r\n\r\n```\r\n{$this->getTraceAsString()}\r\n```");
         echo <<<END
