@@ -52,8 +52,6 @@ private $keys;
     }
 
     public function errorMessage($message) {
-
-        var_dump($GLOBALS);
         try {
             throw new arException($message);
         }
