@@ -18,6 +18,7 @@ class arException extends exception {
         padding-bottom: 40px;
       }
       </style>
+      </HEAD>
 <BODY>
 
 <div class="container-fluid">
