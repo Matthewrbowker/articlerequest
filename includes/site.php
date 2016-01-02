@@ -76,7 +76,7 @@ ENDL;
 
 
         if ($this->page == "") {$onload = " onload='formParse()'"; }
-print <<<ENDL
+echo <<<ENDL
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
@@ -97,8 +97,9 @@ print <<<ENDL
       </style>
 </HEAD>
 <BODY$onload>
-{$this->gen_navbar()}
-
+ENDL;
+echo $this->gen_navbar();
+echo <<<ENDL
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
