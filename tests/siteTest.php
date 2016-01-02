@@ -10,7 +10,7 @@ class siteTest extends PHPUnit_Framework_TestCase
     private $s;
 
     function setUp() {
-        $t = new Translate("en", "testpage" );
+        $t = new Translate("en", "Testpage" );
         $this->s = new site($t);
     }
 
@@ -29,6 +29,8 @@ class siteTest extends PHPUnit_Framework_TestCase
         $this->assertContains("<head>", $string);
         $this->assertContains("</head>", $string);
         $this->assertContains("<body", $string);
+        // Nothing is going to be active, as everything is "off"
+        $this->assertNotContains ("class='active'", $string);
     }
 
     public function testClosing() {
