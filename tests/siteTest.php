@@ -41,4 +41,13 @@ class siteTest extends PHPUnit_Framework_TestCase
         $this->assertContains("</body>", $string);
         $this->assertContains("</html>", $string);
     }
+
+    public function testInvalidKeyFile() {
+        ob_start();
+        new site(NULL, "testpage");
+        $string=strtolower(ob_get_contents());
+        ob_end_clean();
+        $this->assertContains("key file broken", $string);
+
+    }
 }

@@ -54,7 +54,6 @@ END;
 </HTML>
 END;
         if ($GLOBALS["role"] != "autotest") {die(1);}
-        else {die(0);}
 
     }
 
