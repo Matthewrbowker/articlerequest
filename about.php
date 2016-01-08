@@ -2,14 +2,18 @@
 require('includes.php');
 
 if (ISSET($_REQUEST['lang'])) {
-  $lang = $_REQUEST['lang'];
+    $lang = $_REQUEST['lang'];
 } else {
-  $lang = 'en';
+    $lang = 'en';
 }
+try {
+    $k = new translate($lang, "about");
 
-$k = new translate($lang, "about");
-
-$site = new site($k, "about");
+    $site = new site($k, "about");
+}
+catch (arException $ex) {
+    $ex->renderHTML();
+}
 
 $site -> gen_opening();
 

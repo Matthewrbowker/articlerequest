@@ -52,12 +52,7 @@ private $keys;
     }
 
     public function errorMessage($message) {
-        try {
             throw new arException($message);
-        }
-        catch (arException $ex) {
-            $ex->renderHTML();
-        }
 
     }
 

@@ -7,19 +7,24 @@ if (ISSET($_REQUEST['lang'])) {
   $lang = 'en';
 }
 
-$fi = new fileLoader();
+try {
+    $fi = new fileLoader();
 
-$k = new translate($lang, "");
+    $k = new translate($lang, "");
 
-$site = new site($k, "");
+    $site = new site($k, "");
 
-$db = new wpPDO($fi);
+    $db = new wpPDO($fi);
 
-$c = new category($k);
+    $c = new category($k);
 
-$s = new sources();
+    $s = new sources();
 
-$site -> gen_opening();
+    $site->gen_opening();
+}
+catch (arException $ex) {
+    $ex->renderHTML();
+}
 ?>
 
 <!-- Modals for the Category and sources -->

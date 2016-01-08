@@ -23,12 +23,7 @@ class wpPDO {
 
     public function errorCatchString($ex) {
         $this -> resultSuccess = false;
-        try {
-            throw new arException($ex);
-        }
-        catch(arException $ex2) {
-            $ex2->renderHTML();
-        }
+        throw new arException($ex);
 
     }
 

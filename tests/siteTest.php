@@ -43,11 +43,15 @@ class siteTest extends PHPUnit_Framework_TestCase
     }
 
     public function testInvalidKeyFile() {
-        ob_start();
-        new site(NULL, "testpage");
-        $string=strtolower(ob_get_contents());
-        ob_end_clean();
-        $this->assertContains("key file broken", $string);
+        try {
+            new site(NULL, "testpage");
+        }
+
+        catch (arException $expected) {
+            return;
+        }
+
+        $this->fail('An expected exception has not been raised.');
 
     }
 }

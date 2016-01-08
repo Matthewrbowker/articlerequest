@@ -7,7 +7,7 @@ class sources {
 
     public function __construct() {
         $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/sources&action=raw";
-        $this->values = parse_ini_string(file_get_contents($url), TRUE);
+        $this->values = parse_ini_string(file_get_contents($url), TRUE) or $this->errorCatchString("Sources file broken");
 
         $this->buttonBuffer = "";
         $this->divBuffer = "";
@@ -42,6 +42,10 @@ END;
             }
             $this->divBuffer .= "</div></div></div>";
         }
+    }
+
+    private function errorCatchString($error) {
+        throw new arException($error);
     }
 
     public function __destruct() {

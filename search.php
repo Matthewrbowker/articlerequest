@@ -1,9 +1,16 @@
 <?php
 require('includes.php');
 
-$k = new translate("en", "search");
+try {
 
-$site = new site($k, "search");
+    $k = new translate("en", "search");
+
+    $site = new site($k, "search");
+
+}
+catch (arException $ex) {
+    $ex->renderHTML();
+}
 
 $site -> gen_opening();
 

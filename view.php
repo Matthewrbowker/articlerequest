@@ -4,12 +4,17 @@ require('includes.php');
 if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
 else $lang = 'en';
 
-if (isset($_GET['id'])) $txt = $_GET['id'];
-else die("Error getting proper ID");
+try {
+    $k = new translate($lang, "view");
 
-$k = new translate($lang, "view"); 
+    $site = new site($k, "view");
 
-$site = new site($k, "view");
+    if (isset($_GET['id'])) $txt = $_GET['id'];
+    else throw new arException("Error getting proper ID");
+}
+catch (arException $ex) {
+    $ex->renderHTML();
+}
 
 $site ->gen_opening();
 

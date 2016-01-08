@@ -5,18 +5,14 @@ class fileLoader {
     public function __construct() {
         if ($GLOBALS["role"] == "autotest") { $files = ["tests/fileLoader.cnf"]; }
         else $files = ["../replica.my.cnf", "../database.my.cnf"];
-        try {
-            foreach ($files as $file) {
-                if (!file_exists($file)) {
-                    throw new arException("Unable to find \"$file\"");
-                    continue;
-                }
-                $inistring = file_get_contents($file);
-                $this->keys = array_merge($this->keys, parse_ini_string($inistring));
+
+        foreach ($files as $file) {
+            if (!file_exists($file)) {
+                throw new arException("Unable to find \"$file\"");
+                continue;
             }
-        }
-        catch (arException $ex) {
-            $ex->renderHTML();
+            $inistring = file_get_contents($file);
+            $this->keys = array_merge($this->keys, parse_ini_string($inistring));
         }
     }
 

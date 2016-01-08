@@ -7,11 +7,16 @@ if (ISSET($_REQUEST['lang'])) {
   $lang = 'en';
 }
 
-$fi = new fileLoader();
+try {
+    $fi = new fileLoader();
 
-$k = new translate($lang, "result");
+    $k = new translate($lang, "result");
 
-$site = new site($k, "result");
+    $site = new site($k, "result");
+}
+catch(arException $ex) {
+    $ex->renderHTML();
+}
 
 if (!empty($_SERVER['HTTP_REFERER']) && preg_match_all("/(http:\/\/|https:\/\/)(tools\.wmflabs\.org|localhost)\/(articlerequest.*)/i", $_SERVER["HTTP_REFERER"]) <= 0) {
     die();

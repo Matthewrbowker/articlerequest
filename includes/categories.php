@@ -14,12 +14,12 @@ class category {
 
     public function __construct(translate $k = NULL) {
         if ($k == NULL) {
-          die("<HTML><BODY>KEY FILE BROKEN!</BODY></HTML>");
+          throw new arException("Key File Broken.");
         }
 
         $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/category&action=raw";
 
-        $this->values = parse_ini_string(file_get_contents($url), TRUE);
+        $this->values = parse_ini_string(file_get_contents($url), TRUE) or $this->errorCatchString("Category file broken");
 
         $this->catBuffer = "<div class='well' id='well_cat'>\r\n";
         $this->catBuffer .= "<h3>";
@@ -96,5 +96,9 @@ class category {
 
     public function echoValues() {
         print $this->values;
+    }
+
+    private function errorCatchString($error) {
+        throw new arException($error);
     }
 }

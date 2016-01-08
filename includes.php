@@ -2,7 +2,7 @@
 
 // Require all the files we need.
 require('includes/config.php');
-@include('includes/config.inc.php');
+if (file_exists('includes/config.inc.php')) { require('includes/config.inc.php'); }
 
 require('includes/translate.php');
 require('includes/site.php');

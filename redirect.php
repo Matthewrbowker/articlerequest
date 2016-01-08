@@ -7,16 +7,20 @@ if (ISSET($_REQUEST['lang'])) {
   $lang = 'en';
 }
 
-$fi = new fileLoader();
+try {
+    $fi = new fileLoader();
 
-$k = new translate($lang, "redirect");
+    $k = new translate($lang, "redirect");
 
-$site = new site($k, "redirect");
+    $site = new site($k, "redirect");
 
-$site -> gen_opening();
+    $db = new wpPDO($fi);
+}
+catch(arException $ex) {
+    $ex->renderHTML();
+}
 
-$db = new wpPDO($fi);
-
+$site->gen_opening();
 ?>
 
 <script src="categories.php"></script>
