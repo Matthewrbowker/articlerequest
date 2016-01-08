@@ -47,6 +47,7 @@ function addClick() {
 
 function editClick(randomins) {
     // Edit
+    alert("Edit: " + randomins);
 }
 
 function saveClick() {
@@ -59,6 +60,7 @@ function saveClick() {
 
 function deleteClick(randomins) {
     // Delete
+    alert("Delete: " + randomins);
 }
 
 function jsonify() {
@@ -77,9 +79,9 @@ function fillBullets() {
     }
 
     Object.keys(sources).forEach(function (key) {
-        var value = sources[key]
+        var value = sources[key];
         var tmp = document.createElement("li");
-        tmp.innerHTML = value;
+        tmp.innerHTML = value + " <a onclick=\"editClick('" + key + "')\" href=\"#\">[Edit]</a> <a onclick=\"deleteClick('" + key + "')\" href=\"#\">[delete]</a>";
         document.getElementById("sourcesStaging").appendChild(tmp);
     })
 }

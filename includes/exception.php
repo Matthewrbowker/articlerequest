@@ -20,8 +20,8 @@ class arException extends exception {
       </style>
       </HEAD>
 <BODY>
-
 <div class="container-fluid">
+<H1>Application Error</H1>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="row marketing">
@@ -38,7 +38,7 @@ END;
         $urlAssigned = urlencode("matthewrbowker");
         $urlPriority = urlencode("75");
         $urlProject = urlencode("Tool-labs-tools-article-request");
-        $urlDescription = urlencode("An error occured in Article Request: Line {$this->getLine()}: {$this->getMessage()}\r\n\r\n```\r\n{$this->getTraceAsString()}\r\n```");
+        $urlDescription = urlencode("An error occured in Article Request: {$this->getFile()}, line {$this->getLine()}: {$this->getMessage()}\r\n\r\n```\r\n{$this->getTraceAsString()}\r\n```");
         echo <<<END
         If you continue seeing this error, please
         <a href='$url?title=$urlTitle&assign=$urlAssigned&priority=$urlPriority&projects=$urlProject&description=$urlDescription' target=_blank>Report it to Phabricator</a>
