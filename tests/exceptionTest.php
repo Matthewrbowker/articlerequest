@@ -24,6 +24,7 @@ class exceptionTest extends PHPUnit_Framework_TestCase
         $string=strtolower(ob_get_contents());
         ob_end_clean();
         $this->assertContains("<div class=\"alert alert-danger\">", $string);
+        $this->assertContains("</div>", $string);
         $this->assertContains("this is a test message", $string);
 
     }
