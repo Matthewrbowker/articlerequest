@@ -158,10 +158,10 @@ catch (arException $ex) {
         </label>
         <input type="hidden" id="sourcesSelect" name="sourcesSelect" value ="" />
         <span id="sourcesSpan" class="hide"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </span> 
-        <a href="#" onclick="addClick()"><?php $k->_e('select'); ?></a> </div>
+        <a href="#" onclick="addClick()"><?php $k->_e('select'); ?></a>
           <ul id="sourcesStaging">
               <!-- will be populated by Javascript -->
-          </ul>
+          </ul></div>
       <div class="checkbox checkbox-success">
           <input type="checkbox" id="checkbox_1" name="doublecheck_1" onchange="validate_checkbox()" class="styled"> <label for="checkbox_1"><?php $k -> _e("check_1"); ?></label>
       </div>

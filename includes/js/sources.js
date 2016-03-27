@@ -1,10 +1,16 @@
-var count = 2;
-var sources = {'a': 'b', 'c': 'd'};
+//var count = 0;
+var sources = {};
 var canDoSave = false;
 var lastType = "none";
+var editingID = "";
 
 function randomValues() {
-    return Math.random().toString(36).substring(2,9);
+    if (editingID != "") {
+        return editingID;
+    }
+    else {
+        return Math.random().toString(36).substring(2, 9);
+    }
 }
 
 function modalDisplay(action, id = "") {
@@ -17,6 +23,11 @@ function modalDisplay(action, id = "") {
         // Show only the type selecter
         document.getElementById("sourcesTypeButton").style.display = "block";
         lastType = "none";
+        editingID = "";
+    }
+    else if (action == "show" && typeof id != "undefined") {
+        document.getElementById(id).style.display = "block";
+        lastType = id;
     }
     else if (action == "edit") {
         editClick(id);
@@ -48,11 +59,46 @@ function addClick() {
 function editClick(randomins) {
     // Edit
     alert("Edit: " + randomins);
+
+    var typeDef = sources[randomins]["type"];
+
+    var node = document.getElementById("sources_container_" + typeDef).getElementsByTagName("input");
+    var i;
+
+    sources[randomins]["type"] = lastType;
+
+    for(i=0; i < node.length; i++) {
+        // alert(node[i].name + ": " + node[i].value);
+        if (typeof sources[randomins][node[i].name] != 'undefined') {
+            node[i].value = sources[randomins][node[i].name];
+        }
+    }
+
+    editingID = randomins;
+
+    modalDisplay("show", typeDef);
 }
 
 function saveClick() {
     var randomins = randomValues();
-    alert(randomins);
+    var node = document.getElementById("sources_container_" + lastType).getElementsByTagName("input");
+    //var allNodes = document.getElementById("sources_modal_body").getElementsByTagName("input");
+    var i;
+    sources[randomins] = {};
+
+    sources[randomins]["type"] = lastType;
+
+    for(i=0; i < node.length; i++) {
+        // alert(node[i].name + ": " + node[i].value);
+        sources[randomins][node[i].name] = node[i].value;
+    }
+
+    //count++;
+
+    //for(i=0; i < allNodes.length; i++) {
+    //    allNodes[i].value = "";
+    //}
+
     jsonify();
     fillBullets();
     $('#sourcesModal').modal('hide');
@@ -60,7 +106,10 @@ function saveClick() {
 
 function deleteClick(randomins) {
     // Delete
-    alert("Delete: " + randomins);
+    delete sources[randomins];
+
+    jsonify();
+    fillBullets();
 }
 
 function jsonify() {
@@ -68,20 +117,38 @@ function jsonify() {
     var parsed = JSON.stringify(sources);
 
     document.getElementById("sourcesSelect").value = parsed;
+}
 
-    alert(parsed);
+function ucfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function fillBullets() {
-    var children = document.getElementById("sourcesStaging").children;
+    /*var children = document.getElementById("sourcesStaging").children;
     for (var i = 0; i < children.length; i++) {
+        alert(i);
         children[i].parentNode.removeChild(children[i]);
+    }*/
+    var ul = document.getElementById('sourcesStaging');
+    if (ul) {
+        while (ul.firstChild) {
+            ul.removeChild(ul.firstChild);
+        }
     }
 
     Object.keys(sources).forEach(function (key) {
-        var value = sources[key];
+        var value = "";
+        value += "<li>" + ucfirst(sources[key]["type"]) + " Source" +
+            " <a onclick=\"editClick('" + key + "')\" href=\"#\">[Edit]</a> "
+            + "<a onclick=\"deleteClick('" + key + "')\" href=\"#\">[Delete]</a>";
+        value += "<ul>";
+        Object.keys(sources[key]).forEach(function (minikey) {
+            if (minikey == "type") { return; }
+            value += "<li>" + ucfirst(minikey) + ": " + sources[key][minikey] + "</li>\r\n";
+        });
+        value += "</ul>";
         var tmp = document.createElement("li");
-        tmp.innerHTML = value + " <a onclick=\"editClick('" + key + "')\" href=\"#\">[Edit]</a> <a onclick=\"deleteClick('" + key + "')\" href=\"#\">[delete]</a>";
+        tmp.innerHTML = value
         document.getElementById("sourcesStaging").appendChild(tmp);
     })
 }

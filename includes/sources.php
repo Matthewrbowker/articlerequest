@@ -6,7 +6,7 @@ class sources {
     private $divBuffer;
 
     public function __construct() {
-        $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/sources&action=raw";
+        $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/sources/dev&action=raw";
         $this->values = parse_ini_string(file_get_contents($url), TRUE) or $this->errorCatchString("Sources file broken");
 
         $this->buttonBuffer = "";
@@ -17,6 +17,7 @@ class sources {
             $this->buttonBuffer .= "<input type=\"button\" name=\"sources_{$this->values[$one]['shorthand']}_add\" value=\"{$this->values[$one]['id']}\" class=\"btn btn-warning\" onClick=\"toggleType('{$this->values[$one]['shorthand']}')\" />\r\n";
         }
 
+        //$this->divBuffer = "<span class=\"sources_container\">";
 
         foreach (array_keys($this->values) as $one) {
             $fields = explode("|", $this->values[$one]["fields"]);
@@ -31,7 +32,7 @@ class sources {
             <label for='template_{$this->values[$one]["shorthand"]}'>{$this->values[$one]['id']}</label>
             </div>
             <div class='panel-body'>
-            <div id="sources">
+            <div id="sources_container_{$this->values[$one]["shorthand"]}">
 END;
             $size = count($fields);
             for ($l = 0; $l < $size; $l++) {
@@ -42,6 +43,7 @@ END;
             }
             $this->divBuffer .= "</div></div></div>";
         }
+        //$this->divBuffer .="</span>";
     }
 
     private function errorCatchString($error) {
