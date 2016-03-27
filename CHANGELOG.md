@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1devel8
+---------
+- Checkboxes toggle on clicking the entire label
+- Redesigned exception handling, including ability to report to WMF Phabricator
+- Redesigned source selection system
+
 0.1devel7
 ---------
 - Converted base config page to global variable
