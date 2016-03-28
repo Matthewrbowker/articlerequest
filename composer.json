@@ -1,0 +1,13 @@
+{
+    "name": "matthewrbowker/articlerequest",
+    "description": "Article request system for the English Wikipedia",
+    "authors": [
+        {
+            "name": "Matthew Bowker",
+            "email": "github@matthewbowker.net"
+        }
+    ],
+    "require": {
+        "smarty/smarty": "3.1.19"
+    }
+}
