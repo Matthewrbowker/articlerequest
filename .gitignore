@@ -3,3 +3,4 @@ includes/config.inc.php
 .idea/
 vendor/
 composer.lock
+templates_c

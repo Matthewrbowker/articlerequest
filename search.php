@@ -14,44 +14,28 @@ catch (arException $ex) {
 
 $site -> gen_opening();
 
-?>
-
-<?php $k -> _e("info"); ?>
-
-<form action="search.php" method="GET">
-    <div class="text-center">
-    <label for="q"><?php $k -> _e("label") ?></label> <input type="text" name="q" id="q"<?php if (ISSET($_GET["q"])) {
-  echo " value=\"" . $_GET["q"] . "\"" ?> class="input-xxlarge" />
-    <?php if (!ISSET($_GET["adv"]) || !$_GET["adv"]): ?>
-    <?php endif;
+if (isset($_GET["q"])) {
+    $q = $_GET["q"];
 }
-?>
+else {
+    $q = "";
+}
 
-    <?php if (ISSET($_GET["adv"]) && $_GET["adv"]):?>
-        <?php $k -> _e("category") ?>
+if (isset($_GET["adv"])) {
+    $adv = $_GET["adv"];
+}
+else {
+    $adv = false;
+}
 
-    <?php endif; ?>
+$site->Assign("q", $q);
+$site->Assign("adv", $adv);
+$site->Assign("info", $k->_r("info"));
+$site->Assign("label", $k->_r("label"));
+$site->Assign("category", $k->_r("category"));
+$site->Assign("resetBtn", $k->_r("resetBtn"));
+$site->Assign("searchBtn", $k->_r("searchBtn"));
 
-    <table style="width:100%;">
-        <tr>
-            <td>
-        <input type="reset" value="<?php $k -> _e("resetBtn"); ?>" class="btn btn-danger" />
-            </td>
-            <td>
-        <input type="submit" id="submit" value="<?php $k -> _e("searchBtn"); ?>" class="btn btn-success" />
-            </td>
-        </tr>
-    </table>
-    
-    <?php
-    if (isset($_GET["q"])) {
-        echo "Results for {$_GET['q']} here";
-    }
-    ?>
+$site->Display("search");
 
-</div>
-
-    </form>
-
-<?php $site -> gen_closing(); ?>
-
+$site -> gen_closing();

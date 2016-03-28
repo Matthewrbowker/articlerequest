@@ -12,5 +12,12 @@ require('includes/sources.php');
 require('includes/fileLoader.php');
 require('includes/exception.php');
 
+if(file_exists('vendor/smarty/smarty/libs/Smarty.class.php')) {
+    require_once('vendor/smarty/smarty/libs/Smarty.class.php');
+}
+else {
+    die("<HTML><BODY>Smarty not found, please run <kbd>composer install</kbd></BODY></HTML>");
+}
+
 // Set the UA string
 ini_set('user_agent', "Article Request Tool - [[:w:en:User:Matthewrbowker]] - {$GLOBALS['version']}");

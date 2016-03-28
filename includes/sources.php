@@ -6,7 +6,7 @@ class sources {
     private $divBuffer;
 
     public function __construct() {
-        $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/sources/dev&action=raw";
+        $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/sources&action=raw";
         $this->values = parse_ini_string(file_get_contents($url), TRUE) or $this->errorCatchString("Sources file broken");
 
         $this->buttonBuffer = "";

@@ -17,6 +17,8 @@ catch (arException $ex) {
 
 $site -> gen_opening();
 
-$k -> _e("content");
+$site->Assign("aboutContent", $k -> _r("content"));
+
+$site->Display("about");
 
 $site -> gen_closing();
