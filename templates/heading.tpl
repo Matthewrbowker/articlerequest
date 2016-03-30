@@ -1,4 +1,3 @@
-<!-- heading.tpl -->
 <!DOCTYPE html>
 <HTML>
 <HEAD>
@@ -38,3 +37,6 @@
                         {$nojavascript}
                     </div>
                 </noscript>
+            </div>
+    </div>
+<!-- END: heading.tpl -->

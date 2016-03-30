@@ -1,4 +1,5 @@
 
+<!-- BEGIN: index.tpl -->
 <div class="alert alert-danger" style="display:none;" id="id_alert_error">
     {$error}
 </div>
@@ -6,7 +7,7 @@
 {$intro}
 <br>
 <br>
-</div>
+<!-- /div -->
 <div class="col-md-6 col-md-offset-3">
     <form method="post" action="result.php" name="mainform" onsubmit="return validate();" onreset="resetform();">
         <div class="form-group" id="id_subject">
@@ -25,7 +26,7 @@
 </textarea>
         </div>
         <div class="form-group" id="id_username">
-            <label class="control-label" for="inputError">
+            <label class="control-label" for="username">
                 {$username}
             </label>
             <input type="text" class="form-control" id="username" name="username">
@@ -37,7 +38,7 @@
             <input type="text" class="form-control" id="email" name="email">
         </div>
         <div class="form-group" id="id_category">
-            <label class="control-label" for="categorySelect">
+            <label class="control-label"><!-- for="categorySelect" -->
                 {$category}
             </label>
             <input type="hidden" name="categorySelect" id="categorySelect" value="" />
@@ -46,7 +47,7 @@
             <a href="#" data-toggle="modal" data-target="#categoryModal" id="category_select_edit" style="display: none; ">{$editInfo}</a>
         </div>
         <div class="form-group" id="id_sources">
-            <label class="control-label" for="inputError">
+            <label class="control-label"> <!-- for="inputError" -->
                 {$sources}
             </label>
             <input type="hidden" id="sourcesSelect" name="sourcesSelect" value ="" />
@@ -70,11 +71,13 @@
                 <input type="reset" value="{$reset}" class="btn btn-danger center-block" />
             </div>
         </div>
-</div>
-</form>
+    </form>
 </div>
 <div class="row">
     <div class="col-md-12">
         <script src="includes/js/index.js" type="text/javascript"></script>
         <script src="includes/js/category.js" type="text/javascript"></script>
         <script src="includes/js/sources.js" type="text/javascript"></script>
+</div>
+    </div>
+<!-- END: index.tpl -->

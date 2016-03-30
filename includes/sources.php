@@ -29,7 +29,7 @@ class sources {
             <div class='panel-heading'>
             <span class='pull-right'>
             </span>
-            <label for='template_{$this->values[$one]["shorthand"]}'>{$this->values[$one]['id']}</label>
+            <label><!-- for='template_{$this->values[$one]["shorthand"]}' -->{$this->values[$one]['id']}</label>
             </div>
             <div class='panel-body'>
             <div id="sources_container_{$this->values[$one]["shorthand"]}">

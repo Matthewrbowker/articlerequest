@@ -1,3 +1,4 @@
+<!-- BEGIN: sources.tpl -->
 <div class="modal fade bs-example-modal-lg" id="sourcesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -23,3 +24,4 @@
         </div>
     </div>
 </div>
+<!-- END: sources.tpl -->

@@ -3,6 +3,7 @@
 class arException extends exception {
     public function renderHTML() {
         echo <<<END
+<!DOCTYPE HTML>
 <HTML>
 <HEAD>
 <TITLE>{$this->getMessage()}</TITLE>

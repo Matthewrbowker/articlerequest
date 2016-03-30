@@ -114,9 +114,8 @@ function deleteClick(randomins) {
 
 function jsonify() {
     // This is the lifter method that prepares the JSON for the form.
-    var parsed = JSON.stringify(sources);
 
-    document.getElementById("sourcesSelect").value = parsed;
+    document.getElementById("sourcesSelect").value = JSON.stringify(sources);
 }
 
 function ucfirst(string) {
@@ -148,7 +147,7 @@ function fillBullets() {
         });
         value += "</ul>";
         var tmp = document.createElement("li");
-        tmp.innerHTML = value
+        tmp.innerHTML = value;
         document.getElementById("sourcesStaging").appendChild(tmp);
     })
 }

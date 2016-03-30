@@ -1,3 +1,4 @@
+<!-- BEGIN: search.tpl -->
 {$info}
 
 <form action="search.php" method="GET">
@@ -26,3 +27,4 @@
     </div>
 
 </form>
+<!-- END: search.tpl -->

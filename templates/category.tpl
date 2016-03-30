@@ -1,3 +1,4 @@
+<!-- BEGIN: category.tpl -->
 <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -8,7 +9,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form method="get" action="#" onsubmit="submitValue()" onReset="resetValue()"><span id="categoryForm">
+                <form method="get" action="#" onsubmit="submitValue()" onReset="resetValue()" id="categoryForm">
           <!--input type="hidden" name="category"  id="category" value="" />
           <input type="hidden" name="subcategory" id="subcategory" value="" />
           <input type="hidden" name="subsubcategory" id="subsubcategory" value="" / -->
@@ -31,7 +32,6 @@
                         {$categorySubCatBuffer}
                         {$categorySubSubCatBuffer}
                 </form>
-                </span>
             </div>
             <div class="modal-footer">
                 <input type="button" name="resetBtn" value="{$modalClearInfo}" onClick = "resetCategory()" class="btn btn-warning" />
@@ -40,3 +40,4 @@
         </div>
     </div>
 </div>
+<!-- END: category.tpl -->
