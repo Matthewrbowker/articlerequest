@@ -32,46 +32,36 @@ $pdo = new wpPDO($fi);
 $pdo->store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelect'], $_REQUEST['username'], $_REQUEST['sourcesSelect']);
 
 if ($pdo->success()) {
-    echo "<div class=\"alert alert-success\">";
-    $k->_e("success");
-    echo "</div>";
+    $alertDiv = "success";
+    $alertMessage = $k->_r("success");
+    $url = $k->_r("return_url");
+    $buttonMsg = $k->_r("done");
 } else {
-    echo "<div class=\"alert alert-danger\">";
-    $k->_e("failure");
-    echo "</div>";
+    $alertDiv = "danger";
+    $alertMessage = $k->_r("failure");
+    $url = "index.php";
+    $buttonMsg = $k->_r("failure");
 }
 
-if ($GLOBALS["role"] == "test" || $GLOBALS["role"] == "staging") :
-?>
-<hr />
-<?php $k->_e("dev"); ?>
-<pre>
-    <ul>
-    <?php
-        while ($element = current($_REQUEST)) {
-            echo "<li>" . key($_REQUEST) . " = {$element}</li>";
-            next($_REQUEST);
-        }
-    ?>
-</pre>
+$request = [];
 
-<?php
-endif;
-
-if ($pdo->success()) {
-    echo "<form action=\"{$GLOBALS['url']}\"><input type=\"submit\" class=\"btn btn-success\" value=\"{$k->_r("done")}\" /></form>";
-
-} else {
-    echo "<form action=\"index.php\">";
-
-    while ($element = current($_REQUEST)) {
-        echo "<input type=\"hidden\" name=\"" . key($_REQUEST) . "\" value=\"{$element}\" />";
-        next($_REQUEST);
-    }
-
-    echo "<input type=\"submit\" class=\"btn btn-danger\" value=\"{$k->_r("go_back")}\" /></form>";
+while ($element = current($_REQUEST)) {
+    $request[key($_REQUEST)] = $element;
+    next($_REQUEST);
 }
+
+$showMsg = $GLOBALS["role"] == "live" ? false : true;
+
+$site->Assign("showMsg", $showMsg);
+$site->Assign("devMsg", $k->_r("dev"));
+$site->Assign("alertDiv", $alertDiv);
+$site->Assign("alertMessage", $alertMessage);
+$site->Assign("request", $request);
+$site->Assign("success", $pdo->success());
+$site->Assign("url", $url);
+$site->Assign("buttonMsg", $buttonMsg);
+
+$site->Display("result");
 
 $site -> gen_closing();
-?>
 
