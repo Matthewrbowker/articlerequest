@@ -10,15 +10,15 @@ class site {
         $navsRight = [];
 
         if ($this->k->_r("redirect_on")) {
-            array_push($navs, ["redirect", $this->k->_r("redirect")]);
+            array_push($navs, ["redirect.php", $this->k->_r("redirect")]);
         }
 
         if ($this->k->_r("search_on")) {
-            array_push($navs, ["search", $this->k->_r("search")]);
+            array_push($navs, ["search.php", $this->k->_r("search")]);
         }
 
         if ($this->k->_r("about_on")) {
-            array_push($navs, ["about", $this->k->_r("about")]);
+            array_push($navs, ["about.php", $this->k->_r("about")]);
         }
 
         if ($this->k->_r("return_on")) {
