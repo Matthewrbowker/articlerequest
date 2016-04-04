@@ -13,9 +13,9 @@ private $keys;
         $wpPage = "$path/$page.xml";
         $wpAllPage = "$path/all.xml";
 
-        @$wpKeys = parse_ini_string(file_get_contents($wpPage)) or $this->errorMessage("Unable to get page config");
+        $wpKeys = parse_ini_string(file_get_contents($wpPage)) or $this->errorMessage("Unable to get page config");
 
-        @$allKeys = parse_ini_string(file_get_contents($wpAllPage)) or $this->errorMessage("Unable to get general config");
+        $allKeys = parse_ini_string(file_get_contents($wpAllPage)) or $this->errorMessage("Unable to get general config");
 
         $this -> keys = array_merge($this->keys, $wpKeys);
         $this -> keys = array_merge($this->keys, $allKeys);
