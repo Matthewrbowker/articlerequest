@@ -1,4 +1,4 @@
 <?php
 
 $GLOBALS["role"] = "live";
-$GLOBALS["version"] = "0.1devel8";
+$GLOBALS["version"] = "0.1devel9";

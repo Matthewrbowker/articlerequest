@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1devel9
+---------
+- Converted to local configuration, rather than an on-wiki configuration.
+- Converted templating to Smarty.
+- Validated HTML5
+
 0.1devel8
 ---------
 - Checkboxes toggle on clicking the entire label
