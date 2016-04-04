@@ -1,0 +1,23 @@
+[web]
+id = "Web Source";
+label = "Add a web source";
+shorthand = "web";
+fields = "url|title|author";
+field_labels = "Web Address|Title of the Webpage|Author of the webpage";
+template = "cite web";
+
+[book]
+id="Book Source";
+label = "Add a book source";
+shorthand = "book";
+fields = "title|author|date";
+field_labels = "Title of the book|Author of the book|Date of publication";
+template = "cite book";
+
+[journal]
+id="Journal Source";
+label = "Add a journal source";
+shorthand = "journal";
+fields = "title|author|date|publisher|volume|edition";
+field_labels = "Title of the article|Author of the article|Date the article was published|Publisher|Volume|Edition";
+template = "cite journal";

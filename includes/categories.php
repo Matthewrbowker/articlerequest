@@ -17,9 +17,9 @@ class category {
           throw new arException("Key File Broken.");
         }
 
-        $url = "{$GLOBALS['url']}/index.php?title={$GLOBALS["basePage"]}/category&action=raw";
+        $path = "includes/config/category.xml";
 
-        $this->values = parse_ini_string(file_get_contents($url), TRUE) or $this->errorCatchString("Category file broken");
+        $this->values = parse_ini_string(file_get_contents($path), TRUE) or $this->errorCatchString("Category file broken");
 
         $this->catBuffer = "<div class='well' id='well_cat'>\r\n";
         $this->catBuffer .= "<h3>";

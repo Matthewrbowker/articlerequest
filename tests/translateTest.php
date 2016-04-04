@@ -12,19 +12,7 @@ class TranslateTest extends PHPUnit_Framework_TestCase
     protected $translateLive;
 
     function setUp() {
-        $this->translate = new Translate("en", "testpage" );
-        $this->translateZYX = new Translate("zyx", "testpage" );
-
-        /*
-        // Dev
-        $GLOBALS["role"] = "staging";
-        $this->translateSt = new Translate("en", "testpage");
-
-        // Live
-        $GLOBALS["role"] = "live";
-        $this->translateLive = new Translate("en", "testpage");
-
-        $GLOBALS["role"] = "autotest";*/
+        $this->translate = new Translate("en", "test" );
     }
 
     function tearDown() {
@@ -49,16 +37,6 @@ class TranslateTest extends PHPUnit_Framework_TestCase
         $string=ob_get_contents();
         ob_end_clean();
         $this->assertRegExp("/not found in the configuration file/", $string);
-    }
-
-    public function testLangCode() {
-        $this->assertContains("zyx", $this->translateZYX->_r("wp-page"));
-        $this->assertNotContains("zyx", $this->translate->_r("wp-page"));
-    }
-
-    public function testDev() {
-        // $this->assertContains("/dev", $this->translateSt->_r("wp-page"));
-        $this->assertNotContains("/dev", $this->translate->_r("wp-page"));
     }
 
     public function testKeys() {

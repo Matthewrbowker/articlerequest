@@ -1,0 +1,19 @@
+article_on = "1";
+article = "Request Article";
+redirect_on = "0";
+redirect = "Request Redirect";
+about_on = "1";
+about = "About this tool";
+search_on = "0";
+search = "Search";
+return_on = "1";
+return = "Return to the English Wikipedia";
+return_url = "//en.wikipedia.org/wiki/Main_page"
+title = "Request an article";
+message = "1";
+message-text = "This is a test server. Please expect things to break.";
+no-javascript = "This form requires Javascript to work!  Please enable Javascript in your browser to continue.";
+error = "There was an error processing your form input.  Please correct the errors highlighted below and re-submit";
+
+footer1 = "Article request tool &middot; Written by Matthewrbowker";
+footer2 = "{v} &middot; <a href='about.php'>{a}</a>";

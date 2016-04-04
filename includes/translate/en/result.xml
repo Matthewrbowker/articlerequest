@@ -1,0 +1,5 @@
+success = "The request has been successfully processed!  Thank you for your contribution to Wikipedia!";
+failure = "We were unable to process the request.  Please go back and try again.";
+go_back = "Go back";
+done = "Return to Wikipedia";
+dev = "Here is the data, for debugging purposes";

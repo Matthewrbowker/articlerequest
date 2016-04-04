@@ -4,56 +4,25 @@ class translate {
 
 private $keys;
 
-    public function __construct($lang = 'en', $page = "") {
-        $urlArray = array();
-        $wpPage = "{$GLOBALS["basePage"]}/interface";
+    public function __construct($lang = 'en', $page = "index") {
+        $this->keys = array();
+        $path = "includes/translate";
 
-        if ($lang != 'en') {
-          $wpPage .= "/$lang";
-        }
+        $path .= "/$lang";
 
-        if ($GLOBALS["role"] == "staging") {
-          $wpPage .= "/dev";
-        }
+        $wpPage = "$path/$page.xml";
+        $wpAllPage = "$path/all.xml";
 
-        $allPage = $wpPage . "/all";
+        @$wpKeys = parse_ini_string(file_get_contents($wpPage)) or $this->errorMessage("Unable to get page config");
 
-        if ($page != "") {
-          $wpPage .= "/" . $page;
-        }
-
-        $urlArray["wp-page"] = $wpPage;
-        $urlArray["wp-all-page"] = $allPage;
-
-        $url = "{$GLOBALS['url']}/index.php?title=" . urlencode($wpPage);
-        $allURL = "{$GLOBALS['url']}/index.php?title=" . urlencode($allPage);
-
-        $urlArray["wp-url"] = $url;
-        $urlArray["wp-all-url"] = $allURL;
-
-        $url .= "&action=raw";
-        $allURL .= "&action=raw";
-
-        if ($GLOBALS["role"] == "autotest") {
-            $url = explode("?", $url)[0];
-            $allURL = explode("?", $allURL)[0];
-
-        }
-
-        $this->keys = $urlArray;
-
-        @$wpKeys = parse_ini_string(file_get_contents($url)) or $this->errorMessage("Unable to get page config");
-
-        @$allKeys = parse_ini_string(file_get_contents($allURL)) or $this->errorMessage("Unable to get general config");
+        @$allKeys = parse_ini_string(file_get_contents($wpAllPage)) or $this->errorMessage("Unable to get general config");
 
         $this -> keys = array_merge($this->keys, $wpKeys);
         $this -> keys = array_merge($this->keys, $allKeys);
-
     }
 
     public function errorMessage($message) {
             throw new arException($message);
-
     }
 
 
@@ -63,8 +32,6 @@ private $keys;
         }
         else if (array_key_exists($key, $this ->keys)) {
             $string = str_replace("{star}", "<i class=\"glyphicon glyphicon-star\"></i>", $this-> keys[$key]);
-            if (array_key_exists("about", $this->keys)) {$string = str_replace("{a}", $this->keys["about"], $string); }
-            else {$string = str_replace("{a}", "{{about}}", $string); }
             return $string;
         }
         else {

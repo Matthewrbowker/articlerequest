@@ -5,6 +5,12 @@ class site {
     private $k;
     private $smarty;
 
+    private function parseFooter($string) {
+        $string = str_replace("{v}", $GLOBALS["version"], $string);
+        $string = str_replace("{a}", $this->k->_r("about"), $string);
+        return $string;
+    }
+
     private function gen_navbar() {
         $navs = [];
         $navsRight = [];
@@ -47,12 +53,9 @@ class site {
         $this->Assign("nojavascript", $this->k->_r("no-javascript"));
 
         // Footer
-        $this->assign("footer", $this->k->_r("footer"));
+        $this->assign("footer1", $this->parseFooter($this->k->_r("footer1")));
+        $this->assign("footer2", $this->parseFooter($this->k->_r("footer2")));
         $this->assign("version", $GLOBALS["version"]);
-        $this->assign("wpurl", $this->k->_r("wp-url"));
-        $this->assign("edit", $this->k->_r("edit"));
-        $this->assign("wpallurl", $this->k->_r("wp-all-url"));
-        $this->assign("editall", $this->k->_r("edit-all"));
         $this->assign("about", $this->k->_r("about"));
 
         $this->gen_navbar();

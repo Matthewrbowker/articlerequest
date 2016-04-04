@@ -1,8 +1,8 @@
 <!-- BEGIN: footer.tpl -->
 <hr>
 <div class="footer">
-    <p style="text-align:right"><small>{$footer} &middot; Version {$version}<br />
-            <a href="{$wpurl}" target=_blank>{$edit}</a> &middot; <a href="{$wpallurl}" target=_blank>{$editall}</a> &middot; <a href="about.php">{$about}</a> </small>
+    <p style="text-align:right"><small>{$footer1}<br />
+            {$footer2} </small>
     </p>
 </div>
 

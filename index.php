@@ -10,7 +10,7 @@ if (ISSET($_REQUEST['lang'])) {
 try {
     $fi = new fileLoader();
 
-    $k = new translate($lang, "");
+    $k = new translate($lang, "index");
 
     $site = new site($k, "");
 

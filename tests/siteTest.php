@@ -10,7 +10,7 @@ class siteTest extends PHPUnit_Framework_TestCase
     private $s;
 
     function setUp() {
-        $t = new Translate("en", "Testpage" );
+        $t = new Translate("en", "test" );
         $this->s = new site($t);
     }
 
