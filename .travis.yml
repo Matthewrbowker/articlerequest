@@ -26,6 +26,7 @@ before_install:
 #  - codecov
 
 script:
+    - composer install
     - phpunit --coverage-clover=coverage.xml
     - codecov
 
