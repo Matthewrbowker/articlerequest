@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/fontawesome/font-awesome/css/font-awesome.min.css">
     <link href="awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
     <style type="text/css">
         body {
@@ -22,7 +22,6 @@
     {else}
     <BODY>
 {/if}
-<!-- echo $this->gen_navbar(); -->
 {include file="navbar.tpl"}
 <div class="container-fluid">
     <div class="row">
