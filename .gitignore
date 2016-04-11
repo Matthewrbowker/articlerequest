@@ -4,3 +4,6 @@ includes/config.inc.php
 vendor/
 composer.lock
 templates_c
+/docs/conf.py
+/docs/_build
+/docs/.idea

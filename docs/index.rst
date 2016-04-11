@@ -13,4 +13,5 @@ on the English Wikipedia.  The original version lives at
     :titlesonly:
     :hidden:
 
+    installation
     configuration
