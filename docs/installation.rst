@@ -6,6 +6,7 @@ System Requirements
 ###################
 
 The following components are required to install the article request system.
+
 * PHP 5.6+ (*Not yet tested on 7.0+*)
 * MySQL Database server
 
