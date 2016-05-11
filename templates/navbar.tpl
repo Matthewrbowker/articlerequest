@@ -2,14 +2,13 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a href="index.php" class="navbar-brand{if $page == 'index' || $page == ""} active{/if}"><span class="glyphicon glyphicon-home"></span> {$title}</a>
-        </div>
-        <div class="navbar=collapse navbar-right">
-            <ul class="nav navbar-nav">
-                {foreach from=$navsRight item=item}
-                    <li{if $page == $item[0]} class="active"{/if}><a href="{$item[0]}">{$item[1]}</a></li>
-                {/foreach}
-            </ul>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home"></span> {$title}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
