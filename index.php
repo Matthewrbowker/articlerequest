@@ -1,5 +1,11 @@
 <?php
 require('includes.php');
+session_start();
+
+if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"]) {
+	header("LOCATION: request.php");
+	exit(0);
+}
 
 if (ISSET($_REQUEST['lang'])) {
   $lang = $_REQUEST['lang'];
@@ -26,5 +32,9 @@ $site->assign("challengeMessage", $k->_r("challengeMessage"));
 $site->assign("loginMsg", $k->_r("loginMsg"));
 
 $site->Display("index");
+
+print "<pre>";
+var_dump(get_declared_classes());
+print "</pre>";
 
 $site->gen_closing();

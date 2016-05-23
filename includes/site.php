@@ -30,6 +30,14 @@ class site {
         if ($this->k->_r("return_on")) {
             array_push($navsRight, [$this->k->_r("return_url"), $this->k->_r("return")]);
         }
+		
+		//if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"]) {
+			array_push($navsRight, ["logout.php", "Logout"]);
+		//}
+		//else {
+		//	array_push($navsRight, ["login.php", "Login"]);
+		//}
+			
 
         $this->Assign("navs", $navs);
         $this->Assign("navsRight", $navsRight);

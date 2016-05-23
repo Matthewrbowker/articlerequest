@@ -14,6 +14,10 @@ require('includes/exception.php');
 
 if(file_exists('vendor/autoload.php')) {
     require_once('vendor/autoload.php');
+	foreach (glob("vendor/mediawiki/oauthclient/src/*.php") as $filename)
+	{
+		require_once($filename);
+	}
 }
 else {
     die("<HTML><BODY>Required libraries not found, please run <kbd>composer install</kbd></BODY></HTML>");
