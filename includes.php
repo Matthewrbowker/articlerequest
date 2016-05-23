@@ -12,11 +12,11 @@ require('includes/sources.php');
 require('includes/fileLoader.php');
 require('includes/exception.php');
 
-if(file_exists('vendor/smarty/smarty/libs/Smarty.class.php')) {
-    require_once('vendor/smarty/smarty/libs/Smarty.class.php');
+if(file_exists('vendor/autoload.php')) {
+    require_once('vendor/autoload.php');
 }
 else {
-    die("<HTML><BODY>Smarty not found, please run <kbd>composer install</kbd></BODY></HTML>");
+    die("<HTML><BODY>Required libraries not found, please run <kbd>composer install</kbd></BODY></HTML>");
 }
 
 // Set the UA string
