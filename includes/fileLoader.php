@@ -2,8 +2,8 @@
 
 class fileLoader {
     private $keys = [];
-    public function __construct() {
-        if ($GLOBALS["role"] == "autotest") { $files = ["tests/fileLoader.cnf"]; }
+    public function __construct(Config $config) {
+        if ($config->get("role") == "autotest") { $files = ["tests/fileLoader.cnf"]; }
         else $files = ["../replica.my.cnf", "../database.my.cnf"];
 
         foreach ($files as $file) {

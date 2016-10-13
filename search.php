@@ -2,10 +2,11 @@
 require('includes.php');
 
 try {
+    $con = new config();
 
-    $k = new translate("en", "search");
+    $k = new translate();
 
-    $site = new site($k, "search");
+    $site = new site($con, $k, "search");
 
 }
 catch (arException $ex) {
@@ -30,11 +31,11 @@ else {
 
 $site->Assign("q", $q);
 $site->Assign("adv", $adv);
-$site->Assign("info", $k->_r("info"));
-$site->Assign("label", $k->_r("label"));
+$site->Assign("info", $k->_r("search-intro"));
+$site->Assign("label", $k->_r("search-label"));
 $site->Assign("category", $k->_r("category"));
-$site->Assign("resetBtn", $k->_r("resetBtn"));
-$site->Assign("searchBtn", $k->_r("searchBtn"));
+$site->Assign("resetBtn", $k->_r("reset"));
+$site->Assign("searchBtn", $k->_r("button-search"));
 
 $site->Display("search");
 

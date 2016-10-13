@@ -1,12 +1,13 @@
 <?php
 
 class site {
+    private $con;
     private $page;
     private $k;
     private $smarty;
 
     private function parseFooter($string) {
-        $string = str_replace("{v}", $GLOBALS["version"], $string);
+        $string = str_replace("{v}", $this->con->get("version"), $string);
         $string = str_replace("{a}", $this->k->_r("about"), $string);
         return $string;
     }
@@ -15,19 +16,19 @@ class site {
         $navs = [];
         $navsRight = [];
 
-        if ($this->k->_r("redirect_on")) {
+        if ($this->con->get("redirect_on")) {
             array_push($navs, ["redirect.php", $this->k->_r("redirect")]);
         }
 
-        if ($this->k->_r("search_on")) {
+        if ($this->con->get("search_on")) {
             array_push($navs, ["search.php", $this->k->_r("search")]);
         }
 
-        if ($this->k->_r("about_on")) {
+        if ($this->con->get("about_on")) {
             array_push($navs, ["about.php", $this->k->_r("about")]);
         }
 
-        if ($this->k->_r("return_on")) {
+        if ($this->con->get("return_on")) {
             array_push($navsRight, [$this->k->_r("return_url"), $this->k->_r("return")]);
         }
 		
@@ -44,10 +45,11 @@ class site {
 
     }
 
-    public function __construct(translate $k = NULL, $page = "") {
-        if ($k == NULL) {
-            throw new arException("Key file broken");
+    public function __construct(config $con = NULL, translate $k = NULL, $page = "") {
+        if ($con == NULL ||$k == NULL) {
+            throw new arException("Site display broken");
         }
+        $this->con = $con;
         $this->k = $k;
         $this->page = $page;
         $this->smarty = new Smarty();
@@ -56,14 +58,15 @@ class site {
         // Heading
         $this->Assign("page", $page);
         $this->Assign("title", $this->k->_r("title"));
-        $this->Assign("message", $this->k->_r("message"));
-        $this->Assign("messagetext", $this->k->_r("message-text"));
+        $this->Assign("message", $this->con->get("message"));
+        $this->Assign("messagetext", $this->k->_r($this->con->get("message-text")));
         $this->Assign("nojavascript", $this->k->_r("no-javascript"));
 
         // Footer
         $this->assign("footer1", $this->parseFooter($this->k->_r("footer1")));
         $this->assign("footer2", $this->parseFooter($this->k->_r("footer2")));
-        $this->assign("version", $GLOBALS["version"]);
+        $this->assign("footer3", $this->k->footer());
+        $this->assign("version", $this->con->get("version"));
         $this->assign("about", $this->k->_r("about"));
 
         $this->gen_navbar();

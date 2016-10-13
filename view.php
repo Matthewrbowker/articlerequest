@@ -1,13 +1,12 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) $lang = $_REQUEST['lang'];
-else $lang = 'en';
-
 try {
-    $k = new translate($lang, "view");
+    $con = new config();
 
-    $site = new site($k, "view");
+    $k = new translate($con);
+
+    $site = new site($con, $k, "view");
 
     if (isset($_GET['id'])) $txt = $_GET['id'];
     else throw new arException("Error getting proper ID");

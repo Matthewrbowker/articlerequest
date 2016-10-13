@@ -1,18 +1,14 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) {
-  $lang = $_REQUEST['lang'];
-} else {
-  $lang = 'en';
-}
-
 try {
-    $fi = new fileLoader();
+    $con = new config();
 
-    $k = new translate($lang, "redirect");
+    $fi = new fileLoader($con);
 
-    $site = new site($k, "redirect");
+    $k = new translate();
+
+    $site = new site($con, $k, "redirect");
 
     $db = new wpPDO($fi);
 }
@@ -26,17 +22,17 @@ $site->gen_opening();
 <script src="categories.php"></script>
 
 <pre>
-<?php $k -> _e("intro"); ?>
+<?php echo $k -> _r("redirect-intro"); ?>
 
-<?php $k -> _e("redirname"); ?>
+<?php echo $k -> _r("redirname"); ?>
 
-<?php $k -> _e("targetname"); ?>
+<?php echo $k -> _r("targetname"); ?>
 
-<?php $k -> _e("username"); ?>
+<?php echo $k -> _r("username"); ?>
 
-<?php $k -> _e("reset"); ?>
+<?php echo $k -> _r("reset"); ?>
 
-<?php $k -> _e("submit"); ?>
+<?php echo $k -> _r("submit"); ?>
 
 </pre>
 

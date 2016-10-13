@@ -1,15 +1,12 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) {
-    $lang = $_REQUEST['lang'];
-} else {
-    $lang = 'en';
-}
 try {
-    $k = new translate($lang, "about");
+    $con = new config();
 
-    $site = new site($k, "about");
+    $k = new translate($con);
+
+    $site = new site($con, $k, "about");
 }
 catch (arException $ex) {
     $ex->renderHTML();
@@ -17,7 +14,10 @@ catch (arException $ex) {
 
 $site -> gen_opening();
 
-$site->Assign("aboutContent", $k -> _r("content"));
+$site->Assign("aboutContent", $k -> _r("about-content"));
+$site->Assign("aboutBug", $k -> _r("about-bug"));
+$site->Assign("aboutBootstrap", $k -> _r("about-bootstrap"));
+$site->Assign("aboutGlyphicon", $k -> _r("about-glyphicon"));
 
 $site->Display("about");
 

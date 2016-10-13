@@ -1,0 +1,67 @@
+{
+  "article" : "Request Article",
+  "redirect" : "Request Redirect",
+  "about" : "About this tool",
+  "search" : "Search",
+  "return" : "Return to the English Wikipedia",
+  "title" : "Request an article",
+  "test-server" : "This is a test server. Please expect things to break.",
+  "no-javascript" : "This form requires Javascript to work!  Please enable Javascript in your browser to continue.",
+  "error" : "There was an error processing your form input.  Please correct the errors highlighted below and re-submit",
+
+  "footer1" : "Article request tool &middot Written by Matthewrbowker",
+  "footer2" : "{v} &middot <a href:'about.php'>{a}</a>",
+
+  "challengeMessage": "This site requires a wikimedia account to be used.  Please click the button below to log into your account.",
+  "loginMsg": "Login with Wikimedia OAuth",
+
+  "intro" : "If you would like to request an article to be created, please fill out the information below.  Fields with a star are required.",
+  "subject" : " Subject (topic) of the article : ",
+  "description" : "Description/Comments:",
+  "category" : " Category : ",
+  "sub-category" : " Sub-category : ",
+  "sub-sub-category" : " Sub-sub-category : ",
+  "username" : "Your Wikipedia username (if you have one) : ",
+  "sources" : " <a href:\"http://en.wikipedia.org/wiki/Wikipedia:RS\" title:\"Wikipedia:RS\" target:_blank>Reliable Sources</a> (please provide between two and six) : ",
+  "check_1" : " The subject of this request is important enough for its own article, per <a href:\"http://en.wikipedia.org/wiki/Wikipedia:N\" title:\"Wikipedia:N\" target:_blank>Wikipedia's requirements</a>.",
+  "check_2" : "This is not a duplicate of a prior request I have made.  ",
+  "reset" : "Reset form",
+  "submit" : "Request article!",
+  "select" : "[add]",
+  "editInfo" : "[edit]",
+  "delete" : "[delete]",
+  "clearInfo" : "Clear Information",
+  "modalSave" : "Save",
+
+  "category-heading" : "Select Category",
+  "cat":" Category:",
+  "subcat" : " Sub-Category:",
+  "subsubcat" : " Sub-sub-category:",
+
+  "sources-heading" : "Select Sources",
+  "sources_add" : "Add Source +",
+  "sources_remove" : "Remove -",
+
+  "about-content": "Wikipedia article request tool written by <a href=\"http://en.wikipedia.org/wiki/User:Matthewrbowker\" target=_blank>Matthew Bowker</a> and hosted on the Wikimedia Labs cluster.  Please look on GitHub for the source code to <a href=\"http://github.com/Matthewrbowker/articlerequest\" target=_blank>the web interface</a> and <a href=\"http://github.com/Matthewrbowker/labsBots\" target=_blank>the bot</a>.",
+  "about-bug": "Report bugs to <a href=\"https://phabricator.wikimedia.org/maniphest/task/create/?projects=Tool-Labs-tools-Article-request\">Phabricator</a>.",
+  "about-bootstrap": "<a href=\"http://getbootstrap.com/\" target=_blank>Twitter Bootstrap</a> licensed under the <a href=\"http://www.apache.org/licenses/LICENSE-2.0\" target=_blank>Apache Licence 2.0</a>.",
+  "about-glyphicon":"<a href=\"http://glyphicons.com/\" target=_blank>Glyphicons Free</a> licensed under <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=_blank>CC-BY-SA</a>.",
+
+  "redirect-intro" : "Request a redirect here.",
+  "redirname" : "Name of the article",
+  "targetname" : "Target of the redirect",
+
+  "search-intro" : "This page allows you to search for requests.",
+  "search-label" : "Search terms:",
+  "button-search" : "Search requests",
+
+  "success" : "The request has been successfully processed!  Thank you for your contribution to Wikipedia!",
+  "failure" : "We were unable to process the request.  Please go back and try again.",
+  "go_back" : "Go back",
+  "done" : "Return to Wikipedia",
+  "dev" : "Here is the data, for debugging purposes"
+
+
+
+
+}

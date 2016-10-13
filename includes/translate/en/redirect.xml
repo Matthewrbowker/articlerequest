@@ -1,6 +1,0 @@
-intro = "Request a redirect here.";
-redirname = "Name of the article";
-targetname = "Target of the redirect";
-username = "Your Wikipedia username (if applicable)";
-reset = "Reset this form";
-submit = "Submit request";

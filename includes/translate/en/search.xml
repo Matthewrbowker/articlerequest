@@ -1,4 +1,0 @@
-info = "This page allows you to search for requests.";
-label = "Search terms:";
-searchBtn = "Search requests";
-resetBtn = "Reset form";

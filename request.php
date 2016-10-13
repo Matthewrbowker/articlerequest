@@ -1,18 +1,14 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) {
-  $lang = $_REQUEST['lang'];
-} else {
-  $lang = 'en';
-}
-
 try {
-    $fi = new fileLoader();
+    $con = new config();
 
-    $k = new translate($lang, "request");
+    $fi = new fileLoader($con);
 
-    $site = new site($k, "");
+    $k = new translate();
+
+    $site = new site($con, $k, "");
 
     $db = new wpPDO($fi);
 

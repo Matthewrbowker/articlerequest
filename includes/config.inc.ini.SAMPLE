@@ -1,0 +1,20 @@
+<?php
+
+/*
+$GLOBALS["role"] = "test";
+
+$GLOBALS["url"] = "http://localhost/~wiki";
+
+$GLOBALS["basePage"] = "Article_request/config";
+*/
+
+$GLOBALS["role"] = "staging";
+//$GLOBALS["role"] = "live";
+
+
+stream_context_set_default(array(
+    "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,
+    ),
+) );

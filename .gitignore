@@ -1,4 +1,4 @@
-includes/config.inc.php
+/includes/config.inc.ini
 
 .idea/
 vendor/

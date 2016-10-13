@@ -1,18 +1,13 @@
 <?php
 require('includes.php');
 
-if (ISSET($_REQUEST['lang'])) {
-  $lang = $_REQUEST['lang'];
-} else {
-  $lang = 'en';
-}
-
 try {
-    $fi = new fileLoader();
+    $con = new config();
+    $fi = new fileLoader($con);
 
-    $k = new translate($lang, "result");
+    $k = new translate();
 
-    $site = new site($k, "result");
+    $site = new site($con, $k, "result");
 }
 catch(arException $ex) {
     $ex->renderHTML();
@@ -34,7 +29,7 @@ $pdo->store($_REQUEST['subject'], $_REQUEST['comment'], $_REQUEST['categorySelec
 if ($pdo->success()) {
     $alertDiv = "success";
     $alertMessage = $k->_r("success");
-    $url = $k->_r("return_url");
+    $url = $con->get("return_url");
     $buttonMsg = $k->_r("done");
 } else {
     $alertDiv = "danger";
@@ -50,7 +45,7 @@ while ($element = current($_REQUEST)) {
     next($_REQUEST);
 }
 
-$showMsg = $GLOBALS["role"] == "live" ? false : true;
+$showMsg = $con->get("role") != "live" ? true : false;
 
 $site->Assign("showMsg", $showMsg);
 $site->Assign("devMsg", $k->_r("dev"));

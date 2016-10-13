@@ -2,23 +2,17 @@
 
 class translate {
 
-private $keys;
+    private $intuition;
 
-    public function __construct($lang = 'en', $page = "index") {
-        $this->keys = array();
-        $path = "includes/translate";
+    public function __construct() {
+        $path = __DIR__ . '/i18n';
 
-        $path .= "/$lang";
+        if (!file_exists("$path/en.json")) {
+            throw new arException("Language directory doesn't exist: $path");
+        }
 
-        $wpPage = "$path/$page.xml";
-        $wpAllPage = "$path/all.xml";
-
-        $wpKeys = parse_ini_string(file_get_contents($wpPage)) or $this->errorMessage("Unable to get page config");
-
-        $allKeys = parse_ini_string(file_get_contents($wpAllPage)) or $this->errorMessage("Unable to get general config");
-
-        $this -> keys = array_merge($this->keys, $wpKeys);
-        $this -> keys = array_merge($this->keys, $allKeys);
+        $this->intuition = new Intuition( 'articlerequest' );
+        $this->intuition->registerDomain( 'articlerequest', $path );
     }
 
     public function errorMessage($message) {
@@ -27,20 +21,12 @@ private $keys;
 
 
     public function _r($key) {
-        if (isset($_GET["keys"]) && $_GET["keys"] == "1") {
-            return "{{{$key}}}";
-        }
-        else if (array_key_exists($key, $this ->keys)) {
-            $string = str_replace("{star}", "<i class=\"glyphicon glyphicon-star\"></i>", $this-> keys[$key]);
-            return $string;
-        }
-        else {
-            echo "<div class=\"alert alert-danger\">Key \"" . $key . "\" not found in the configuration file.  Please re-add it.</div>";
-            return "{{" . $key . "}}";
-        }
+        return $this->intuition->msg($key);
     }
 
-    public function _e($key) {
-        echo $this->_r($key);
+    public function footer() {
+        $line= $this->intuition->getFooterLine();
+        $line = str_replace("int-promobox", "int-promobox pull-right", $line);
+        return $line;
     }
 }
