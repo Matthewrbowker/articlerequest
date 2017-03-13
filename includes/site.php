@@ -5,6 +5,7 @@ class site {
     private $page;
     private $k;
     private $smarty;
+    private $oauth;
 
     private function parseFooter($string) {
         $string = str_replace("{v}", $this->con->get("version"), $string);
@@ -32,12 +33,13 @@ class site {
             array_push($navsRight, [$this->k->_r("return_url"), $this->k->_r("return")]);
         }
 		
-		//if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"]) {
+		if ($this->oauth->isLoggedOn()) {
+            array_push($navsRight, ["oauthcallback.php?action=acctinfo", $this->oauth->getUsername()]);
 			array_push($navsRight, ["logout.php", "Logout"]);
-		//}
-		//else {
-		//	array_push($navsRight, ["login.php", "Login"]);
-		//}
+        }
+		else {
+            array_push($navsRight, ["oauthcallback.php?action=login", "Login"]);
+        }
 			
 
         $this->Assign("navs", $navs);
@@ -45,14 +47,15 @@ class site {
 
     }
 
-    public function __construct(config $con = NULL, translate $k = NULL, $page = "") {
-        if ($con == NULL ||$k == NULL) {
+    public function __construct(config $con = NULL, translate $k = NULL, $page = "", OAuth $oa) {
+        if ($con == NULL ||$k == NULL || $oa == NULL) {
             throw new arException("Site display broken");
         }
         $this->con = $con;
         $this->k = $k;
         $this->page = $page;
         $this->smarty = new Smarty();
+        $this->oauth = $oa;
 
         // Setting up default variables
         // Heading
@@ -73,7 +76,7 @@ class site {
 
     }
 
-    public function gen_opening() {
+    public function gen_opening($username = null) {
         $this->Display("heading");
 
     }

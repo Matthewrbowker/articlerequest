@@ -1,10 +1,8 @@
 <?php
 require("includes.php");
-session_start();
 
-$_SESSION["is_logged_in"] = false;
-$_SESSION["username"] = NULL;
+$oauth = new OAuth();
 
-session_unset();
+$oauth->logout();
 
 header("LOCATION: index.php");

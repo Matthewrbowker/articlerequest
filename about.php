@@ -1,12 +1,19 @@
 <?php
 require('includes.php');
 
+$oauth = new OAuth();
+
+if (!$oauth->isLoggedOn()) {
+    header("Location: index.php");
+    exit(0);
+}
+
 try {
     $con = new config();
 
     $k = new translate($con);
 
-    $site = new site($con, $k, "about");
+    $site = new site($con, $k, "about", $oauth);
 }
 catch (arException $ex) {
     $ex->renderHTML();

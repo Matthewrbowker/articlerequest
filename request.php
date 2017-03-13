@@ -1,6 +1,13 @@
 <?php
 require('includes.php');
 
+$oauth = new OAuth();
+
+if (!$oauth->isLoggedOn()) {
+    header("Location: index.php");
+    exit(0);
+}
+
 try {
     $con = new config();
 
@@ -8,7 +15,7 @@ try {
 
     $k = new translate();
 
-    $site = new site($con, $k, "");
+    $site = new site($con, $k, "", $oauth);
 
     $db = new wpPDO($fi);
 

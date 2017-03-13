@@ -7,3 +7,4 @@ templates_c
 /docs/conf.py
 /docs/_build
 /docs/.idea
+/includes/oauth/config.php

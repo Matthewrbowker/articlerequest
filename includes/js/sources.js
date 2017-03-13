@@ -57,9 +57,7 @@ function addClick() {
 }
 
 function editClick(randomins) {
-    // Edit
-    alert("Edit: " + randomins);
-
+    // Edit 
     var typeDef = sources[randomins]["type"];
 
     var node = document.getElementById("sources_container_" + typeDef).getElementsByTagName("input");

@@ -10,7 +10,7 @@
   "error" : "There was an error processing your form input.  Please correct the errors highlighted below and re-submit",
 
   "footer1" : "Article request tool &middot Written by Matthewrbowker",
-  "footer2" : "{v} &middot <a href:'about.php'>{a}</a>",
+  "footer2" : "{v} &middot <a href='about.php'>{a}</a>",
 
   "challengeMessage": "This site requires a wikimedia account to be used.  Please click the button below to log into your account.",
   "loginMsg": "Login with Wikimedia OAuth",
